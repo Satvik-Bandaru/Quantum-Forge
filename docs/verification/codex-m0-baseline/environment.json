@@ -1,0 +1,9 @@
+{
+  "system": "Darwin",
+  "release": "24.1.0",
+  "machine": "arm64",
+  "python": "3.12.8",
+  "node": "v24.21.0",
+  "npm": "11.19.0",
+  "chrome_executable_exists": true
+}

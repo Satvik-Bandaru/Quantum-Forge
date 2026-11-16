@@ -1,0 +1,35 @@
+{
+  "standalone_pytest": {
+    "cwd": "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab",
+    "command": ".venv/bin/python -m pytest -q",
+    "exit_code": 0,
+    "summary": "393 passed, 1 warning in 18.61s"
+  },
+  "standalone_build": {
+    "cwd": "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab",
+    "command": "npm --prefix frontend run build",
+    "exit_code": 0,
+    "summary": "built in 3.55s"
+  },
+  "regression": {
+    "cwd": "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/codex-m0-validation",
+    "command": "QF_REGRESSION_ARTIFACTS=docs/verification/codex-m0-baseline bash scripts/check-regression.sh",
+    "status": "completed",
+    "TMPDIR": "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/codex-m0-temp",
+    "permission": "Same local regression command retried with require_escalated after sandbox loopback denial; approval granted by tool review.",
+    "exit_code": 0,
+    "pytest_summary": "393 passed, 1 warning in 17.46s",
+    "build_summary": "built in 3.87s",
+    "playwright_summary": "40 passed (2.0m)",
+    "base_url": "http://127.0.0.1:49385"
+  },
+  "sandbox_regression_attempt": {
+    "command": "QF_REGRESSION_ARTIFACTS=docs/verification/codex-m0-baseline bash scripts/check-regression.sh",
+    "cwd": "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/codex-m0-validation",
+    "exit_code": 1,
+    "pytest_summary": "393 passed, 1 warning in 20.59s",
+    "build_summary": "built in 2.92s",
+    "failure": "Sandbox denied socket.bind on 127.0.0.1 ephemeral port; browser tests did not start.",
+    "log_directory": "sandbox-attempt"
+  }
+}

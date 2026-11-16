@@ -1,0 +1,135 @@
+{
+  "id": "bcc0faef-a68f-42a2-a05a-a52b07b1d056",
+  "kind": "experiment",
+  "config": {
+    "algorithm": "bell",
+    "qubits": 2,
+    "shots": 1024,
+    "seed": 42,
+    "iterations": 2,
+    "marked_state": "101",
+    "basis_state": 1,
+    "inverse": false,
+    "phase": 0.375,
+    "oracle": "balanced",
+    "mask": "101",
+    "constant": 0,
+    "message": "10",
+    "theta": 1.0471975511965976,
+    "phi": 0.7853981633974483,
+    "coupling": 0.7,
+    "gate_error": 0,
+    "readout_error": 0
+  },
+  "status": "completed",
+  "created_at": "2026-11-16T01:21:24.130405+00:00",
+  "finished_at": "2026-11-16T01:21:24.643446+00:00",
+  "progress": "Complete",
+  "result": {
+    "kind": "experiment",
+    "backend": "Qiskit Aer / local CPU simulation",
+    "versions": {
+      "pennylane": "0.45.1",
+      "qiskit": "2.6.1",
+      "qiskit-aer": "0.18.2",
+      "dwave-samplers": "1.8.0",
+      "ortools": "9.15.6755",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1"
+    },
+    "probabilities": [
+      0.4999999999999999,
+      0,
+      0,
+      0.4999999999999999
+    ],
+    "amplitudes": [
+      [
+        0.7071067811865475,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0.7071067811865475,
+        0
+      ]
+    ],
+    "bloch": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "registers": [
+      {
+        "qubit": 0,
+        "p1": 0.4999999999999999,
+        "bloch": [
+          0,
+          0,
+          0
+        ],
+        "purity": 0.4999999999999998,
+        "entropy": 1
+      },
+      {
+        "qubit": 1,
+        "p1": 0.4999999999999999,
+        "bloch": [
+          0,
+          0,
+          0
+        ],
+        "purity": 0.4999999999999998,
+        "entropy": 1
+      }
+    ],
+    "norm": 0.9999999999999998,
+    "qubits": 2,
+    "depth": 2,
+    "gate_count": 2,
+    "shots": 1024,
+    "seed": 42,
+    "runtime_s": 0.02362987503875047,
+    "counts": {
+      "11": 498,
+      "00": 526
+    },
+    "qasm": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[2];\nh q[0];\ncx q[0],q[1];\n\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];",
+    "circuit_text": "     ┌───┐     \nq_0: ┤ H ├──■──\n     └───┘┌─┴─┐\nq_1: ─────┤ X ├\n          └───┘",
+    "limitations": [
+      "Snapshots, statevectors, reduced states and exact metrics describe the ideal pre-measurement circuit. Only final sampled histograms include configured noise.",
+      "All qubits are read out at the end. Snapshot stepping does not simulate intermediate measurement collapse.",
+      "This is a virtual quantum computer simulated on a classical CPU, not a physical QPU. Simulator runtime cannot establish quantum advantage."
+    ],
+    "algorithm": "bell",
+    "metrics": {
+      "ideal_correlated_probability": 0.9999999999999998
+    },
+    "trace": [],
+    "native_depth": 2,
+    "native_gate_count": 2,
+    "machine_program": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[2];\nh q[0];\ncx q[0],q[1];\n\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];",
+    "correlations": [],
+    "resources": {
+      "worker_wall_s": 0.12345066596753895,
+      "peak_rss_bytes": 136691712,
+      "execution": "local_cpu",
+      "scope": "Worker process high-water resident memory; includes scientific library imports. Wall time starts at worker entry."
+    }
+  },
+  "error": null
+}

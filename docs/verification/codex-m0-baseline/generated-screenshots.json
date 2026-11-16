@@ -1,0 +1,158 @@
+{
+  "scratch_directory": "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/codex-m0-validation",
+  "screenshots": [
+    {
+      "path": "docs/screenshots/circuit-builder.png",
+      "bytes": 598203,
+      "sha256": "8fa19f4149f0cd1352797bd29346c029c5f6351aeb2cac0dc7f55f104e2af795"
+    },
+    {
+      "path": "docs/screenshots/connected-instruments-desktop.png",
+      "bytes": 608856,
+      "sha256": "ea6dc219368ba19c500d85d2223fe3281f248af52428375e4e132b896d52ac6d"
+    },
+    {
+      "path": "docs/screenshots/connected-instruments-mobile.png",
+      "bytes": 228766,
+      "sha256": "22d053f2e3633d90914ffc8a549143fc215ca079f6a5dfafc52ee9ae773eab70"
+    },
+    {
+      "path": "docs/screenshots/general-experiments.png",
+      "bytes": 736164,
+      "sha256": "4c73651fc71aa864302ac0156dc4524954f1779cf7548c6c1f30064fd13366dd"
+    },
+    {
+      "path": "docs/screenshots/general-overview.png",
+      "bytes": 776321,
+      "sha256": "aaa4f26717faec1cf574bf6c0563d6d3d7852afef1e0e1d5889c45c52722f25b"
+    },
+    {
+      "path": "docs/screenshots/main-lab-bell-result.png",
+      "bytes": 658466,
+      "sha256": "3f6b03512838ae39ca73f8441bad104f4eaeee8274b8088045376ca394c2e658"
+    },
+    {
+      "path": "docs/screenshots/main-lab-mobile.png",
+      "bytes": 331783,
+      "sha256": "1c2b8e8eb16378c172945cdaadf687aea05298f0648b710fa0d814cfc06f0adf"
+    },
+    {
+      "path": "docs/screenshots/main-lab-overview.png",
+      "bytes": 493371,
+      "sha256": "149e5d9dfe590904f37fbf694aa4f30d8f8138980a4121310f9d1545b9d1c49a"
+    },
+    {
+      "path": "docs/screenshots/main-lab-photo-gallery.png",
+      "bytes": 471566,
+      "sha256": "c66394d19895bdfe15c9061a4a60c6b8b877231488b50e5e99a093c6d1dff2cc"
+    },
+    {
+      "path": "docs/screenshots/main-lab-quantum-computer.png",
+      "bytes": 619285,
+      "sha256": "f9562072bb2874cd89dab3f2625768b55c283ec22ae87594eca46a5c11aef25b"
+    },
+    {
+      "path": "docs/screenshots/mobile.png",
+      "bytes": 395072,
+      "sha256": "d5b10c6accdb75216c3792d77379114bcb678fc76c099a5131a53df1be78ca18"
+    },
+    {
+      "path": "docs/screenshots/nexus-error-correction.png",
+      "bytes": 569872,
+      "sha256": "b7f53d1d3373d989a6e6747f79042286b4d3f97146cd35795edf7e095cf2ba48"
+    },
+    {
+      "path": "docs/screenshots/nexus-quantum-optics-mobile.png",
+      "bytes": 243374,
+      "sha256": "3a09e51ecbdfb17fc48748f67725e3b3ae2c4018806b857520909c9a37c092ab"
+    },
+    {
+      "path": "docs/screenshots/nexus-quantum-optics.png",
+      "bytes": 628867,
+      "sha256": "24b450f9cf52aecfb0857008900d29fac7a252de278c09fa9114d0a60bc7dc27"
+    },
+    {
+      "path": "docs/screenshots/nexus-thermal-laboratory.png",
+      "bytes": 766796,
+      "sha256": "e88a0d0969c14075ffabd8e648645af2e62b5fb152e06280b4e12d762a52a72a"
+    },
+    {
+      "path": "docs/screenshots/nexus-thermal-mobile.png",
+      "bytes": 315121,
+      "sha256": "a9a805513d029d28340b7450a904f9dac76ae562e3a8e318af5c93798e51959d"
+    },
+    {
+      "path": "docs/screenshots/overview.png",
+      "bytes": 774961,
+      "sha256": "eda8e1f37a3c671de36ae3c831517bffb38456cb3dfb1ab2e41187151c40fc2c"
+    },
+    {
+      "path": "docs/screenshots/photonics-lab-mobile.png",
+      "bytes": 757031,
+      "sha256": "adb4f05848c9b0117948b220e749f483411f58a279d8a20e929c9140fedc9aa9"
+    },
+    {
+      "path": "docs/screenshots/photonics-lab.png",
+      "bytes": 1772921,
+      "sha256": "691e3f9accb3ca8856bf6f83bdc26ebb053c872e7f48826d95ced84216cf0f1c"
+    },
+    {
+      "path": "docs/screenshots/photonics-photo-desktop.png",
+      "bytes": 1000534,
+      "sha256": "6a0a67b7da1a01d0680da42777df6e12152a5f7ed747155e1edb9bb67eb75799"
+    },
+    {
+      "path": "docs/screenshots/photonics-photo-mobile.png",
+      "bytes": 303446,
+      "sha256": "fac69940bf911bb8d719e3dbbb38d8cf85309d237bd9d8276f750f75a6095cc7"
+    },
+    {
+      "path": "docs/screenshots/physical-quantum-lab-mobile.png",
+      "bytes": 436919,
+      "sha256": "98cad7f3b9846efba2ab19fda3549ee17d26a8edca7cce41b3ba23eabfa70485"
+    },
+    {
+      "path": "docs/screenshots/physical-quantum-lab.png",
+      "bytes": 708007,
+      "sha256": "0b9c9ebe4b4019187381364e16714dfa9aa79d50f785bb8b79b96bb5973190d1"
+    },
+    {
+      "path": "docs/screenshots/quantum-forge-overview-mobile-labs.png",
+      "bytes": 137824,
+      "sha256": "8ff2ce1c419dfc57b2dba4899c8373123b143e336b43e100e022d75a0a6eee59"
+    },
+    {
+      "path": "docs/screenshots/quantum-forge-overview-mobile.png",
+      "bytes": 559355,
+      "sha256": "351afd6f71b4ff51bf778fc7e7bb810280a9d914670150524bc5566819393866"
+    },
+    {
+      "path": "docs/screenshots/qubo-lab-desktop.png",
+      "bytes": 716388,
+      "sha256": "a03ba246c1de779cc2acf1c418665e3d6a96c4da547a71651f3549663e987c2f"
+    },
+    {
+      "path": "docs/screenshots/qubo-lab-mobile.png",
+      "bytes": 279800,
+      "sha256": "9cb4efde6a727741841d0cae85bd0c7fbcf9c90431ebcf0cedede81c0cc85e72"
+    },
+    {
+      "path": "docs/screenshots/research-command-center.png",
+      "bytes": 386664,
+      "sha256": "6085e5656d36649daa6ac88b800c3dd25ce40c1186c906d4ea044e6a7a91aa9c"
+    },
+    {
+      "path": "docs/screenshots/virtual-computer-mobile.png",
+      "bytes": 394339,
+      "sha256": "d04abbc26ffaad8574f6796f1601b8e15165ed72f3eda47e128fa156647fbc35"
+    },
+    {
+      "path": "docs/screenshots/virtual-computer.png",
+      "bytes": 634378,
+      "sha256": "759fc6efe812e7ac7be641a66ba39edecb3f06a6edf396e6657d17d64dc8a6a0"
+    }
+  ],
+  "retained_in_git": [
+    "screenshots/main-lab-bell-result.png"
+  ]
+}

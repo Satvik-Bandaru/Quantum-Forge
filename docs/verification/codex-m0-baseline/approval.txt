@@ -1,0 +1,3 @@
+User approved the reviewed local snapshot with "do it".
+Snapshot: 701f87a chore: snapshot v0.6 working tree (pre-Codex baseline)
+No GitHub publishing approved or performed.

@@ -1,0 +1,706 @@
+{
+  "snapshot": "701f87a5c44054f5b7036a5ccadd9bc58b06dcdb",
+  "working_directory": "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/codex-m0-validation",
+  "original_directory": "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab",
+  "files": {
+    ".github/workflows/regression.yml": {
+      "sha256": "cf8e9f8e2bdb127da1be821b63824c7224cc091d1278fe5aa25e865e8547b2b2",
+      "bytes": 1518,
+      "mode": "0o644"
+    },
+    ".gitignore": {
+      "sha256": "9585b93bc057c641e4067e2d9a80b3df49c83cff8bcc7972946538f0f977ec24",
+      "bytes": 217,
+      "mode": "0o644"
+    },
+    "BUILD_STATUS.md": {
+      "sha256": "55f59384f7bbc9f11dad0a37af2ae6841e2a41076f3e5d9496f1fc33c753f53f",
+      "bytes": 3475,
+      "mode": "0o644"
+    },
+    "DEVELOPMENT_BACKLOG.md": {
+      "sha256": "42bbfb6fd6496aaec8e0f15dcdac0f527279ead7427a18dfeb817da80d790ff7",
+      "bytes": 4199,
+      "mode": "0o644"
+    },
+    "NEXT_SESSION.md": {
+      "sha256": "e6e967145481f05121ce93892950ea0a748b9651e77a459117771851dd295290",
+      "bytes": 3063,
+      "mode": "0o644"
+    },
+    "README.md": {
+      "sha256": "38aa095d4c2e934090abee52df1ca0ab71b50037a485acfaf1d0478708528eb3",
+      "bytes": 22852,
+      "mode": "0o644"
+    },
+    "SCIENTIFIC_VALIDATION.md": {
+      "sha256": "38fb92b59686c1639eccbbb83ff3ad743f4ae57f746799dfa651d9cd686ddee7",
+      "bytes": 8645,
+      "mode": "0o644"
+    },
+    "backend/__init__.py": {
+      "sha256": "b03d8c7b2b08e6a7877c1d0acf0380ea173eba459d10722a2fdef15bd049d737",
+      "bytes": 51,
+      "mode": "0o644"
+    },
+    "backend/app.py": {
+      "sha256": "ede0c2b2e10b96c46b2c2351c8a0882c83aec8e8978ac35d833f8731efc1e51e",
+      "bytes": 12666,
+      "mode": "0o644"
+    },
+    "backend/compute_policy.py": {
+      "sha256": "b87b11eedf9d6ddc7a4522cd3b53ca752fec36bfac61380982ba11b145d0bb9d",
+      "bytes": 1239,
+      "mode": "0o644"
+    },
+    "backend/connected.py": {
+      "sha256": "84d01e87fc20fc3637b3c9b6a480d7191b6438afdf417b934ab90a7efbd75016",
+      "bytes": 28438,
+      "mode": "0o644"
+    },
+    "backend/experiments.py": {
+      "sha256": "3db5fe596d79b9dab530c77480e8b86a933fccc45d3cfe59b09094f1edc5c9fd",
+      "bytes": 12052,
+      "mode": "0o644"
+    },
+    "backend/http_limits.py": {
+      "sha256": "27ae5e07b58ad203ea41a27b80747519a852783eb5813385e293cbc1f0816d0c",
+      "bytes": 2036,
+      "mode": "0o644"
+    },
+    "backend/instruments.py": {
+      "sha256": "cb025b70d7cb3d82c08dee814f2edf4e2d5064d21cb607069d6f6c5d7cc0cd38",
+      "bytes": 17235,
+      "mode": "0o644"
+    },
+    "backend/jobs.py": {
+      "sha256": "02677bfdcc7b1e620e520d7c27239356f4aa9b7947fb13a568a0340c940c6c56",
+      "bytes": 7089,
+      "mode": "0o644"
+    },
+    "backend/machine.py": {
+      "sha256": "872d92d2aaf9b327ee9448f07245c021bba705cf45519e3b8e9ca8165fc5b902",
+      "bytes": 8034,
+      "mode": "0o644"
+    },
+    "backend/models.py": {
+      "sha256": "e73765c133eec313e7266052c59901aff1f9424001bff6f4c79387e804969939",
+      "bytes": 4512,
+      "mode": "0o644"
+    },
+    "backend/photonics.py": {
+      "sha256": "c529f5d56b325d98ae5eefde286585b4a8059200dd0f98602d77394f371ee412",
+      "bytes": 7345,
+      "mode": "0o644"
+    },
+    "backend/physics.py": {
+      "sha256": "4bdc20c4d2a5c8e3223b6f45d4235d4773a9dd4aa1584588f05bdd8c8466ef61",
+      "bytes": 10346,
+      "mode": "0o644"
+    },
+    "backend/quantum.py": {
+      "sha256": "65feadb399cde6b6512c8d90bee418bd2333a9d55d85e622a0ba21f65c112f47",
+      "bytes": 4241,
+      "mode": "0o644"
+    },
+    "backend/qubo.py": {
+      "sha256": "a97105925cbdd28b4751e1ee0165769dcaed8685e726e4d9b0d21a57b7eccf5f",
+      "bytes": 16451,
+      "mode": "0o644"
+    },
+    "backend/research.py": {
+      "sha256": "b64cb8527fb0f3c8ef29806ff1137bd4be81dca1f8e09de5bbb6050a10582e20",
+      "bytes": 17142,
+      "mode": "0o644"
+    },
+    "backend/science.py": {
+      "sha256": "2b9b7f8c15d96b5ff2a5f312cbf9f962ced96e904108c525833cd34969182f02",
+      "bytes": 10452,
+      "mode": "0o644"
+    },
+    "backend/store.py": {
+      "sha256": "75fb3fef2215b1360609e2dd8d6f84bc13ffc73f736a1e4a50fd6af7c5e515f6",
+      "bytes": 4674,
+      "mode": "0o644"
+    },
+    "backend/thermal.py": {
+      "sha256": "1ba6a91a6d0493fd64d8c90a40da79b6a1e19a610e2ad75eefa3ec4d6e332889",
+      "bytes": 8955,
+      "mode": "0o644"
+    },
+    "docs/compatibility.md": {
+      "sha256": "cbd2792586bf8370abdff45d1a9183acc89d9679f26d56cf6e8c85c24aa48ca7",
+      "bytes": 6797,
+      "mode": "0o644"
+    },
+    "docs/connected-model.md": {
+      "sha256": "0d9a7138fed5a911e219109bd964e4f9dda5a2d93c806f983a1a2cf7e7694148",
+      "bytes": 20899,
+      "mode": "0o644"
+    },
+    "docs/feature-inventory.md": {
+      "sha256": "e43187a0352f364787acd3c7b06461721ce82ef493ce8c135423e58bc37fa183",
+      "bytes": 8608,
+      "mode": "0o644"
+    },
+    "docs/main-lab-assets.md": {
+      "sha256": "9e0cd22585fa13448c4b7cab90be3095ad1c26b32e27f8da199ca9563f537b4b",
+      "bytes": 2025,
+      "mode": "0o644"
+    },
+    "docs/main-lab-models.md": {
+      "sha256": "fcdbd19cd638d99b7e82ae00511cf077a3c4bcc92fb4fbbaa20765d6050e3a2d",
+      "bytes": 2656,
+      "mode": "0o644"
+    },
+    "docs/main-quantum-lab.md": {
+      "sha256": "565d0db2d23ec190e0d78bf306f68eb91291f8f62396d9b6e88edbdd79336e87",
+      "bytes": 4864,
+      "mode": "0o644"
+    },
+    "docs/mzi-model.md": {
+      "sha256": "2fdac0d6d6e5340ddf6cd3dc67806c18ab36cca2bd3d43e17be631c10672c747",
+      "bytes": 7940,
+      "mode": "0o644"
+    },
+    "docs/qubo-model.md": {
+      "sha256": "6ba5665533f6cf141e3856765697e0b8e5f13b34f38126a8713afa1272f81ae6",
+      "bytes": 9038,
+      "mode": "0o644"
+    },
+    "docs/rabi-model.md": {
+      "sha256": "df2b65efdf9000abefc1357ef951d23c0a0dd88cb1cd963c9328a857d0b9c4f8",
+      "bytes": 7610,
+      "mode": "0o644"
+    },
+    "docs/requirements/platform-master.md": {
+      "sha256": "83f69662020d59bb784565fc7ec63c7b09c65a6f3dbdbd4a6a452af403daa908",
+      "bytes": 43868,
+      "mode": "0o644"
+    },
+    "docs/requirements/platform-v3.md": {
+      "sha256": "52095cb1ff1783bf9328a7a5fa736c88e0ca878da179af0af0283fdb9b02627a",
+      "bytes": 51540,
+      "mode": "0o644"
+    },
+    "docs/requirements/quantum-forge-master.md": {
+      "sha256": "ff25c73156b4ab5ee92fe3e79c35466b29c5658b4ca78af968f00345433c7a4f",
+      "bytes": 26589,
+      "mode": "0o644"
+    },
+    "docs/research-models.md": {
+      "sha256": "442739b76c2893d3380dd5c2f75883123d4149fd7278b2f0108307cc44bef96a",
+      "bytes": 8185,
+      "mode": "0o644"
+    },
+    "docs/superpowers/plans/2026-11-04-quantum-forge.md": {
+      "sha256": "3cb2d535d9f4e730d3e39be07d6a9a5f240a14a88f455e878db6613de64b1862",
+      "bytes": 4155,
+      "mode": "0o644"
+    },
+    "docs/superpowers/plans/2026-11-07-general-quantum-lab.md": {
+      "sha256": "580891eed3405ec335fdb8adba3309e9f9222771c4490d622198abb9cd599844",
+      "bytes": 2751,
+      "mode": "0o644"
+    },
+    "docs/superpowers/plans/2026-11-07-photonics-photo.md": {
+      "sha256": "871fd462619dfea4b2b09f3a5df84d7bc611852869689ee77376097cdb07875d",
+      "bytes": 2558,
+      "mode": "0o644"
+    },
+    "docs/superpowers/plans/2026-11-07-physical-photonics.md": {
+      "sha256": "7363e928ed3cd3323860ddb5718fe805f07ff2e3a4a6bda77429f0cb4da5eaed",
+      "bytes": 5023,
+      "mode": "0o644"
+    },
+    "docs/superpowers/plans/2026-11-07-quantum-forge-qubo.md": {
+      "sha256": "7b03ff50f3fe4ced4b95f34eab26f777b76c115c4e156f3410087e200aeebb69",
+      "bytes": 9465,
+      "mode": "0o644"
+    },
+    "docs/superpowers/plans/2026-11-08-main-quantum-lab.md": {
+      "sha256": "075afabd7e72ff1065d5b88b52be7e50701f6e516d2f1779fba721b9fd287489",
+      "bytes": 5749,
+      "mode": "0o644"
+    },
+    "docs/superpowers/plans/2026-11-15-connected-thermal-v06.md": {
+      "sha256": "f7b6fe8b4d461e806288a4cca433a444380042b569f6408323f3410d095d4a71",
+      "bytes": 3574,
+      "mode": "0o644"
+    },
+    "docs/superpowers/plans/2026-11-15-nexus-instruments.md": {
+      "sha256": "2b7378b27449d0df7f7606aa9c82493bcde07a2f6ebfe92a492b62e7f8ac30ae",
+      "bytes": 4818,
+      "mode": "0o644"
+    },
+    "docs/superpowers/specs/2026-11-15-connected-instruments-design.md": {
+      "sha256": "e87c9f1abb39ff0f3548c7fc63be08dd9a9ebeb0eac304a0cc987dd36c38a9c1",
+      "bytes": 3890,
+      "mode": "0o644"
+    },
+    "docs/superpowers/specs/2026-11-15-connected-thermal-v06-design.md": {
+      "sha256": "21a1507549fe044e225261a5a4c13aad3ec69ef1c97896d3036a7a8e02dc9fbc",
+      "bytes": 2950,
+      "mode": "0o644"
+    },
+    "docs/thermal-model.md": {
+      "sha256": "67fc8578c872d5ffa43687b3e76134c6531ddb0146498dc2ab0a50ec5b3f2144",
+      "bytes": 7274,
+      "mode": "0o644"
+    },
+    "docs/virtual-computer.md": {
+      "sha256": "8359a59a0979f4fd283f395951724856c541f92d8288d4cdb5368ddf6daf185c",
+      "bytes": 6603,
+      "mode": "0o644"
+    },
+    "frontend/index.html": {
+      "sha256": "20d20470112e454dee0110c0015fceada7f6c0827d0a1d227f8e69f6c0b93273",
+      "bytes": 790,
+      "mode": "0o644"
+    },
+    "frontend/package-lock.json": {
+      "sha256": "25b60a8b22bc213d652b6f247f8efbf541d9397e3d090711acbe799efe9f6183",
+      "bytes": 104824,
+      "mode": "0o644"
+    },
+    "frontend/package.json": {
+      "sha256": "d16b92857b97e21e82fe06356ad7daae31a70b8765039ff2bc5ca95f4b5254c8",
+      "bytes": 700,
+      "mode": "0o644"
+    },
+    "frontend/playwright.config.ts": {
+      "sha256": "97ac85e2aeeb7b343c6fc151e54abafd5ed1f47799ea7a1ff63f87859480b1f3",
+      "bytes": 944,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/models/dilution-refrigerator.glb": {
+      "sha256": "27ef93640c26c389ce8e073970b87c920851ab9e2e620b2d8ca7be400e9c5160",
+      "bytes": 1794608,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/models/electronics-rack.glb": {
+      "sha256": "cfbeeaa09e0a35ed1daacb75fd5cf174f4519c8bf1364b4a899613cb2e8be18f",
+      "bytes": 1226636,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/models/optical-bench.glb": {
+      "sha256": "2de64daec23bc4b2da46c684000a018992f7e5173d5effcb596d20c4f223fa60",
+      "bytes": 2600020,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/models/workstation.glb": {
+      "sha256": "313562be8ddf7fb55046d938b7b9ff93330e0f1d84e82934c613fe39b020e3dc",
+      "bytes": 436728,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/photos/circuit-workbench-concept.png": {
+      "sha256": "0f404c4d457c7092140d4ee8570103b04231e8e7f2bab62a1287f9f5b6872246",
+      "bytes": 2364472,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/photos/fmn-cryostat-assembly.jpg": {
+      "sha256": "f260a6775d2fdc92bcfc35481c9dbff479d29a18965b8c0c1331a0aa20fabff7",
+      "bytes": 340320,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/photos/main-hall-concept.png": {
+      "sha256": "21d851b6a0ef13eb275f63f576ca0a992a58e47dab480a782ffc968d90ece810",
+      "bytes": 2447076,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/photos/ornl-dilution-refrigerator.jpg": {
+      "sha256": "3f53019d6e7639ff34047bb9ebd70075b488664d1a6e23f25d38b083d36f79bd",
+      "bytes": 591663,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/photos/ornl-pulse-optics.jpg": {
+      "sha256": "7948ba76272bc5baedf9b8560a98b9e1b003a2a815226786c5740cb8ad8bf670",
+      "bytes": 343933,
+      "mode": "0o644"
+    },
+    "frontend/public/lab/photos/photonics-lab-reference.png": {
+      "sha256": "81205686ad9bfa923b543c84a2b86f995164b4723a9053d2c15448b60a0bd2b0",
+      "bytes": 2393594,
+      "mode": "0o644"
+    },
+    "frontend/src/App.tsx": {
+      "sha256": "c95fada09a6296558a53da3a163ea59e313d3af362ba7332ce89fbd277ed228f",
+      "bytes": 38335,
+      "mode": "0o644"
+    },
+    "frontend/src/Circuits.tsx": {
+      "sha256": "1ce55e7c66e4190f873a1ecad83ae74bb59b474db2a383eb120c9f74a34b6209",
+      "bytes": 11393,
+      "mode": "0o644"
+    },
+    "frontend/src/CommandCenter.tsx": {
+      "sha256": "e8d65d00b27104d9e94e2ad6ee32122e51885f11fe780aa04438e38255c72633",
+      "bytes": 7302,
+      "mode": "0o644"
+    },
+    "frontend/src/Experiments.tsx": {
+      "sha256": "b92e607407d7d77118ba84dbe5ed1164a6e51c1dbaa49769520570d8b2249447",
+      "bytes": 13090,
+      "mode": "0o644"
+    },
+    "frontend/src/LabCommon.tsx": {
+      "sha256": "fceb586e15626d0123d7b142fd0c584744eebaabcf42a44cb128241a04c7f308",
+      "bytes": 3696,
+      "mode": "0o644"
+    },
+    "frontend/src/Optimization.tsx": {
+      "sha256": "c4d4b5dc6bff820b949870c11a280b04128729b74a13c6a3d0b7ed173b40175c",
+      "bytes": 12169,
+      "mode": "0o644"
+    },
+    "frontend/src/PhotonicsLab.tsx": {
+      "sha256": "49c55dfc10457601ee00acb82d4524a82d8bbc9a50ca18963a6a2157a24f8fbe",
+      "bytes": 17077,
+      "mode": "0o644"
+    },
+    "frontend/src/PhotonicsScene.tsx": {
+      "sha256": "451013f73dfbde5e9575c0ade999ae36fa93126deaa183909a846e6a93e92237",
+      "bytes": 6394,
+      "mode": "0o644"
+    },
+    "frontend/src/PhysicalLab.tsx": {
+      "sha256": "b158d591399b5e3fc07bff9952e1b803e247b2c60ecb002b8c3386e66bf9634a",
+      "bytes": 12419,
+      "mode": "0o644"
+    },
+    "frontend/src/QuboLab.tsx": {
+      "sha256": "7860e170c51e3f35c7149c990649114a08bd101d2844bc8266aa31db98279f12",
+      "bytes": 24972,
+      "mode": "0o644"
+    },
+    "frontend/src/StateInspector.tsx": {
+      "sha256": "6a2898e4c45c8ff7cab5958c17ac83f75b3020dc523a35b7dea720d7c15b5b89",
+      "bytes": 3434,
+      "mode": "0o644"
+    },
+    "frontend/src/VirtualComputer.tsx": {
+      "sha256": "f10b86bfc9cc93c6fcf10e9f29a95c60ac5f88f178bfc4c7c9b9f83f4ec1cadc",
+      "bytes": 11678,
+      "mode": "0o644"
+    },
+    "frontend/src/api.ts": {
+      "sha256": "f9910c9238e154a3d9b1843c85747e018b44fbe0d147d343622f203ef1b4cd4c",
+      "bytes": 1440,
+      "mode": "0o644"
+    },
+    "frontend/src/assets/quantum-photonics-studio.png": {
+      "sha256": "81205686ad9bfa923b543c84a2b86f995164b4723a9053d2c15448b60a0bd2b0",
+      "bytes": 2393594,
+      "mode": "0o600"
+    },
+    "frontend/src/catalog.ts": {
+      "sha256": "86d2192844ff3d46c5b3f3808bb572699037c1c224bfabda438fc49a047abc99",
+      "bytes": 7017,
+      "mode": "0o644"
+    },
+    "frontend/src/charts.tsx": {
+      "sha256": "e7655580b8a8939795186435124fd9d795b5e40a0e7e4332a67eeb62d5c4e3d5",
+      "bytes": 8002,
+      "mode": "0o644"
+    },
+    "frontend/src/connected/ConnectedComparison.tsx": {
+      "sha256": "7cd60517fba4461c809c55e721a31ddc91219bc3eee463458a0a9483ab7e3c32",
+      "bytes": 4390,
+      "mode": "0o644"
+    },
+    "frontend/src/connected/ConnectedLab.tsx": {
+      "sha256": "adc0536fdc14c04b8d53704c83d4f5fc420b76332e5359d0a689ff817074e5d6",
+      "bytes": 36709,
+      "mode": "0o644"
+    },
+    "frontend/src/connected/InstrumentEvidence.tsx": {
+      "sha256": "7a179dbf1a4913a22cd8e16b6bb77dc7337e24441e1fbfe41f3b942946754802",
+      "bytes": 1790,
+      "mode": "0o644"
+    },
+    "frontend/src/connected/ThermalControls.tsx": {
+      "sha256": "309af75cc781899b6ff23ce16962763a4cf0a916ef03aefbaf7196d473240cd5",
+      "bytes": 6945,
+      "mode": "0o644"
+    },
+    "frontend/src/connected/connected.css": {
+      "sha256": "277f2013d9d037426bfe4e32bb6b15f1f88cfb77803cedc0d19470457cc8fa66",
+      "bytes": 24906,
+      "mode": "0o644"
+    },
+    "frontend/src/connected/types.ts": {
+      "sha256": "693f2487bdef0c4a8442b96ddbe3114815f652e4102043aa676ec8b673147527",
+      "bytes": 7588,
+      "mode": "0o644"
+    },
+    "frontend/src/forge.css": {
+      "sha256": "e948de8f6ac43e2f8d96c2e559f9e77bd5771d4c3b0a9a629f7df1e96bdf2e93",
+      "bytes": 9773,
+      "mode": "0o644"
+    },
+    "frontend/src/main-lab/LabRoom.tsx": {
+      "sha256": "40e37aa43b9d512f2bd1eaed1a42822812e38ae52f9d22e40b61c68bfbf2dfd2",
+      "bytes": 11641,
+      "mode": "0o644"
+    },
+    "frontend/src/main-lab/LabScene.tsx": {
+      "sha256": "536b4cf7c15ddd41689539a3d7423aa17222c852a2321ddbcf844120f6f74475",
+      "bytes": 10680,
+      "mode": "0o644"
+    },
+    "frontend/src/main-lab/MainQuantumLab.tsx": {
+      "sha256": "c928ab82a1ecb99991b8bc44b0223c507b0cf8487f93800560c24bd031a70c21",
+      "bytes": 16158,
+      "mode": "0o644"
+    },
+    "frontend/src/main-lab/main-lab.css": {
+      "sha256": "ace488ffc863a2e60c02a13101b9c38355288da61994b7fdbabe38f177f95e29",
+      "bytes": 13641,
+      "mode": "0o644"
+    },
+    "frontend/src/main-lab/photos.ts": {
+      "sha256": "0ce78f473b1ae0391255d37af61a1a19d2c0772cf138d4a6e2ecdcc97f23894c",
+      "bytes": 2901,
+      "mode": "0o644"
+    },
+    "frontend/src/main.tsx": {
+      "sha256": "4fd63a922e28fbf4313fa09a370bb224a8bde86b70dfceabb9b8066886ef3066",
+      "bytes": 274,
+      "mode": "0o644"
+    },
+    "frontend/src/photonics-scene.css": {
+      "sha256": "361d0aed17559d153e6d4adc626b2e78ebb019b215156916f9d9e3f404a7c52f",
+      "bytes": 5899,
+      "mode": "0o644"
+    },
+    "frontend/src/qubo.css": {
+      "sha256": "6cabe680b95158643d6a09095684f6bff73266ebb8996d451a3313e90ff8531e",
+      "bytes": 19990,
+      "mode": "0o644"
+    },
+    "frontend/src/research/ResearchLab.tsx": {
+      "sha256": "602db948c4ccbec3387c71cfd19d1fd95abb9ffee2f66f5931f395758d8bd183",
+      "bytes": 10157,
+      "mode": "0o644"
+    },
+    "frontend/src/research/research.css": {
+      "sha256": "cc95a29d528953b979a6d5c14ae5a88d06cd9507549fb3bd860b11830c3f0c7f",
+      "bytes": 3594,
+      "mode": "0o644"
+    },
+    "frontend/src/research/types.ts": {
+      "sha256": "5a8935be1271d61c3494bfddc6e6c9b79b82c641ab414190901f44d2be073260",
+      "bytes": 1289,
+      "mode": "0o644"
+    },
+    "frontend/src/styles.css": {
+      "sha256": "2692941320846f76719929e38e014121e4ad7da79bf16ca5a4001a468cd09fd8",
+      "bytes": 56631,
+      "mode": "0o644"
+    },
+    "frontend/src/types.ts": {
+      "sha256": "5385e8c4c9ec99ec16c131aa806506ad054b8f104680de7af696904f72e9579d",
+      "bytes": 5119,
+      "mode": "0o644"
+    },
+    "frontend/src/vite-env.d.ts": {
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+      "bytes": 38,
+      "mode": "0o644"
+    },
+    "frontend/tests/connected-lab.spec.ts": {
+      "sha256": "2723d3b3756e86a95b445986ef0995925d9f1915d027e5f90726079d0ea8e12f",
+      "bytes": 12150,
+      "mode": "0o644"
+    },
+    "frontend/tests/general-lab.spec.ts": {
+      "sha256": "5d71f1fa1624a4df9c7fd676ca8dbbe6c2166dbeaa5ee52c5c8c54ffe3f8fff5",
+      "bytes": 5736,
+      "mode": "0o644"
+    },
+    "frontend/tests/main-lab-interactions.spec.ts": {
+      "sha256": "a12bebdb99f43a58fbb24225363ca56f6d7a85be17f48c08824c00ac986e4ec4",
+      "bytes": 7381,
+      "mode": "0o644"
+    },
+    "frontend/tests/main-lab.spec.ts": {
+      "sha256": "c525e4b2ed74d357c0d8630c856b2888d41ba519a9c96aee0a733bf6cb3f572b",
+      "bytes": 4462,
+      "mode": "0o644"
+    },
+    "frontend/tests/photonics-photo.spec.ts": {
+      "sha256": "2bbb57dc24118907a14a7f6f25435c802822d5516ec8ea8ae170b497ca584f24",
+      "bytes": 4674,
+      "mode": "0o644"
+    },
+    "frontend/tests/physical-photonics.spec.ts": {
+      "sha256": "59ad77d30ae5144b6c1de45dff09bc9d9b593d93d54fb0f6709b1da73d6f1fa8",
+      "bytes": 5371,
+      "mode": "0o644"
+    },
+    "frontend/tests/qubo.spec.ts": {
+      "sha256": "3fedf836e6a457d1648ab723cc645878c3481ed033a89ecaf3a0d02d29ad2102",
+      "bytes": 5706,
+      "mode": "0o644"
+    },
+    "frontend/tests/research-labs.spec.ts": {
+      "sha256": "29ff85f295afb7324d33b35769abc5f43dc413e23793bbf6ee42c9e5d3eb90b3",
+      "bytes": 4274,
+      "mode": "0o644"
+    },
+    "frontend/tests/thermal-connected.spec.ts": {
+      "sha256": "56bf35adb0a881e61660461799a7cf0203a825701977a0b204ad1f2a07f3ced4",
+      "bytes": 11100,
+      "mode": "0o644"
+    },
+    "frontend/tests/workflows.spec.ts": {
+      "sha256": "c1fb6dac9fb3031560cdbf2f7b2b87f2e2e2f5d8500229951c2fdb0f5e0e48a2",
+      "bytes": 6908,
+      "mode": "0o644"
+    },
+    "frontend/tsconfig.json": {
+      "sha256": "a14003986cd84ea4d4eefc004751896ffd123bd607935828bf2e780a1a947f0a",
+      "bytes": 291,
+      "mode": "0o644"
+    },
+    "frontend/vite.config.ts": {
+      "sha256": "9085b2c66af2f94675726731d6520846721c07ca3bac446d81cbdd3502de918c",
+      "bytes": 255,
+      "mode": "0o644"
+    },
+    "launch.py": {
+      "sha256": "4e315eb5a9d683b8166f4c57522e7e84fb912adf3219bbbb90edf0bf0d4b226c",
+      "bytes": 958,
+      "mode": "0o644"
+    },
+    "pytest.ini": {
+      "sha256": "b160d82f7811555051f8966d8e02750a985227c1d022208c784e606946f2eada",
+      "bytes": 42,
+      "mode": "0o644"
+    },
+    "requirements.lock.txt": {
+      "sha256": "d788a7b40623249a677caa8242cdb9791b8446a03ceefa85ed410dcb46c310da",
+      "bytes": 952,
+      "mode": "0o644"
+    },
+    "requirements.txt": {
+      "sha256": "dd02561982b361510117906f8e9921a22e9d3c91097b67aa85b275b0d894f71f",
+      "bytes": 239,
+      "mode": "0o644"
+    },
+    "scripts/build-lab-models.mjs": {
+      "sha256": "e9ba68b7348867710e1e6164caf909443554eba2d525d6d13a0e3285375a89fa",
+      "bytes": 41040,
+      "mode": "0o644"
+    },
+    "scripts/check-regression.sh": {
+      "sha256": "566d1848a761e5ad40765d0d7835d9375af0246f23740c2c9520a810263125b8",
+      "bytes": 3066,
+      "mode": "0o755"
+    },
+    "scripts/package-macos.py": {
+      "sha256": "4f7391a37a5ae9e6911c02339b38865ff1cd80497b7a6ccfec4f874c5e9a61ea",
+      "bytes": 12433,
+      "mode": "0o644"
+    },
+    "start.command": {
+      "sha256": "03a947513f8c4c185697ae6fb651cf5c35b411630494847c344b032ee0223ce1",
+      "bytes": 291,
+      "mode": "0o755"
+    },
+    "tests/test_api.py": {
+      "sha256": "51b62a696683d397d18a3230cc094188213df7636bfe30618e6e6a1272c44beb",
+      "bytes": 9390,
+      "mode": "0o644"
+    },
+    "tests/test_connected.py": {
+      "sha256": "5fcdb4f904f9b9b2fb887c2e0d3d6867d34985bd4bef236cdfbf9bf2d6438b6b",
+      "bytes": 13399,
+      "mode": "0o644"
+    },
+    "tests/test_connected_api.py": {
+      "sha256": "2e29b74e24ec84cb831def222ce95c63831e28bd7547b172061c40f5e51fbf02",
+      "bytes": 5718,
+      "mode": "0o644"
+    },
+    "tests/test_connected_calibration.py": {
+      "sha256": "9eca61311adc25612d4af11cb721672e9066475f378a59739feac316d2dcf5ea",
+      "bytes": 8523,
+      "mode": "0o644"
+    },
+    "tests/test_general_lab.py": {
+      "sha256": "dd8a422f81a5b2a8658222109d6fc21e6c73fa315aa0f0b3f764f5e3e8ab6141",
+      "bytes": 5878,
+      "mode": "0o644"
+    },
+    "tests/test_http_boundaries.py": {
+      "sha256": "b66221849bfed8301a586614b38888227bf17b08556217b49a5334f4f9a77563",
+      "bytes": 1428,
+      "mode": "0o644"
+    },
+    "tests/test_instrument_signals.py": {
+      "sha256": "ba925de01bc8626460a0e2db8bcf8b5215294f5c3d1e9da043267dd185d45887",
+      "bytes": 2189,
+      "mode": "0o644"
+    },
+    "tests/test_instruments.py": {
+      "sha256": "19d1652c29e9714ffc57352aa55ff08a5ac4a051aaa234ffd0c259541e843b5c",
+      "bytes": 4312,
+      "mode": "0o644"
+    },
+    "tests/test_photonics.py": {
+      "sha256": "17fb4192426914797e7d76d7f163bb44957f2d3e66f13419594d7eaccbfffa31",
+      "bytes": 10386,
+      "mode": "0o644"
+    },
+    "tests/test_physics.py": {
+      "sha256": "8560693d0c80dae3e11c6cd07ccd60166fd3328eab9f399490273e470d4cba15",
+      "bytes": 7680,
+      "mode": "0o644"
+    },
+    "tests/test_qubo.py": {
+      "sha256": "741231300273d809f450dcda52f1d737b86378c57281b538d94cae4741373ce0",
+      "bytes": 9923,
+      "mode": "0o644"
+    },
+    "tests/test_qubo_api.py": {
+      "sha256": "e52f4077c14eb8474e5b25fbb588e040ffeaec598310cf4990c7d7af2e8e2a2d",
+      "bytes": 2419,
+      "mode": "0o644"
+    },
+    "tests/test_research.py": {
+      "sha256": "e145843d9678910a8b8785dd285db7c943a60396655641ad140f8bf730898cb3",
+      "bytes": 11581,
+      "mode": "0o644"
+    },
+    "tests/test_research_api.py": {
+      "sha256": "87436a435d864de61aa456e53aafef19332748fb26aa6550243c1473600094d4",
+      "bytes": 2169,
+      "mode": "0o644"
+    },
+    "tests/test_science.py": {
+      "sha256": "bad5e5426fae6082cff52608ec4ac2907a0966cc72a45f3e4e681ec0c10b0284",
+      "bytes": 7200,
+      "mode": "0o644"
+    },
+    "tests/test_thermal.py": {
+      "sha256": "6184924e46aeaa326069478aa7ca581c0e111dad1e2e74dfb0df06ecba7dd414",
+      "bytes": 8416,
+      "mode": "0o644"
+    },
+    "tests/test_thermal_connected_api.py": {
+      "sha256": "4b7bc59a5ba551992f3f711c2cc409a390b8515d75f0e4d08dc6926324a8beb9",
+      "bytes": 7419,
+      "mode": "0o644"
+    }
+  },
+  "copied_files": 138,
+  "dependency_symlinks": [
+    ".venv",
+    "frontend/node_modules"
+  ],
+  "historical_evidence_omitted": true,
+  "user_database_copied": false,
+  "new_evidence_destination": "docs/verification/codex-m0-baseline",
+  "source_hashes_match": true
+}

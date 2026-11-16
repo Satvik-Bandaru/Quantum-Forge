@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/codex-m0-validation/../codex-m0-temp/quantum-forge-regression.8VaZDn/server.py", line 10, in <module>
+    sock.bind(('127.0.0.1', 0))
+PermissionError: [Errno 1] Operation not permitted
