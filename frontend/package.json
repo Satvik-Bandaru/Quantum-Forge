@@ -1,1 +1,29 @@
-{"name":"quantum-forge-lab","private":true,"version":"0.4.0","type":"module","scripts":{"dev":"vite --host 127.0.0.1","build":"tsc -b && vite build","test:ui":"playwright test"},"dependencies":{"react":"^19.0.0","react-dom":"^19.0.0","lucide-react":"^0.468.0","recharts":"^3.0.0"},"devDependencies":{"@types/react":"^19.0.0","@types/react-dom":"^19.0.0","typescript":"~5.9.3","vite":"^7.0.0","@vitejs/plugin-react":"^5.0.0","@playwright/test":"^1.56.0"}}
+{
+  "name": "quantum-forge-lab",
+  "private": true,
+  "version": "0.6.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "test:ui": "playwright test"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^3.0.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.187.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.0.0"
+  }
+}

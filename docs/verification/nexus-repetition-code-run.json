@@ -1,0 +1,1359 @@
+{
+  "id": "01273dea-7102-4308-9355-b8564ca7baf1",
+  "kind": "research",
+  "config": {
+    "experiment": "repetition_code",
+    "shots": 1024,
+    "seed": 42,
+    "bit_flip_probability": 0.4,
+    "theta_rad": 0,
+    "relative_phase_rad": 0,
+    "splitter1": 0.5,
+    "splitter2": 0.5,
+    "phase_rad": 0,
+    "upper_transmission": 1,
+    "lower_transmission": 1,
+    "detector0_efficiency": 1,
+    "detector1_efficiency": 1,
+    "path_coherence": 1
+  },
+  "status": "completed",
+  "created_at": "2026-11-16T00:29:09.593503+00:00",
+  "finished_at": "2026-11-16T00:29:10.099295+00:00",
+  "progress": "Complete",
+  "result": {
+    "kind": "research",
+    "experiment": "repetition_code",
+    "shots": 1024,
+    "seed": 42,
+    "versions": {
+      "numpy": "2.5.4"
+    },
+    "backend": "NumPy complex128 three-qubit Pauli channel, parity projections and ideal recovery / local CPU",
+    "qubits": 3,
+    "probabilities": {
+      "logical_I": 0.6479999999999999,
+      "logical_X": 0.35200000000000004
+    },
+    "counts": {
+      "logical_I": 652,
+      "logical_X": 372
+    },
+    "measurement_probabilities": {
+      "0": 0.648,
+      "1": 0.3520000000000001
+    },
+    "measurement_counts": {
+      "0": 652,
+      "1": 372
+    },
+    "pattern_counts": {
+      "100": 134,
+      "101": 106,
+      "110": 108,
+      "111": 56,
+      "000": 237,
+      "001": 133,
+      "010": 148,
+      "011": 102
+    },
+    "syndrome_counts": {
+      "10": 236,
+      "11": 254,
+      "00": 293,
+      "01": 241
+    },
+    "syndrome_probabilities": {
+      "10": 0.24,
+      "11": 0.24,
+      "00": 0.27999999999999997,
+      "01": 0.24
+    },
+    "trial_preview": [
+      {
+        "error_pattern": "101",
+        "syndrome": "11",
+        "correction_qubit": 1,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "101",
+        "syndrome": "11",
+        "correction_qubit": 1,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "110",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "001",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "110",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "000",
+        "syndrome": "00",
+        "correction_qubit": null,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "111",
+        "syndrome": "00",
+        "correction_qubit": null,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "011",
+        "syndrome": "10",
+        "correction_qubit": 0,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "100",
+        "syndrome": "10",
+        "correction_qubit": 0,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "001",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "110",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "000",
+        "syndrome": "00",
+        "correction_qubit": null,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "000",
+        "syndrome": "00",
+        "correction_qubit": null,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "101",
+        "syndrome": "11",
+        "correction_qubit": 1,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "101",
+        "syndrome": "11",
+        "correction_qubit": 1,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "100",
+        "syndrome": "10",
+        "correction_qubit": 0,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "100",
+        "syndrome": "10",
+        "correction_qubit": 0,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "011",
+        "syndrome": "10",
+        "correction_qubit": 0,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "110",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "000",
+        "syndrome": "00",
+        "correction_qubit": null,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "100",
+        "syndrome": "10",
+        "correction_qubit": 0,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "110",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "000",
+        "syndrome": "00",
+        "correction_qubit": null,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "000",
+        "syndrome": "00",
+        "correction_qubit": null,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "100",
+        "syndrome": "10",
+        "correction_qubit": 0,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "001",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "011",
+        "syndrome": "10",
+        "correction_qubit": 0,
+        "logical_error": true,
+        "measurement": "1"
+      },
+      {
+        "error_pattern": "010",
+        "syndrome": "11",
+        "correction_qubit": 1,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "001",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "000",
+        "syndrome": "00",
+        "correction_qubit": null,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "010",
+        "syndrome": "11",
+        "correction_qubit": 1,
+        "logical_error": false,
+        "measurement": "0"
+      },
+      {
+        "error_pattern": "001",
+        "syndrome": "01",
+        "correction_qubit": 2,
+        "logical_error": false,
+        "measurement": "0"
+      }
+    ],
+    "initial_density_matrix": [
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    ],
+    "encoded_density_matrix": [
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    ],
+    "corrected_density_matrix": [
+      [
+        [
+          0.648,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0.3520000000000001,
+          0
+        ]
+      ]
+    ],
+    "final_density_matrix": [
+      [
+        [
+          0.648,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0.3520000000000001,
+          0
+        ]
+      ]
+    ],
+    "metrics": {
+      "physical_error_probability": 0.4,
+      "logical_error_probability": 0.35200000000000004,
+      "analytic_logical_error_probability": 0.3520000000000001,
+      "sampled_logical_error_probability": 0.36328125,
+      "corrected_fidelity": 0.648,
+      "uncorrected_fidelity": 0.6,
+      "fidelity_gain": 0.04800000000000004,
+      "purity": 0.5438080000000001
+    },
+    "series": [
+      {
+        "physical_error_probability": 0,
+        "logical_error_probability": 0
+      },
+      {
+        "physical_error_probability": 0.01,
+        "logical_error_probability": 0.00029800000000000003
+      },
+      {
+        "physical_error_probability": 0.02,
+        "logical_error_probability": 0.0011840000000000002
+      },
+      {
+        "physical_error_probability": 0.03,
+        "logical_error_probability": 0.0026460000000000003
+      },
+      {
+        "physical_error_probability": 0.04,
+        "logical_error_probability": 0.004672000000000001
+      },
+      {
+        "physical_error_probability": 0.05,
+        "logical_error_probability": 0.007250000000000001
+      },
+      {
+        "physical_error_probability": 0.06,
+        "logical_error_probability": 0.010368
+      },
+      {
+        "physical_error_probability": 0.07,
+        "logical_error_probability": 0.014014
+      },
+      {
+        "physical_error_probability": 0.08,
+        "logical_error_probability": 0.018176
+      },
+      {
+        "physical_error_probability": 0.09,
+        "logical_error_probability": 0.022841999999999998
+      },
+      {
+        "physical_error_probability": 0.1,
+        "logical_error_probability": 0.028000000000000004
+      },
+      {
+        "physical_error_probability": 0.11,
+        "logical_error_probability": 0.033638
+      },
+      {
+        "physical_error_probability": 0.12,
+        "logical_error_probability": 0.039744
+      },
+      {
+        "physical_error_probability": 0.13,
+        "logical_error_probability": 0.04630600000000001
+      },
+      {
+        "physical_error_probability": 0.14,
+        "logical_error_probability": 0.053312000000000005
+      },
+      {
+        "physical_error_probability": 0.15,
+        "logical_error_probability": 0.060750000000000005
+      },
+      {
+        "physical_error_probability": 0.16,
+        "logical_error_probability": 0.068608
+      },
+      {
+        "physical_error_probability": 0.17,
+        "logical_error_probability": 0.07687400000000001
+      },
+      {
+        "physical_error_probability": 0.18,
+        "logical_error_probability": 0.085536
+      },
+      {
+        "physical_error_probability": 0.19,
+        "logical_error_probability": 0.094582
+      },
+      {
+        "physical_error_probability": 0.2,
+        "logical_error_probability": 0.10400000000000002
+      },
+      {
+        "physical_error_probability": 0.21,
+        "logical_error_probability": 0.11377799999999998
+      },
+      {
+        "physical_error_probability": 0.22,
+        "logical_error_probability": 0.123904
+      },
+      {
+        "physical_error_probability": 0.23,
+        "logical_error_probability": 0.134366
+      },
+      {
+        "physical_error_probability": 0.24,
+        "logical_error_probability": 0.145152
+      },
+      {
+        "physical_error_probability": 0.25,
+        "logical_error_probability": 0.15625
+      },
+      {
+        "physical_error_probability": 0.26,
+        "logical_error_probability": 0.16764800000000002
+      },
+      {
+        "physical_error_probability": 0.27,
+        "logical_error_probability": 0.179334
+      },
+      {
+        "physical_error_probability": 0.28,
+        "logical_error_probability": 0.19129600000000002
+      },
+      {
+        "physical_error_probability": 0.29,
+        "logical_error_probability": 0.20352199999999998
+      },
+      {
+        "physical_error_probability": 0.3,
+        "logical_error_probability": 0.21600000000000003
+      },
+      {
+        "physical_error_probability": 0.31,
+        "logical_error_probability": 0.228718
+      },
+      {
+        "physical_error_probability": 0.32,
+        "logical_error_probability": 0.24166400000000002
+      },
+      {
+        "physical_error_probability": 0.33,
+        "logical_error_probability": 0.25482600000000005
+      },
+      {
+        "physical_error_probability": 0.34,
+        "logical_error_probability": 0.26819200000000004
+      },
+      {
+        "physical_error_probability": 0.35000000000000003,
+        "logical_error_probability": 0.28175000000000006
+      },
+      {
+        "physical_error_probability": 0.36,
+        "logical_error_probability": 0.295488
+      },
+      {
+        "physical_error_probability": 0.37,
+        "logical_error_probability": 0.30939399999999995
+      },
+      {
+        "physical_error_probability": 0.38,
+        "logical_error_probability": 0.323456
+      },
+      {
+        "physical_error_probability": 0.39,
+        "logical_error_probability": 0.337662
+      },
+      {
+        "physical_error_probability": 0.4,
+        "logical_error_probability": 0.3520000000000001
+      },
+      {
+        "physical_error_probability": 0.41000000000000003,
+        "logical_error_probability": 0.36645800000000006
+      },
+      {
+        "physical_error_probability": 0.42,
+        "logical_error_probability": 0.3810239999999999
+      },
+      {
+        "physical_error_probability": 0.43,
+        "logical_error_probability": 0.395686
+      },
+      {
+        "physical_error_probability": 0.44,
+        "logical_error_probability": 0.410432
+      },
+      {
+        "physical_error_probability": 0.45,
+        "logical_error_probability": 0.42525
+      },
+      {
+        "physical_error_probability": 0.46,
+        "logical_error_probability": 0.440128
+      },
+      {
+        "physical_error_probability": 0.47000000000000003,
+        "logical_error_probability": 0.45505400000000007
+      },
+      {
+        "physical_error_probability": 0.48,
+        "logical_error_probability": 0.4700160000000001
+      },
+      {
+        "physical_error_probability": 0.49,
+        "logical_error_probability": 0.48500199999999993
+      },
+      {
+        "physical_error_probability": 0.5,
+        "logical_error_probability": 0.5
+      },
+      {
+        "physical_error_probability": 0.51,
+        "logical_error_probability": 0.514998
+      },
+      {
+        "physical_error_probability": 0.52,
+        "logical_error_probability": 0.5299840000000001
+      },
+      {
+        "physical_error_probability": 0.53,
+        "logical_error_probability": 0.5449460000000002
+      },
+      {
+        "physical_error_probability": 0.54,
+        "logical_error_probability": 0.5598719999999999
+      },
+      {
+        "physical_error_probability": 0.55,
+        "logical_error_probability": 0.5747500000000001
+      },
+      {
+        "physical_error_probability": 0.56,
+        "logical_error_probability": 0.589568
+      },
+      {
+        "physical_error_probability": 0.5700000000000001,
+        "logical_error_probability": 0.6043140000000001
+      },
+      {
+        "physical_error_probability": 0.58,
+        "logical_error_probability": 0.618976
+      },
+      {
+        "physical_error_probability": 0.59,
+        "logical_error_probability": 0.6335419999999998
+      },
+      {
+        "physical_error_probability": 0.6,
+        "logical_error_probability": 0.6480000000000001
+      },
+      {
+        "physical_error_probability": 0.61,
+        "logical_error_probability": 0.6623379999999999
+      },
+      {
+        "physical_error_probability": 0.62,
+        "logical_error_probability": 0.676544
+      },
+      {
+        "physical_error_probability": 0.63,
+        "logical_error_probability": 0.690606
+      },
+      {
+        "physical_error_probability": 0.64,
+        "logical_error_probability": 0.704512
+      },
+      {
+        "physical_error_probability": 0.65,
+        "logical_error_probability": 0.71825
+      },
+      {
+        "physical_error_probability": 0.66,
+        "logical_error_probability": 0.7318080000000001
+      },
+      {
+        "physical_error_probability": 0.67,
+        "logical_error_probability": 0.7451740000000001
+      },
+      {
+        "physical_error_probability": 0.68,
+        "logical_error_probability": 0.7583360000000001
+      },
+      {
+        "physical_error_probability": 0.6900000000000001,
+        "logical_error_probability": 0.7712819999999999
+      },
+      {
+        "physical_error_probability": 0.7000000000000001,
+        "logical_error_probability": 0.784
+      },
+      {
+        "physical_error_probability": 0.71,
+        "logical_error_probability": 0.7964780000000001
+      },
+      {
+        "physical_error_probability": 0.72,
+        "logical_error_probability": 0.808704
+      },
+      {
+        "physical_error_probability": 0.73,
+        "logical_error_probability": 0.8206659999999999
+      },
+      {
+        "physical_error_probability": 0.74,
+        "logical_error_probability": 0.8323519999999999
+      },
+      {
+        "physical_error_probability": 0.75,
+        "logical_error_probability": 0.84375
+      },
+      {
+        "physical_error_probability": 0.76,
+        "logical_error_probability": 0.854848
+      },
+      {
+        "physical_error_probability": 0.77,
+        "logical_error_probability": 0.8656339999999999
+      },
+      {
+        "physical_error_probability": 0.78,
+        "logical_error_probability": 0.8760960000000001
+      },
+      {
+        "physical_error_probability": 0.79,
+        "logical_error_probability": 0.8862220000000002
+      },
+      {
+        "physical_error_probability": 0.8,
+        "logical_error_probability": 0.8960000000000001
+      },
+      {
+        "physical_error_probability": 0.81,
+        "logical_error_probability": 0.9054180000000003
+      },
+      {
+        "physical_error_probability": 0.8200000000000001,
+        "logical_error_probability": 0.9144640000000002
+      },
+      {
+        "physical_error_probability": 0.8300000000000001,
+        "logical_error_probability": 0.9231259999999997
+      },
+      {
+        "physical_error_probability": 0.84,
+        "logical_error_probability": 0.9313919999999998
+      },
+      {
+        "physical_error_probability": 0.85,
+        "logical_error_probability": 0.9392499999999997
+      },
+      {
+        "physical_error_probability": 0.86,
+        "logical_error_probability": 0.946688
+      },
+      {
+        "physical_error_probability": 0.87,
+        "logical_error_probability": 0.9536940000000003
+      },
+      {
+        "physical_error_probability": 0.88,
+        "logical_error_probability": 0.960256
+      },
+      {
+        "physical_error_probability": 0.89,
+        "logical_error_probability": 0.9663619999999999
+      },
+      {
+        "physical_error_probability": 0.9,
+        "logical_error_probability": 0.972
+      },
+      {
+        "physical_error_probability": 0.91,
+        "logical_error_probability": 0.977158
+      },
+      {
+        "physical_error_probability": 0.92,
+        "logical_error_probability": 0.981824
+      },
+      {
+        "physical_error_probability": 0.93,
+        "logical_error_probability": 0.9859860000000003
+      },
+      {
+        "physical_error_probability": 0.9400000000000001,
+        "logical_error_probability": 0.9896320000000001
+      },
+      {
+        "physical_error_probability": 0.9500000000000001,
+        "logical_error_probability": 0.99275
+      },
+      {
+        "physical_error_probability": 0.96,
+        "logical_error_probability": 0.9953280000000004
+      },
+      {
+        "physical_error_probability": 0.97,
+        "logical_error_probability": 0.9973539999999999
+      },
+      {
+        "physical_error_probability": 0.98,
+        "logical_error_probability": 0.9988159999999999
+      },
+      {
+        "physical_error_probability": 0.99,
+        "logical_error_probability": 0.9997019999999996
+      },
+      {
+        "physical_error_probability": 1,
+        "logical_error_probability": 1
+      }
+    ],
+    "checks": {
+      "finite": true,
+      "trace_preserved": true,
+      "hermitian": true,
+      "positive_semidefinite": true,
+      "tolerance": 1e-10,
+      "max_trace_error": 0,
+      "max_hermiticity_error": 0,
+      "min_eigenvalue": 0,
+      "passed": true,
+      "logical_channel_matches_analytic": true,
+      "syndrome_probability_conserved": true
+    },
+    "model": {
+      "name": "Three-qubit repetition code under independent Pauli-X errors",
+      "basis": [
+        "|0>",
+        "|1>"
+      ],
+      "physical_basis": "|q0 q1 q2>, q0 is most significant",
+      "input": "cos(theta/2)|0> + exp(i*relative_phase)*sin(theta/2)|1>",
+      "encoding": "alpha|0>+beta|1> -> alpha|000>+beta|111>",
+      "noise": "Independent (1-p)rho+p X rho X on each of three data qubits, once",
+      "syndromes": "Z0Z1, Z1Z2; 1 denotes odd parity / -1 eigenvalue",
+      "recovery": "00:I, 10:X0, 11:X1, 01:X2, then inverse encoding and trace of work qubits",
+      "logical_channel": "(1-pL)rho+pL X rho X; pL=3p^2-2p^3",
+      "counts": "Error-channel trajectories, logical_I or logical_X; these are not state-measurement frequencies",
+      "measurement_counts": "Final logical Z-basis measurements from the same error trials",
+      "trial_preview": "First min(shots,32) trials; all shots contribute to aggregate counts",
+      "series": "Exact analytic pL reference versus physical p; no extra shot experiments",
+      "fidelity": "Pure-state overlap <psi|rho_out|psi>, compared with one unencoded qubit under the same p",
+      "units": {
+        "angles": "rad",
+        "probabilities": "dimensionless"
+      }
+    },
+    "limitations": [
+      "Ideal encoding, parity measurement, correction and decoding; syndrome ancillas are eliminated by exact projectors, not counted as simulated data qubits.",
+      "Protects against one X error only. Phase errors, Y errors, amplitude damping, correlated errors, leakage and imperfect gates/readout are absent.",
+      "One correction round, three data qubits, no fault-tolerant circuit or repeated memory-cycle model.",
+      "Two or three flips cause a logical X. For p>0.5 this fixed decoder increases logical error probability.",
+      "Logical X probability is not generally state infidelity: an X eigenstate is unchanged by a logical X.",
+      "Local CPU simulation and internal numerical checks do not establish performance on quantum hardware."
+    ],
+    "runtime_s": 0.0006548749515786767,
+    "resources": {
+      "worker_wall_s": 0.0007172090699896216,
+      "peak_rss_bytes": 97206272,
+      "execution": "local_cpu",
+      "scope": "Worker process high-water resident memory; includes scientific library imports. Wall time starts at worker entry."
+    }
+  },
+  "error": null
+}

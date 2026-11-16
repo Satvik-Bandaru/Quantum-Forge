@@ -1,0 +1,39 @@
+
+> quantum-forge-lab@0.4.0 test:ui
+> playwright test
+
+
+Running 26 tests using 1 worker
+
+(node:72902) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/general-lab.spec.ts:3:1 › virtual computer executes and steps a Bell program (2.5s)
+  ✓   2 tests/general-lab.spec.ts:22:1 › general lab runs Grover and opens its circuit on the computer (3.3s)
+  ✓   3 tests/general-lab.spec.ts:38:1 › superdense coding and malformed assembly have real outcomes (1.3s)
+  ✓   4 tests/general-lab.spec.ts:52:1 › general lab and virtual computer fit desktop and mobile (3.6s)
+  ✓   5 tests/general-lab.spec.ts:74:1 › reducing the register removes a Toffoli with an invalid second control (1.1s)
+  ✓   6 tests/general-lab.spec.ts:85:1 › phase-gate angle changes mark configurations as different (95ms)
+VERIFIED BELL RUN {"id":"26f82ac4-ea7d-4050-bd56-7819292da567","counts":{"11":498,"00":526},"backend":"Qiskit Aer / local CPU simulation","shots":1024}
+  ✓   7 tests/main-lab-interactions.spec.ts:4:1 › Bell experiment executes through Python and survives a page reload in History (3.4s)
+  ✓   8 tests/main-lab-interactions.spec.ts:46:1 › all five station inspectors link to their working modules and the gallery loads local photos (2.5s)
+  ✓   9 tests/main-lab-interactions.spec.ts:86:1 › mobile controls, graphics preference and inline guide remain usable without overlap (2.7s)
+BROWSER THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+  ✓  10 tests/main-lab.spec.ts:3:1 › main laboratory is the landing page and loads actual 3D assets (1.1s)
+  ✓  11 tests/main-lab.spec.ts:19:1 › raycast equipment clicks and camera navigation operate on the actual canvas (3.5s)
+  ✓  12 tests/main-lab.spec.ts:58:1 › missing model is reported and retry recovers after the asset is restored (2.0s)
+  ✓  13 tests/photonics-photo.spec.ts:17:1 › studio photo explains real components and links their simulation controls (2.2s)
+  ✓  14 tests/photonics-photo.spec.ts:56:1 › studio photo and all component hotspots remain usable on mobile (780ms)
+  ✓  15 tests/physical-photonics.spec.ts:3:1 › Rabi pulse parameters change numerical evolution and preserve pinned evidence (2.3s)
+  ✓  16 tests/physical-photonics.spec.ts:32:1 › classical optical bench validates assembly and swaps bright and dark ports (2.6s)
+  ✓  17 tests/physical-photonics.spec.ts:54:1 › physical and photonics benches render on desktop and mobile (2.9s)
+  ✓  18 tests/qubo.spec.ts:4:1 › QUBO triangle benchmark preserves executed evidence through edits, export and history (4.9s)
+  ✓  19 tests/qubo.spec.ts:53:1 › QUBO validates JSON, derives Ising coefficients, and fits mobile (1.4s)
+  ✓  20 tests/workflows.spec.ts:3:1 › Bell circuit executes, saves and restores with real probabilities (2.1s)
+  ✓  21 tests/workflows.spec.ts:24:1 › Max-Cut comparison runs all three solvers and exports (6.3s)
+  ✓  22 tests/workflows.spec.ts:36:1 › Knapsack edit and history reload use real result (9.5s)
+  ✓  23 tests/workflows.spec.ts:48:1 › knapsack comma editors preserve typing and use edited instance (7.2s)
+  ✓  24 tests/workflows.spec.ts:63:1 › terminal measurement misuse shows a useful validation error (863ms)
+  ✓  25 tests/workflows.spec.ts:72:1 › desktop and mobile layouts render without horizontal overflow (2.8s)
+  ✓  26 tests/workflows.spec.ts:99:1 › gate palette drag places a gate on the selected wire (1.8s)
+
+  26 passed (1.3m)

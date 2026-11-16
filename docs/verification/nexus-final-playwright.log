@@ -1,0 +1,48 @@
+
+> quantum-forge-lab@0.5.0 test:ui
+> playwright test
+
+
+Running 35 tests using 1 worker
+
+(node:77118) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/connected-lab.spec.ts:26:1 › connected acquisition responds to real temperature, source power and detuning changes (5.7s)
+  ✓   2 tests/connected-lab.spec.ts:50:1 › missing ports and disabled instruments prevent acquisition with explicit computed reasons (1.6s)
+  ✓   3 tests/connected-lab.spec.ts:71:1 › saved apparatus survives reload, detects revision conflicts and preserves History snapshots (2.2s)
+  ✓   4 tests/connected-lab.spec.ts:109:1 › all seven protocols produce backend evidence and calibration is labeled synthetic (6.4s)
+  ✓   5 tests/connected-lab.spec.ts:122:1 › mobile instrument controls and port faults stay accessible without horizontal overflow (1.4s)
+  ✓   6 tests/connected-lab.spec.ts:139:1 › initial apparatus loading keeps controls disabled until the matching saved snapshot arrives (631ms)
+  ✓   7 tests/general-lab.spec.ts:3:1 › virtual computer executes and steps a Bell program (1.9s)
+  ✓   8 tests/general-lab.spec.ts:22:1 › general lab runs Grover and opens its circuit on the computer (3.4s)
+  ✓   9 tests/general-lab.spec.ts:38:1 › superdense coding and malformed assembly have real outcomes (1.9s)
+  ✓  10 tests/general-lab.spec.ts:52:1 › general lab and virtual computer fit desktop and mobile (4.0s)
+  ✓  11 tests/general-lab.spec.ts:74:1 › reducing the register removes a Toffoli with an invalid second control (1.9s)
+  ✓  12 tests/general-lab.spec.ts:85:1 › phase-gate angle changes mark configurations as different (89ms)
+VERIFIED BELL RUN {"id":"82e9d22c-9f2d-4232-b7e8-bd5014de5aa6","counts":{"11":498,"00":526},"backend":"Qiskit Aer / local CPU simulation","shots":1024}
+  ✓  13 tests/main-lab-interactions.spec.ts:4:1 › Bell experiment executes through Python and survives a page reload in History (3.5s)
+  ✓  14 tests/main-lab-interactions.spec.ts:46:1 › all five station inspectors link to their working modules and the gallery loads local photos (2.7s)
+  ✓  15 tests/main-lab-interactions.spec.ts:86:1 › mobile controls, graphics preference and inline guide remain usable without overlap (2.3s)
+BROWSER THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+  ✓  16 tests/main-lab.spec.ts:3:1 › main laboratory is the landing page and loads actual 3D assets (1.4s)
+  ✓  17 tests/main-lab.spec.ts:19:1 › raycast equipment clicks and camera navigation operate on the actual canvas (3.7s)
+  ✓  18 tests/main-lab.spec.ts:58:1 › missing model is reported and retry recovers after the asset is restored (2.7s)
+  ✓  19 tests/photonics-photo.spec.ts:17:1 › studio photo explains real components and links their simulation controls (2.6s)
+  ✓  20 tests/photonics-photo.spec.ts:56:1 › studio photo and all component hotspots remain usable on mobile (1.0s)
+  ✓  21 tests/physical-photonics.spec.ts:3:1 › Rabi pulse parameters change numerical evolution and preserve pinned evidence (3.0s)
+  ✓  22 tests/physical-photonics.spec.ts:32:1 › classical optical bench validates assembly and swaps bright and dark ports (3.3s)
+  ✓  23 tests/physical-photonics.spec.ts:54:1 › physical and photonics benches render on desktop and mobile (4.2s)
+  ✓  24 tests/qubo.spec.ts:4:1 › QUBO triangle benchmark preserves executed evidence through edits, export and history (5.1s)
+  ✓  25 tests/qubo.spec.ts:53:1 › QUBO validates JSON, derives Ising coefficients, and fits mobile (741ms)
+  ✓  26 tests/research-labs.spec.ts:12:1 › single-photon paths, phase, loss and detection use returned quantum probabilities (4.6s)
+  ✓  27 tests/research-labs.spec.ts:28:1 › repetition-code correction matches analytic failure and reopens from History (3.5s)
+  ✓  28 tests/research-labs.spec.ts:41:1 › quantum optics remains usable on mobile with bounded inputs (583ms)
+  ✓  29 tests/workflows.spec.ts:3:1 › Bell circuit executes, saves and restores with real probabilities (2.0s)
+  ✓  30 tests/workflows.spec.ts:24:1 › Max-Cut comparison runs all three solvers and exports (2.3s)
+  ✓  31 tests/workflows.spec.ts:36:1 › Knapsack edit and history reload use real result (1.8s)
+  ✓  32 tests/workflows.spec.ts:48:1 › knapsack comma editors preserve typing and use edited instance (2.3s)
+  ✓  33 tests/workflows.spec.ts:63:1 › terminal measurement misuse shows a useful validation error (527ms)
+  ✓  34 tests/workflows.spec.ts:72:1 › desktop and mobile layouts render without horizontal overflow (2.6s)
+  ✓  35 tests/workflows.spec.ts:99:1 › gate palette drag places a gate on the selected wire (1.9s)
+
+  35 passed (1.6m)

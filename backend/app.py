@@ -16,7 +16,12 @@ from .experiments import ExperimentRequest
 from .physics import PhysicsRequest
 from .photonics import PhotonicsRequest
 from .qubo import QuboRequest
-from .store import Store
+from .instruments import ApparatusConfig, apparatus_status, validate_runnable
+from .connected import ConnectedRequest
+from .research import ResearchRequest
+from .models import StrictModel
+from .compute_policy import compute_policy
+from .store import Store,RevisionConflict
 from .jobs import JobManager,BusyError
 from .http_limits import RequestBodyLimit
 
@@ -24,8 +29,12 @@ ROOT=Path(__file__).resolve().parents[1]
 
 class JobRequest(BaseModel):
     model_config=ConfigDict(extra='forbid')
-    kind: Literal['circuit','optimization','machine','experiment','physics','photonics','qubo']
+    kind: Literal['circuit','optimization','machine','experiment','physics','photonics','qubo','connected','research']
     config: dict=Field(default_factory=dict)
+
+class ApparatusSave(StrictModel):
+    revision: int = Field(ge=0)
+    config: ApparatusConfig
 
 
 def create_app(db_path=None,timeout_s=None,memory_mb=None):
@@ -33,12 +42,16 @@ def create_app(db_path=None,timeout_s=None,memory_mb=None):
     memory_mb=memory_mb if memory_mb is not None else min(2048,max(128,int(os.getenv('QF_MEMORY_MB','1024'))))
     @asynccontextmanager
     async def lifespan(app):
-        app.state.store=Store(db_path or ROOT/'data'/'experiments.sqlite3')
+        app.state.store=Store(db_path or os.getenv('QF_DB_PATH') or ROOT/'data'/'experiments.sqlite3')
         app.state.jobs=JobManager(app.state.store,timeout_s,memory_mb)
         yield
         app.state.jobs.close()
-    app=FastAPI(title='Quantum Forge Lab',version='0.4.0',lifespan=lifespan)
+    app=FastAPI(title='Quantum Forge Lab',version='0.6.0',lifespan=lifespan)
     app.add_middleware(RequestBodyLimit)
+
+    @app.exception_handler(ArithmeticError)
+    async def numerical_failure(_request: Request, exc: ArithmeticError):
+        return JSONResponse({'detail': f'Numerical model evaluation failed: {exc}'}, status_code=422)
 
     @app.middleware('http')
     async def local_only(request:Request,call_next):
@@ -54,18 +67,53 @@ def create_app(db_path=None,timeout_s=None,memory_mb=None):
 
     @app.get('/api/health')
     def health():
-        return {'app':'quantum-forge-lab','version':'0.4.0','status':'ready','execution':'local CPU simulation','limits':{'qubits':MAX_QUBITS,'shots':MAX_SHOTS,'timeout_s':timeout_s,'memory_mb':memory_mb,'concurrent_jobs':1,'machine_qubits':min(8,MAX_QUBITS),'machine_instructions':96,'qubo_variables':min(8,MAX_QUBITS)}}
+        return {'app':'quantum-forge-lab','version':'0.6.0','status':'ready','execution':'local CPU simulation','limits':{'qubits':MAX_QUBITS,'shots':MAX_SHOTS,'timeout_s':timeout_s,'memory_mb':memory_mb,'concurrent_jobs':1,'machine_qubits':min(8,MAX_QUBITS),'machine_instructions':96,'qubo_variables':min(8,MAX_QUBITS)}}
 
     @app.post('/api/jobs',status_code=202)
     def start(body:JobRequest):
         try:
-            config={'circuit':CircuitRequest,'optimization':OptimizationRequest,'machine':MachineRequest,'experiment':ExperimentRequest,'physics':PhysicsRequest,'photonics':PhotonicsRequest,'qubo':QuboRequest}[body.kind](**body.config)
+            config={'circuit':CircuitRequest,'optimization':OptimizationRequest,'machine':MachineRequest,'experiment':ExperimentRequest,'physics':PhysicsRequest,'photonics':PhotonicsRequest,'qubo':QuboRequest,'connected':ConnectedRequest,'research':ResearchRequest}[body.kind](**body.config)
         except ValidationError as exc:
             return JSONResponse({'detail':[{'loc':list(e['loc']),'msg':e['msg'],'type':e['type']} for e in exc.errors()]},status_code=422)
         if getattr(config,'shots',0)>MAX_SHOTS:
             raise HTTPException(422,f'The configured sample limit is {MAX_SHOTS}.')
+        if body.kind == 'connected':
+            try:
+                validate_runnable(config.apparatus)
+            except ValueError as exc:
+                raise HTTPException(422, str(exc)) from exc
         try: return app.state.jobs.start(body.kind,config.model_dump())
         except BusyError as exc: raise HTTPException(409,str(exc))
+
+    @app.get('/api/compute/policy')
+    def policy():
+        return compute_policy(timeout_s, memory_mb)
+
+    def apparatus_document(document):
+        config = ApparatusConfig(**document['config'])
+        return {**document, 'config': config.model_dump(), 'status': apparatus_status(config)}
+
+    @app.get('/api/apparatus')
+    def get_apparatus():
+        document = app.state.store.workspace('connected-bench')
+        if document is None:
+            document = {'revision': 0, 'config': ApparatusConfig().model_dump(), 'updated_at': None}
+        return apparatus_document(document)
+
+    @app.post('/api/apparatus/inspect')
+    def inspect_apparatus(config: ApparatusConfig):
+        return apparatus_status(config)
+
+    @app.put('/api/apparatus')
+    def save_apparatus(body: ApparatusSave):
+        # Verify numerical evidence before committing a new workspace revision.
+        # A failed model evaluation must not leave an apparently saved draft.
+        status = apparatus_status(body.config)
+        try:
+            document = app.state.store.save_workspace('connected-bench', body.config.model_dump(), body.revision)
+        except RevisionConflict as exc:
+            raise HTTPException(409, str(exc)) from exc
+        return {**document, 'status': status}
 
     @app.get('/api/jobs/{run_id}')
     @app.get('/api/history/{run_id}')
@@ -95,6 +143,18 @@ def create_app(db_path=None,timeout_s=None,memory_mb=None):
         if format=='json':
             return Response(json.dumps(run,indent=2,allow_nan=False),media_type='application/json',headers={'Content-Disposition':f'attachment; filename="quantum-forge-{run_id}.json"'})
         result=run.get('result') or {}
+        if result.get('kind') == 'research':
+            output = io.StringIO()
+            fields = ['id','kind','experiment','outcome','probability','count','shots','seed','runtime_s','config','metrics','versions','limitations','resources']
+            writer = csv.DictWriter(output, fieldnames=fields)
+            writer.writeheader()
+            for outcome, probability in result['probabilities'].items():
+                writer.writerow({'id':run['id'],'kind':'research','experiment':result['experiment'],
+                    'outcome':outcome,'probability':probability,'count':result['counts'][outcome],
+                    'shots':result['shots'],'seed':result['seed'],'runtime_s':result['runtime_s'],
+                    **{key:json.dumps(run['config'] if key=='config' else result.get(key,{}))
+                       for key in ('config','metrics','versions','limitations','resources')}})
+            return Response(output.getvalue(),media_type='text/csv',headers={'Content-Disposition':f'attachment; filename="nexus-research-{run_id}.csv"'})
         if result.get('kind')=='qubo':
             output=io.StringIO()
             fields=['id','kind','status','created_at','finished_at','key','algorithm','family','backend','energy','gap','expected_energy','expected_gap','solution','bitstring','runtime_s','initialization_s','evaluations','shots','seed','qubits','exact_energy','config','versions','limitations']
@@ -118,16 +178,19 @@ def create_app(db_path=None,timeout_s=None,memory_mb=None):
                     'depth':result['depth'],'shots':result['shots'],'seed':result['seed'],
                     'state':state,'count':result['counts'].get(state,0),'ideal_probability':probability,
                     'amplitude_real':real,'amplitude_imag':imag})
-        if result.get('kind') in ('physics','photonics'):
+        if result.get('kind') in ('physics','photonics','connected'):
             output=io.StringIO()
             rows=result['series']
-            fields=['id','kind','backend','seed','shots','runtime_s']+list(rows[0])+['config','versions','metrics','limitations']
+            evidence_keys = ['model', 'checks', 'apparatus_status', 'calibration', 'amplitude_calibration'] if result.get('kind') == 'connected' else []
+            fields=list(dict.fromkeys(['id','kind','backend','seed','shots','runtime_s']+list(rows[0])+['config','versions','metrics','limitations','resources']+evidence_keys))
             writer=csv.DictWriter(output,fieldnames=fields);writer.writeheader()
             for row in rows:
                 writer.writerow({'id':run['id'],'kind':run['kind'],'backend':result['backend'],
                     'seed':run['config']['seed'],'shots':result['shots'],'runtime_s':result['runtime_s'],**row,
                     'config':json.dumps(run['config']),'versions':json.dumps(result['versions']),
-                    'metrics':json.dumps(result['metrics']),'limitations':json.dumps(result['limitations'])})
+                    'metrics':json.dumps(result['metrics']),'limitations':json.dumps(result['limitations']),
+                    'resources':json.dumps(result.get('resources',{})),
+                    **{key: json.dumps(result.get(key)) for key in evidence_keys}})
             return Response(output.getvalue(),media_type='text/csv',headers={'Content-Disposition':f'attachment; filename="quantumlab-{run_id}.csv"'})
         output=io.StringIO()
         fields=['id','run_status','status','problem','algorithm','version','backend','objective','feasible','violations','quality','runtime_s','qubits','depth','shots','evaluations','seed','repetition','solution','state','count','ideal_probability','amplitude_real','amplitude_imag','config','versions','limitations']
@@ -140,6 +203,8 @@ def create_app(db_path=None,timeout_s=None,memory_mb=None):
     dist=ROOT/'frontend'/'dist'
     if dist.exists():
         app.mount('/assets',StaticFiles(directory=dist/'assets'),name='assets')
+        if (dist/'lab').is_dir():
+            app.mount('/lab',StaticFiles(directory=dist/'lab'),name='lab-assets')
         @app.get('/')
         def index(): return FileResponse(dist/'index.html')
     return app

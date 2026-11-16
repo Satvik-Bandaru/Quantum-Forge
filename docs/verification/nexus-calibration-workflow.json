@@ -1,0 +1,3664 @@
+{
+  "calibration": {
+    "id": "0f6ea931-d9ee-47b0-aed3-d9000370d24d",
+    "kind": "connected",
+    "config": {
+      "apparatus": {
+        "cryostat": {
+          "enabled": true,
+          "fault": "none",
+          "id": "cryostat",
+          "base_temperature_k": 0.02,
+          "initial_temperature_k": 4,
+          "cooldown_time_constant_s": 180,
+          "elapsed_s": 1800,
+          "thermal_model": "legacy_exponential",
+          "network": {
+            "room_temperature_k": 300,
+            "room_to_shield_w_per_k": 0.002,
+            "shield_to_cold_plate_w_per_k": 0.00002,
+            "cold_plate_to_mixing_w_per_k": 2e-7,
+            "shield": {
+              "initial_temperature_k": 60,
+              "bath_temperature_k": 50,
+              "heat_capacity_j_per_k": 500,
+              "heat_load_w": 0.2,
+              "cooling_conductance_w_per_k": 0.5,
+              "cooling_capacity_w": 50
+            },
+            "cold_plate": {
+              "initial_temperature_k": 5,
+              "bath_temperature_k": 4,
+              "heat_capacity_j_per_k": 5,
+              "heat_load_w": 0.001,
+              "cooling_conductance_w_per_k": 0.1,
+              "cooling_capacity_w": 1
+            },
+            "mixing_chamber": {
+              "initial_temperature_k": 0.1,
+              "bath_temperature_k": 0.02,
+              "heat_capacity_j_per_k": 0.002,
+              "heat_load_w": 0.000001,
+              "cooling_conductance_w_per_k": 0.002,
+              "cooling_capacity_w": 0.0002
+            }
+          }
+        },
+        "microwave": {
+          "enabled": true,
+          "fault": "none",
+          "id": "microwave",
+          "frequency_ghz": 5,
+          "power_dbm": 0,
+          "line_attenuation_db": 20,
+          "phase_deg": 0
+        },
+        "controller": {
+          "enabled": true,
+          "fault": "none",
+          "id": "controller",
+          "pi_duration_us": 0.05,
+          "analysis_phase_deg": 0
+        },
+        "device": {
+          "enabled": true,
+          "fault": "none",
+          "id": "device",
+          "frequency_ghz": 5,
+          "t1_us": 50,
+          "tphi_us": 80,
+          "coupling_mhz_per_sqrt_mw": 100,
+          "max_temperature_k": 0.1
+        },
+        "readout": {
+          "enabled": true,
+          "fault": "none",
+          "id": "readout",
+          "error_0_to_1": 0.02,
+          "error_1_to_0": 0.04
+        },
+        "connections": [
+          {
+            "source": "cryostat:thermal",
+            "target": "device:thermal"
+          },
+          {
+            "source": "microwave:rf",
+            "target": "device:drive"
+          },
+          {
+            "source": "controller:iq",
+            "target": "microwave:iq"
+          },
+          {
+            "source": "controller:trigger",
+            "target": "readout:trigger"
+          },
+          {
+            "source": "device:readout",
+            "target": "readout:input"
+          }
+        ]
+      },
+      "sequence": "amplitude_calibration",
+      "points": 51,
+      "shots": 1024,
+      "seed": 42,
+      "sweep_start": 0,
+      "sweep_stop": 2
+    },
+    "status": "completed",
+    "created_at": "2026-11-16T00:29:22.771771+00:00",
+    "finished_at": "2026-11-16T00:29:23.283424+00:00",
+    "progress": "Complete",
+    "result": {
+      "kind": "connected",
+      "backend": "SciPy finite-segment Lindblad simulator",
+      "qubits": 1,
+      "sequence": "amplitude_calibration",
+      "seed": 42,
+      "shots": 1024,
+      "apparatus": {
+        "cryostat": {
+          "enabled": true,
+          "fault": "none",
+          "id": "cryostat",
+          "base_temperature_k": 0.02,
+          "initial_temperature_k": 4,
+          "cooldown_time_constant_s": 180,
+          "elapsed_s": 1800,
+          "thermal_model": "legacy_exponential",
+          "network": {
+            "room_temperature_k": 300,
+            "room_to_shield_w_per_k": 0.002,
+            "shield_to_cold_plate_w_per_k": 0.00002,
+            "cold_plate_to_mixing_w_per_k": 2e-7,
+            "shield": {
+              "initial_temperature_k": 60,
+              "bath_temperature_k": 50,
+              "heat_capacity_j_per_k": 500,
+              "heat_load_w": 0.2,
+              "cooling_conductance_w_per_k": 0.5,
+              "cooling_capacity_w": 50
+            },
+            "cold_plate": {
+              "initial_temperature_k": 5,
+              "bath_temperature_k": 4,
+              "heat_capacity_j_per_k": 5,
+              "heat_load_w": 0.001,
+              "cooling_conductance_w_per_k": 0.1,
+              "cooling_capacity_w": 1
+            },
+            "mixing_chamber": {
+              "initial_temperature_k": 0.1,
+              "bath_temperature_k": 0.02,
+              "heat_capacity_j_per_k": 0.002,
+              "heat_load_w": 0.000001,
+              "cooling_conductance_w_per_k": 0.002,
+              "cooling_capacity_w": 0.0002
+            }
+          }
+        },
+        "microwave": {
+          "enabled": true,
+          "fault": "none",
+          "id": "microwave",
+          "frequency_ghz": 5,
+          "power_dbm": 0,
+          "line_attenuation_db": 20,
+          "phase_deg": 0
+        },
+        "controller": {
+          "enabled": true,
+          "fault": "none",
+          "id": "controller",
+          "pi_duration_us": 0.05,
+          "analysis_phase_deg": 0
+        },
+        "device": {
+          "enabled": true,
+          "fault": "none",
+          "id": "device",
+          "frequency_ghz": 5,
+          "t1_us": 50,
+          "tphi_us": 80,
+          "coupling_mhz_per_sqrt_mw": 100,
+          "max_temperature_k": 0.1
+        },
+        "readout": {
+          "enabled": true,
+          "fault": "none",
+          "id": "readout",
+          "error_0_to_1": 0.02,
+          "error_1_to_0": 0.04
+        },
+        "connections": [
+          {
+            "source": "cryostat:thermal",
+            "target": "device:thermal"
+          },
+          {
+            "source": "microwave:rf",
+            "target": "device:drive"
+          },
+          {
+            "source": "controller:iq",
+            "target": "microwave:iq"
+          },
+          {
+            "source": "controller:trigger",
+            "target": "readout:trigger"
+          },
+          {
+            "source": "device:readout",
+            "target": "readout:input"
+          }
+        ]
+      },
+      "apparatus_status": {
+        "ready": true,
+        "instruments": [
+          {
+            "id": "cryostat",
+            "type": "cryostat",
+            "category": "cryogenics",
+            "label": "Dilution refrigerator",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "cryostat",
+              "base_temperature_k": 0.02,
+              "initial_temperature_k": 4,
+              "cooldown_time_constant_s": 180,
+              "elapsed_s": 1800,
+              "thermal_model": "legacy_exponential",
+              "network": {
+                "room_temperature_k": 300,
+                "room_to_shield_w_per_k": 0.002,
+                "shield_to_cold_plate_w_per_k": 0.00002,
+                "cold_plate_to_mixing_w_per_k": 2e-7,
+                "shield": {
+                  "initial_temperature_k": 60,
+                  "bath_temperature_k": 50,
+                  "heat_capacity_j_per_k": 500,
+                  "heat_load_w": 0.2,
+                  "cooling_conductance_w_per_k": 0.5,
+                  "cooling_capacity_w": 50
+                },
+                "cold_plate": {
+                  "initial_temperature_k": 5,
+                  "bath_temperature_k": 4,
+                  "heat_capacity_j_per_k": 5,
+                  "heat_load_w": 0.001,
+                  "cooling_conductance_w_per_k": 0.1,
+                  "cooling_capacity_w": 1
+                },
+                "mixing_chamber": {
+                  "initial_temperature_k": 0.1,
+                  "bath_temperature_k": 0.02,
+                  "heat_capacity_j_per_k": 0.002,
+                  "heat_load_w": 0.000001,
+                  "cooling_conductance_w_per_k": 0.002,
+                  "cooling_capacity_w": 0.0002
+                }
+              }
+            },
+            "ports": [
+              {
+                "id": "thermal",
+                "direction": "output",
+                "signal": "thermal"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "cryostat",
+                "default": "cryostat",
+                "title": "Id",
+                "type": "string"
+              },
+              "base_temperature_k": {
+                "default": 0.02,
+                "maximum": 1,
+                "minimum": 0.005,
+                "title": "Base Temperature K",
+                "type": "number"
+              },
+              "initial_temperature_k": {
+                "default": 4,
+                "maximum": 300,
+                "minimum": 0.005,
+                "title": "Initial Temperature K",
+                "type": "number"
+              },
+              "cooldown_time_constant_s": {
+                "default": 180,
+                "maximum": 86400,
+                "minimum": 1,
+                "title": "Cooldown Time Constant S",
+                "type": "number"
+              },
+              "elapsed_s": {
+                "default": 1800,
+                "maximum": 604800,
+                "minimum": 0,
+                "title": "Elapsed S",
+                "type": "number"
+              },
+              "thermal_model": {
+                "default": "legacy_exponential",
+                "enum": [
+                  "legacy_exponential",
+                  "thermal_network"
+                ],
+                "title": "Thermal Model",
+                "type": "string"
+              },
+              "network": {
+                "$ref": "#/$defs/ThermalNetwork"
+              }
+            },
+            "issues": [],
+            "input_signals": [],
+            "output_signals": [
+              {
+                "port_id": "thermal",
+                "direction": "output",
+                "kind": "thermal",
+                "status": "predicted",
+                "source_port": null,
+                "values": {
+                  "temperature_k": 0.02018069172045469
+                },
+                "units": {
+                  "temperature_k": "K"
+                },
+                "provenance": "Declared control or deterministic model prediction; not a measured signal or live hardware."
+              }
+            ],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "temperature",
+                "standard_uncertainty": null,
+                "unit": "K",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "temperature_k": 0.02018069172045469
+              },
+              "units": {
+                "temperature_k": "K"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          },
+          {
+            "id": "microwave",
+            "type": "microwave",
+            "category": "microwave_source",
+            "label": "Microwave source",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "microwave",
+              "frequency_ghz": 5,
+              "power_dbm": 0,
+              "line_attenuation_db": 20,
+              "phase_deg": 0
+            },
+            "ports": [
+              {
+                "id": "rf",
+                "direction": "output",
+                "signal": "rf"
+              },
+              {
+                "id": "iq",
+                "direction": "input",
+                "signal": "iq"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "microwave",
+                "default": "microwave",
+                "title": "Id",
+                "type": "string"
+              },
+              "frequency_ghz": {
+                "default": 5,
+                "maximum": 10,
+                "minimum": 1,
+                "title": "Frequency Ghz",
+                "type": "number"
+              },
+              "power_dbm": {
+                "default": 0,
+                "maximum": 10,
+                "minimum": -100,
+                "title": "Power Dbm",
+                "type": "number"
+              },
+              "line_attenuation_db": {
+                "default": 20,
+                "maximum": 120,
+                "minimum": 0,
+                "title": "Line Attenuation Db",
+                "type": "number"
+              },
+              "phase_deg": {
+                "default": 0,
+                "maximum": 360,
+                "minimum": -360,
+                "title": "Phase Deg",
+                "type": "number"
+              }
+            },
+            "issues": [],
+            "input_signals": [
+              {
+                "port_id": "iq",
+                "direction": "input",
+                "kind": "iq",
+                "status": "predicted",
+                "source_port": "controller:iq",
+                "values": {
+                  "pi_duration_us": 0.05,
+                  "analysis_phase_deg": 0
+                },
+                "units": {
+                  "pi_duration_us": "µs",
+                  "analysis_phase_deg": "degree"
+                },
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              }
+            ],
+            "output_signals": [
+              {
+                "port_id": "rf",
+                "direction": "output",
+                "kind": "rf",
+                "status": "predicted",
+                "source_port": null,
+                "values": {
+                  "frequency_ghz": 5,
+                  "power_dbm": -20,
+                  "phase_deg": 0
+                },
+                "units": {
+                  "frequency_ghz": "GHz",
+                  "power_dbm": "dBm",
+                  "phase_deg": "degree"
+                },
+                "provenance": "Declared control or deterministic model prediction; not a measured signal or live hardware."
+              }
+            ],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "frequency and delivered power",
+                "standard_uncertainty": null,
+                "unit": "GHz / dBm",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "frequency_ghz": 5,
+                "delivered_power_dbm": -20
+              },
+              "units": {
+                "frequency_ghz": "GHz",
+                "delivered_power_dbm": "dBm"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          },
+          {
+            "id": "controller",
+            "type": "controller",
+            "category": "pulse_control",
+            "label": "Pulse controller",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "controller",
+              "pi_duration_us": 0.05,
+              "analysis_phase_deg": 0
+            },
+            "ports": [
+              {
+                "id": "iq",
+                "direction": "output",
+                "signal": "iq"
+              },
+              {
+                "id": "trigger",
+                "direction": "output",
+                "signal": "trigger"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "controller",
+                "default": "controller",
+                "title": "Id",
+                "type": "string"
+              },
+              "pi_duration_us": {
+                "default": 0.05,
+                "maximum": 10,
+                "minimum": 0.001,
+                "title": "Pi Duration Us",
+                "type": "number"
+              },
+              "analysis_phase_deg": {
+                "default": 0,
+                "maximum": 360,
+                "minimum": -360,
+                "title": "Analysis Phase Deg",
+                "type": "number"
+              }
+            },
+            "issues": [],
+            "input_signals": [],
+            "output_signals": [
+              {
+                "port_id": "iq",
+                "direction": "output",
+                "kind": "iq",
+                "status": "predicted",
+                "source_port": null,
+                "values": {
+                  "pi_duration_us": 0.05,
+                  "analysis_phase_deg": 0
+                },
+                "units": {
+                  "pi_duration_us": "µs",
+                  "analysis_phase_deg": "degree"
+                },
+                "provenance": "Declared control or deterministic model prediction; not a measured signal or live hardware."
+              },
+              {
+                "port_id": "trigger",
+                "direction": "output",
+                "kind": "trigger",
+                "status": "predicted",
+                "source_port": null,
+                "values": {},
+                "units": {},
+                "provenance": "Declared control or deterministic model prediction; not a measured signal or live hardware."
+              }
+            ],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "pulse duration",
+                "standard_uncertainty": null,
+                "unit": "µs",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "pi_duration_us": 0.05
+              },
+              "units": {
+                "pi_duration_us": "µs"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          },
+          {
+            "id": "device",
+            "type": "device",
+            "category": "quantum_device",
+            "label": "Two-level device",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "device",
+              "frequency_ghz": 5,
+              "t1_us": 50,
+              "tphi_us": 80,
+              "coupling_mhz_per_sqrt_mw": 100,
+              "max_temperature_k": 0.1
+            },
+            "ports": [
+              {
+                "id": "thermal",
+                "direction": "input",
+                "signal": "thermal"
+              },
+              {
+                "id": "drive",
+                "direction": "input",
+                "signal": "rf"
+              },
+              {
+                "id": "readout",
+                "direction": "output",
+                "signal": "readout"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "device",
+                "default": "device",
+                "title": "Id",
+                "type": "string"
+              },
+              "frequency_ghz": {
+                "default": 5,
+                "maximum": 10,
+                "minimum": 1,
+                "title": "Frequency Ghz",
+                "type": "number"
+              },
+              "t1_us": {
+                "default": 50,
+                "maximum": 1000,
+                "minimum": 1,
+                "title": "T1 Us",
+                "type": "number"
+              },
+              "tphi_us": {
+                "default": 80,
+                "maximum": 10000,
+                "minimum": 1,
+                "title": "Tphi Us",
+                "type": "number"
+              },
+              "coupling_mhz_per_sqrt_mw": {
+                "default": 100,
+                "maximum": 1000,
+                "minimum": 0.1,
+                "title": "Coupling Mhz Per Sqrt Mw",
+                "type": "number"
+              },
+              "max_temperature_k": {
+                "default": 0.1,
+                "maximum": 1,
+                "minimum": 0.005,
+                "title": "Max Temperature K",
+                "type": "number"
+              }
+            },
+            "issues": [],
+            "input_signals": [
+              {
+                "port_id": "thermal",
+                "direction": "input",
+                "kind": "thermal",
+                "status": "predicted",
+                "source_port": "cryostat:thermal",
+                "values": {
+                  "temperature_k": 0.02018069172045469
+                },
+                "units": {
+                  "temperature_k": "K"
+                },
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              },
+              {
+                "port_id": "drive",
+                "direction": "input",
+                "kind": "rf",
+                "status": "predicted",
+                "source_port": "microwave:rf",
+                "values": {
+                  "frequency_ghz": 5,
+                  "power_dbm": -20,
+                  "phase_deg": 0
+                },
+                "units": {
+                  "frequency_ghz": "GHz",
+                  "power_dbm": "dBm",
+                  "phase_deg": "degree"
+                },
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              }
+            ],
+            "output_signals": [
+              {
+                "port_id": "readout",
+                "direction": "output",
+                "kind": "readout",
+                "status": "pending_acquisition",
+                "source_port": null,
+                "values": {},
+                "units": {},
+                "provenance": "No acquired readout yet; execute a sequence to obtain state probabilities and sampled counts."
+              }
+            ],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "coherence parameters",
+                "standard_uncertainty": null,
+                "unit": "µs",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "thermal_population": 0.0000068539381172805575,
+                "effective_t1_us": 49.99931460618827,
+                "effective_t2_us": 44.44417366951847
+              },
+              "units": {
+                "thermal_population": "probability",
+                "effective_t1_us": "µs",
+                "effective_t2_us": "µs"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          },
+          {
+            "id": "readout",
+            "type": "readout",
+            "category": "measurement",
+            "label": "Binary readout",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "readout",
+              "error_0_to_1": 0.02,
+              "error_1_to_0": 0.04
+            },
+            "ports": [
+              {
+                "id": "input",
+                "direction": "input",
+                "signal": "readout"
+              },
+              {
+                "id": "trigger",
+                "direction": "input",
+                "signal": "trigger"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "readout",
+                "default": "readout",
+                "title": "Id",
+                "type": "string"
+              },
+              "error_0_to_1": {
+                "default": 0.02,
+                "maximum": 0.49,
+                "minimum": 0,
+                "title": "Error 0 To 1",
+                "type": "number"
+              },
+              "error_1_to_0": {
+                "default": 0.04,
+                "maximum": 0.49,
+                "minimum": 0,
+                "title": "Error 1 To 0",
+                "type": "number"
+              }
+            },
+            "issues": [],
+            "input_signals": [
+              {
+                "port_id": "input",
+                "direction": "input",
+                "kind": "readout",
+                "status": "pending_acquisition",
+                "source_port": "device:readout",
+                "values": {},
+                "units": {},
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              },
+              {
+                "port_id": "trigger",
+                "direction": "input",
+                "kind": "trigger",
+                "status": "predicted",
+                "source_port": "controller:trigger",
+                "values": {},
+                "units": {},
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              }
+            ],
+            "output_signals": [],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "assignment probabilities",
+                "standard_uncertainty": null,
+                "unit": "probability",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "error_0_to_1": 0.02,
+                "error_1_to_0": 0.04
+              },
+              "units": {
+                "error_0_to_1": "probability",
+                "error_1_to_0": "probability"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          }
+        ],
+        "connections": [
+          {
+            "source": "cryostat:thermal",
+            "target": "device:thermal"
+          },
+          {
+            "source": "microwave:rf",
+            "target": "device:drive"
+          },
+          {
+            "source": "controller:iq",
+            "target": "microwave:iq"
+          },
+          {
+            "source": "controller:trigger",
+            "target": "readout:trigger"
+          },
+          {
+            "source": "device:readout",
+            "target": "readout:input"
+          }
+        ],
+        "issues": [],
+        "derived": {
+          "temperature_k": 0.02018069172045469,
+          "thermal_population": 0.0000068539381172805575,
+          "detuning_mhz": 0,
+          "rabi_frequency_mhz": 10,
+          "gamma_up_per_us": 1.3708064143007802e-7,
+          "gamma_down_per_us": 0.02000013708064143,
+          "effective_t1_us": 49.99931460618827,
+          "effective_t2_us": 44.44417366951847
+        }
+      },
+      "series": [
+        {
+          "x": 0,
+          "probability": 0.0000068539381172805575,
+          "observed_probability": 0.020006442701830243,
+          "measured_probability": 0.0234375,
+          "count_1": 24,
+          "shots": 1024,
+          "confidence_low": 0.015799756863611528,
+          "confidence_high": 0.034637456362030326
+        },
+        {
+          "x": 0.04,
+          "probability": 0.0039466583854668195,
+          "observed_probability": 0.02370985888233881,
+          "measured_probability": 0.0224609375,
+          "count_1": 23,
+          "shots": 1024,
+          "confidence_low": 0.01501284727502563,
+          "confidence_high": 0.03347854056788188
+        },
+        {
+          "x": 0.08,
+          "probability": 0.015703947462172296,
+          "observed_probability": 0.03476171061444196,
+          "measured_probability": 0.0283203125,
+          "count_1": 29,
+          "shots": 1024,
+          "confidence_low": 0.019789746477255746,
+          "confidence_high": 0.04037659366205781
+        },
+        {
+          "x": 0.12,
+          "probability": 0.035093328049464835,
+          "observed_probability": 0.05298772836649694,
+          "measured_probability": 0.05078125,
+          "count_1": 52,
+          "shots": 1024,
+          "confidence_low": 0.038933483946073155,
+          "confidence_high": 0.06598683999613024
+        },
+        {
+          "x": 0.16,
+          "probability": 0.061809061757357064,
+          "observed_probability": 0.07810051805191563,
+          "measured_probability": 0.0751953125,
+          "count_1": 77,
+          "shots": 1024,
+          "confidence_low": 0.06058349111833718,
+          "confidence_high": 0.09298246739222472
+        },
+        {
+          "x": 0.2,
+          "probability": 0.09542988630671861,
+          "observed_probability": 0.1097040931283155,
+          "measured_probability": 0.119140625,
+          "count_1": 122,
+          "shots": 1024,
+          "confidence_low": 0.10070826395026218,
+          "confidence_high": 0.14041983678334505
+        },
+        {
+          "x": 0.24,
+          "probability": 0.1354256586777257,
+          "observed_probability": 0.14730011915706215,
+          "measured_probability": 0.1640625,
+          "count_1": 168,
+          "shots": 1024,
+          "confidence_low": 0.1426432383398674,
+          "confidence_high": 0.18799282999951952
+        },
+        {
+          "x": 0.28,
+          "probability": 0.18116571526184283,
+          "observed_probability": 0.19029577234613224,
+          "measured_probability": 0.1884765625,
+          "count_1": 193,
+          "shots": 1024,
+          "confidence_low": 0.16570336450100256,
+          "confidence_high": 0.21357833840674287
+        },
+        {
+          "x": 0.32,
+          "probability": 0.23192881717728356,
+          "observed_probability": 0.2380130881466465,
+          "measured_probability": 0.263671875,
+          "count_1": 270,
+          "shots": 1024,
+          "confidence_low": 0.23760344119413102,
+          "confidence_high": 0.29150681618415863
+        },
+        {
+          "x": 0.36,
+          "probability": 0.28691452390983746,
+          "observed_probability": 0.2896996524752472,
+          "measured_probability": 0.28515625,
+          "count_1": 292,
+          "shots": 1024,
+          "confidence_low": 0.25834607216219974,
+          "confidence_high": 0.3135723436362454
+        },
+        {
+          "x": 0.4,
+          "probability": 0.3452558159162674,
+          "observed_probability": 0.34454046696129137,
+          "measured_probability": 0.3642578125,
+          "count_1": 373,
+          "shots": 1024,
+          "confidence_low": 0.3353416215117125,
+          "confidence_high": 0.3941886502882143
+        },
+        {
+          "x": 0.44,
+          "probability": 0.4060327671313893,
+          "observed_probability": 0.40167080110350595,
+          "measured_probability": 0.3876953125,
+          "count_1": 397,
+          "shots": 1024,
+          "confidence_low": 0.3583259525488875,
+          "confidence_high": 0.4179041284366634
+        },
+        {
+          "x": 0.48,
+          "probability": 0.4682870517630718,
+          "observed_probability": 0.46018982865728747,
+          "measured_probability": 0.462890625,
+          "count_1": 474,
+          "shots": 1024,
+          "confidence_low": 0.432546151140202,
+          "confidence_high": 0.4935124843158931
+        },
+        {
+          "x": 0.52,
+          "probability": 0.5310370566028172,
+          "observed_probability": 0.5191748332066481,
+          "measured_probability": 0.50390625,
+          "count_1": 516,
+          "shots": 1024,
+          "confidence_low": 0.4733254243892511,
+          "confidence_high": 0.5344578771416864
+        },
+        {
+          "x": 0.56,
+          "probability": 0.5932933605308084,
+          "observed_probability": 0.5776957588989599,
+          "measured_probability": 0.5869140625,
+          "count_1": 601,
+          "shots": 1024,
+          "confidence_low": 0.5564856753635913,
+          "confidence_high": 0.616692783699765
+        },
+        {
+          "x": 0.6,
+          "probability": 0.6540743371039102,
+          "observed_probability": 0.6348298768776756,
+          "measured_probability": 0.64453125,
+          "count_1": 660,
+          "shots": 1024,
+          "confidence_low": 0.6147238422441063,
+          "confidence_high": 0.6732583144005763
+        },
+        {
+          "x": 0.64,
+          "probability": 0.712421634174403,
+          "observed_probability": 0.6896763361239387,
+          "measured_probability": 0.6943359375,
+          "count_1": 711,
+          "shots": 1024,
+          "confidence_low": 0.665436410793591,
+          "confidence_high": 0.7217828403705427
+        },
+        {
+          "x": 0.68,
+          "probability": 0.7674152864268015,
+          "observed_probability": 0.7413703692411934,
+          "measured_probability": 0.759765625,
+          "count_1": 778,
+          "shots": 1024,
+          "confidence_low": 0.7326585876643177,
+          "confidence_high": 0.7849309641430169
+        },
+        {
+          "x": 0.72,
+          "probability": 0.8181882225094165,
+          "observed_probability": 0.7890969291588514,
+          "measured_probability": 0.78125,
+          "count_1": 800,
+          "shots": 1024,
+          "confidence_low": 0.7549041636485956,
+          "confidence_high": 0.8054935465788946
+        },
+        {
+          "x": 0.76,
+          "probability": 0.8639399379849898,
+          "observed_probability": 0.8321035417058904,
+          "measured_probability": 0.84375,
+          "count_1": 864,
+          "shots": 1024,
+          "confidence_low": 0.8202307288370222,
+          "confidence_high": 0.8646998058854657
+        },
+        {
+          "x": 0.8,
+          "probability": 0.903949118480252,
+          "observed_probability": 0.8697121713714367,
+          "measured_probability": 0.86328125,
+          "count_1": 884,
+          "shots": 1024,
+          "confidence_low": 0.8408769771074621,
+          "confidence_high": 0.8829700652697127
+        },
+        {
+          "x": 0.84,
+          "probability": 0.9375850139701467,
+          "observed_probability": 0.9013299131319379,
+          "measured_probability": 0.8974609375,
+          "count_1": 919,
+          "shots": 1024,
+          "confidence_low": 0.8773706139084436,
+          "confidence_high": 0.9145803168644331
+        },
+        {
+          "x": 0.88,
+          "probability": 0.9643173848275679,
+          "observed_probability": 0.9264583417379137,
+          "measured_probability": 0.9248046875,
+          "count_1": 947,
+          "shots": 1024,
+          "confidence_low": 0.9070175326077754,
+          "confidence_high": 0.9394165088816628
+        },
+        {
+          "x": 0.92,
+          "probability": 0.9837248627933054,
+          "observed_probability": 0.9447013710257071,
+          "measured_probability": 0.9501953125,
+          "count_1": 973,
+          "shots": 1024,
+          "confidence_low": 0.9351075055558195,
+          "confidence_high": 0.9619179958847116
+        },
+        {
+          "x": 0.96,
+          "probability": 0.9955015950181196,
+          "observed_probability": 0.9557714993170324,
+          "measured_probability": 0.9599609375,
+          "count_1": 983,
+          "shots": 1024,
+          "confidence_low": 0.9461337898734917,
+          "confidence_high": 0.9703499653943827
+        },
+        {
+          "x": 1,
+          "probability": 0.9994620664053699,
+          "observed_probability": 0.9594943424210477,
+          "measured_probability": 0.958984375,
+          "count_1": 982,
+          "shots": 1024,
+          "confidence_low": 0.945023670801908,
+          "confidence_high": 0.9695142590832322
+        },
+        {
+          "x": 1.04,
+          "probability": 0.9955440242113562,
+          "observed_probability": 0.9558113827586748,
+          "measured_probability": 0.9716796875,
+          "count_1": 995,
+          "shots": 1024,
+          "confidence_low": 0.9596234063379422,
+          "confidence_high": 0.9802102535227443
+        },
+        {
+          "x": 1.08,
+          "probability": 0.983809458788416,
+          "observed_probability": 0.944780891261111,
+          "measured_probability": 0.947265625,
+          "count_1": 970,
+          "shots": 1024,
+          "confidence_low": 0.93182845585867,
+          "confidence_high": 0.9593595694336581
+        },
+        {
+          "x": 1.12,
+          "probability": 0.9644436250109019,
+          "observed_probability": 0.9265770075102477,
+          "measured_probability": 0.927734375,
+          "count_1": 950,
+          "shots": 1024,
+          "confidence_low": 0.9102259036787674,
+          "confidence_high": 0.9420456139588738
+        },
+        {
+          "x": 1.16,
+          "probability": 0.9377521198230256,
+          "observed_probability": 0.9014869926336441,
+          "measured_probability": 0.9072265625,
+          "count_1": 929,
+          "shots": 1024,
+          "confidence_low": 0.8879034487816412,
+          "confidence_high": 0.9235057358185789
+        },
+        {
+          "x": 1.2,
+          "probability": 0.9041560620028297,
+          "observed_probability": 0.8699066982826599,
+          "measured_probability": 0.861328125,
+          "count_1": 882,
+          "shots": 1024,
+          "confidence_low": 0.8388063325916804,
+          "confidence_high": 0.8811490590200257
+        },
+        {
+          "x": 1.24,
+          "probability": 0.8641854501649191,
+          "observed_probability": 0.832334323155024,
+          "measured_probability": 0.833984375,
+          "count_1": 854,
+          "shots": 1024,
+          "confidence_low": 0.8099541681304901,
+          "confidence_high": 0.8555181127646544
+        },
+        {
+          "x": 1.28,
+          "probability": 0.8184708037539338,
+          "observed_probability": 0.7893625555286977,
+          "measured_probability": 0.7958984375,
+          "count_1": 815,
+          "shots": 1024,
+          "confidence_low": 0.7701279496503143,
+          "confidence_high": 0.8194571413181909
+        },
+        {
+          "x": 1.32,
+          "probability": 0.7677332188581124,
+          "observed_probability": 0.7416692257266256,
+          "measured_probability": 0.7548828125,
+          "count_1": 773,
+          "shots": 1024,
+          "confidence_low": 0.7276156332914191,
+          "confidence_high": 0.7802447916022438
+        },
+        {
+          "x": 1.36,
+          "probability": 0.7127729956706093,
+          "observed_probability": 0.6900066159303727,
+          "measured_probability": 0.6826171875,
+          "count_1": 699,
+          "shots": 1024,
+          "confidence_low": 0.6534710472094596,
+          "confidence_high": 0.710398299361862
+        },
+        {
+          "x": 1.4000000000000001,
+          "probability": 0.6544570169512839,
+          "observed_probability": 0.6351895959342069,
+          "measured_probability": 0.6416015625,
+          "count_1": 657,
+          "shots": 1024,
+          "confidence_low": 0.6117518288537032,
+          "confidence_high": 0.6703928516427762
+        },
+        {
+          "x": 1.44,
+          "probability": 0.5937050765382119,
+          "observed_probability": 0.5780827719459192,
+          "measured_probability": 0.564453125,
+          "count_1": 578,
+          "shots": 1024,
+          "confidence_low": 0.5338991531125726,
+          "confidence_high": 0.5945253221478938
+        },
+        {
+          "x": 1.48,
+          "probability": 0.5314753735156328,
+          "observed_probability": 0.5195868511046948,
+          "measured_probability": 0.544921875,
+          "count_1": 558,
+          "shots": 1024,
+          "confidence_low": 0.5143099825860934,
+          "confidence_high": 0.5751979850196863
+        },
+        {
+          "x": 1.52,
+          "probability": 0.4687494008022709,
+          "observed_probability": 0.4606244367541346,
+          "measured_probability": 0.4423828125,
+          "count_1": 453,
+          "shots": 1024,
+          "confidence_low": 0.4122338601757515,
+          "confidence_high": 0.4729624422429225
+        },
+        {
+          "x": 1.56,
+          "probability": 0.40651646647345346,
+          "observed_probability": 0.40212547848504626,
+          "measured_probability": 0.4140625,
+          "count_1": 424,
+          "shots": 1024,
+          "confidence_low": 0.38426969154713936,
+          "confidence_high": 0.4444976747722387
+        },
+        {
+          "x": 1.6,
+          "probability": 0.3457580919216945,
+          "observed_probability": 0.3450126064063928,
+          "measured_probability": 0.322265625,
+          "count_1": 330,
+          "shots": 1024,
+          "confidence_low": 0.2943514104497309,
+          "confidence_high": 0.35150836989261924
+        },
+        {
+          "x": 1.6400000000000001,
+          "probability": 0.28743253290196125,
+          "observed_probability": 0.29018658092784355,
+          "measured_probability": 0.3037109375,
+          "count_1": 311,
+          "shots": 1024,
+          "confidence_low": 0.27632179533991424,
+          "confidence_high": 0.33256730273048335
+        },
+        {
+          "x": 1.68,
+          "probability": 0.23245966756921657,
+          "observed_probability": 0.23851208751506356,
+          "measured_probability": 0.2353515625,
+          "count_1": 241,
+          "shots": 1024,
+          "confidence_low": 0.21038750961728048,
+          "confidence_high": 0.2622938116617133
+        },
+        {
+          "x": 1.72,
+          "probability": 0.18170648982747187,
+          "observed_probability": 0.19080410043782353,
+          "measured_probability": 0.177734375,
+          "count_1": 182,
+          "shots": 1024,
+          "confidence_low": 0.15553682295334068,
+          "confidence_high": 0.202340800744327
+        },
+        {
+          "x": 1.76,
+          "probability": 0.13597343676294624,
+          "observed_probability": 0.14781503055716944,
+          "measured_probability": 0.1494140625,
+          "count_1": 153,
+          "shots": 1024,
+          "confidence_low": 0.12889084546695306,
+          "confidence_high": 0.17255784213141873
+        },
+        {
+          "x": 1.8,
+          "probability": 0.09598176577939474,
+          "observed_probability": 0.11022285983263105,
+          "measured_probability": 0.1044921875,
+          "count_1": 107,
+          "shots": 1024,
+          "confidence_low": 0.08721116935742498,
+          "confidence_high": 0.12472955063516716
+        },
+        {
+          "x": 1.84,
+          "probability": 0.0623621804988477,
+          "observed_probability": 0.07862044966891683,
+          "measured_probability": 0.072265625,
+          "count_1": 74,
+          "shots": 1024,
+          "confidence_low": 0.05795438604112631,
+          "confidence_high": 0.08977409632123258
+        },
+        {
+          "x": 1.8800000000000001,
+          "probability": 0.03564488479690241,
+          "observed_probability": 0.053506191709088255,
+          "measured_probability": 0.0595703125,
+          "count_1": 61,
+          "shots": 1024,
+          "confidence_low": 0.046653230324632866,
+          "confidence_high": 0.0757795220621796
+        },
+        {
+          "x": 1.92,
+          "probability": 0.01625122181888463,
+          "observed_probability": 0.035276148509751554,
+          "measured_probability": 0.0322265625,
+          "count_1": 33,
+          "shots": 1024,
+          "confidence_low": 0.02303779170692556,
+          "confidence_high": 0.04491184996332537
+        },
+        {
+          "x": 1.96,
+          "probability": 0.004487029826989589,
+          "observed_probability": 0.024217808037370215,
+          "measured_probability": 0.01953125,
+          "count_1": 20,
+          "shots": 1024,
+          "confidence_low": 0.012678544105904506,
+          "confidence_high": 0.029975367588799984
+        },
+        {
+          "x": 2,
+          "probability": 0.0005378196529313679,
+          "observed_probability": 0.020505550473755487,
+          "measured_probability": 0.02734375,
+          "count_1": 28,
+          "shots": 1024,
+          "confidence_low": 0.018985001564124977,
+          "confidence_high": 0.03923551319245423
+        }
+      ],
+      "axes": {
+        "x_label": "Microwave field amplitude factor",
+        "x_unit": "field scale",
+        "y_label": "Excited-state probability"
+      },
+      "metrics": [
+        {
+          "label": "Model temperature",
+          "value": 0.02018069172045469,
+          "unit": "K"
+        },
+        {
+          "label": "Thermal excited population",
+          "value": 0.0000068539381172805575,
+          "unit": ""
+        },
+        {
+          "label": "Model drive frequency",
+          "value": 10,
+          "unit": "MHz"
+        },
+        {
+          "label": "Model effective T1",
+          "value": 49.99931460618827,
+          "unit": "µs"
+        },
+        {
+          "label": "Model effective T2",
+          "value": 44.44417366951847,
+          "unit": "µs"
+        },
+        {
+          "label": "Sampled probability range",
+          "value": 0.9521484375,
+          "unit": ""
+        }
+      ],
+      "checks": [
+        {
+          "name": "Density matrix trace",
+          "passed": true,
+          "value": 4.440892098500626e-16,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Hermiticity",
+          "passed": true,
+          "value": 3.3306690738754696e-16,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Positive density matrix (negative eigenvalue magnitude)",
+          "passed": true,
+          "value": 0,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Probability bounds",
+          "passed": true,
+          "value": 0,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Segment subdivision consistency (same exponential algorithm)",
+          "passed": true,
+          "value": 4.718447854656915e-16,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Independent resonant Bloch analytical reference",
+          "passed": true,
+          "value": 5.551115123125783e-16,
+          "tolerance": 1e-8
+        }
+      ],
+      "model": {
+        "name": "One-qubit finite-temperature Lindblad model",
+        "basis": "|0> ground, |1> excited; Z=diag(1,-1)",
+        "hamiltonian": "H/hbar = pi * [-detuning_MHz Z + drive_MHz (cos(phase) X + sin(phase) Y)] per microsecond",
+        "detuning_convention": "device frequency minus source frequency; frequency sweep x is source minus device in MHz",
+        "thermal_rates": "gamma_down=(nbar+1)/T1_zero, gamma_up=nbar/T1_zero; nbar=1/expm1(h*f/(k*T))",
+        "pulse_convention": "Ramsey: +half, free, +half with analysis phase; echo: +half, free/2, +pi, free/2, -half with analysis phase.",
+        "initial_state": "Thermal equilibrium density matrix at the inspected temperature",
+        "sampling": {
+          "spacing": 0.04,
+          "unit": "field scale",
+          "estimated_cycles_per_step": 0.020000000000000004,
+          "warning": null
+        },
+        "measurement_uncertainty": "95% pointwise Wilson score interval for assignment-channel binomial probability; fixed physical settings and independent shots",
+        "sources": [
+          {
+            "title": "QuTiP Lindblad master equation and assumptions",
+            "url": "https://qutip.readthedocs.io/en/stable/guide/dynamics/dynamics-master.html"
+          },
+          {
+            "title": "QuTiP thermal bath collapse operators",
+            "url": "https://qutip.readthedocs.io/en/stable/guide/guide-steady.html"
+          },
+          {
+            "title": "SciPy matrix exponential",
+            "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.expm.html"
+          },
+          {
+            "title": "NIST binomial confidence intervals",
+            "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm"
+          }
+        ]
+      },
+      "limitations": [
+        "Synthetic one-device two-level rotating-wave model; no hardware execution or manufacturer calibration.",
+        "Markovian thermal amplitude damping and pure dephasing; excludes leakage, non-Markovian noise, crosstalk and resonator dynamics.",
+        "Cryostat is an explicit elapsed-time exponential approximation; temperature is frozen during each acquisition and the state is thermally reset before each point.",
+        "Declared coupling converts attenuated source power to drive; finite square pulses include detuning and decoherence. Pi duration is user configured, never automatically calibrated.",
+        "Readout is a state-independent binary confusion channel plus independent binomial shot noise; counts do not include amplifier waveforms or acquisition latency.",
+        "Subdivision is a floating-point consistency diagnostic using the same exponential method, not independent solver validation or an estimate of physical-model error.",
+        "Discrete exact sample predictions can miss oscillations between points; plotted interpolation is not an additional simulation.",
+        "Per-point 95% Wilson intervals describe finite independent binomial sampling of the assignment-channel probability, not uncertainty in the physical model; they are not simultaneous confidence bands.",
+        "Only drive gain is inferred from returned count_1 and shots. Temperature, T1, Tphi and readout assignment probabilities are held at their declared values.",
+        "The asymptotic 95% interval is conditional on that model; it excludes uncertainty in the fixed settings, model discrepancy and hardware drift.",
+        "The pi factor means a resonant pi pulse area, not necessarily the exact population maximum with damping. It does not rewrite instrument settings.",
+        "The scan must start at zero, resolve at least ten points per candidate oscillation and bracket a single identifiable pi-factor interval."
+      ],
+      "versions": {
+        "python": "3.12.8",
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "model": "connected-lindblad-2"
+      },
+      "amplitude_calibration": {
+        "status": "estimated",
+        "method": "Conditional binomial maximum likelihood; resonant damped Bloch solution; 95% likelihood-ratio interval",
+        "estimated_pi_factor": 0.9990816072772182,
+        "confidence_interval_95": [
+          0.9961293092861311,
+          1.0020460532848383
+        ],
+        "reference_pi_factor": 1,
+        "estimated_drive_mhz": 10.009192369433011,
+        "negative_log_likelihood": 22218.785815737945,
+        "fit_bounds": [
+          0.2,
+          4
+        ],
+        "assumptions": [
+          "Only drive gain is inferred from returned count_1 and shots. Temperature, T1, Tphi and readout assignment probabilities are held at their declared values.",
+          "The asymptotic 95% interval is conditional on that model; it excludes uncertainty in the fixed settings, model discrepancy and hardware drift.",
+          "The pi factor means a resonant pi pulse area, not necessarily the exact population maximum with damping. It does not rewrite instrument settings.",
+          "The scan must start at zero, resolve at least ten points per candidate oscillation and bracket a single identifiable pi-factor interval."
+        ],
+        "warnings": []
+      },
+      "reference": {
+        "label": "Independent resonant damped Bloch analytical solution",
+        "assumptions": [
+          "Exact resonance, initial thermal equilibrium, constant square drive and the same declared Markovian rates. This evaluates declared settings, not the fitted gain."
+        ],
+        "max_absolute_error": 5.551115123125783e-16,
+        "series": [
+          {
+            "x": 0,
+            "probability": 0.000006853938117279412
+          },
+          {
+            "x": 0.04,
+            "probability": 0.003946658385466817
+          },
+          {
+            "x": 0.08,
+            "probability": 0.015703947462172352
+          },
+          {
+            "x": 0.12,
+            "probability": 0.0350933280494648
+          },
+          {
+            "x": 0.16,
+            "probability": 0.061809061757357064
+          },
+          {
+            "x": 0.2,
+            "probability": 0.09542988630671856
+          },
+          {
+            "x": 0.24,
+            "probability": 0.13542565867772566
+          },
+          {
+            "x": 0.28,
+            "probability": 0.18116571526184277
+          },
+          {
+            "x": 0.32,
+            "probability": 0.23192881717728359
+          },
+          {
+            "x": 0.36,
+            "probability": 0.2869145239098374
+          },
+          {
+            "x": 0.4,
+            "probability": 0.3452558159162674
+          },
+          {
+            "x": 0.44,
+            "probability": 0.40603276713138925
+          },
+          {
+            "x": 0.48,
+            "probability": 0.46828705176307184
+          },
+          {
+            "x": 0.52,
+            "probability": 0.5310370566028172
+          },
+          {
+            "x": 0.56,
+            "probability": 0.5932933605308082
+          },
+          {
+            "x": 0.6,
+            "probability": 0.6540743371039103
+          },
+          {
+            "x": 0.64,
+            "probability": 0.7124216341744031
+          },
+          {
+            "x": 0.68,
+            "probability": 0.7674152864268016
+          },
+          {
+            "x": 0.72,
+            "probability": 0.8181882225094166
+          },
+          {
+            "x": 0.76,
+            "probability": 0.8639399379849895
+          },
+          {
+            "x": 0.8,
+            "probability": 0.9039491184802521
+          },
+          {
+            "x": 0.84,
+            "probability": 0.9375850139701467
+          },
+          {
+            "x": 0.88,
+            "probability": 0.9643173848275679
+          },
+          {
+            "x": 0.92,
+            "probability": 0.9837248627933058
+          },
+          {
+            "x": 0.96,
+            "probability": 0.9955015950181197
+          },
+          {
+            "x": 1,
+            "probability": 0.9994620664053697
+          },
+          {
+            "x": 1.04,
+            "probability": 0.995544024211356
+          },
+          {
+            "x": 1.08,
+            "probability": 0.9838094587884155
+          },
+          {
+            "x": 1.12,
+            "probability": 0.964443625010902
+          },
+          {
+            "x": 1.16,
+            "probability": 0.9377521198230256
+          },
+          {
+            "x": 1.2,
+            "probability": 0.9041560620028293
+          },
+          {
+            "x": 1.24,
+            "probability": 0.8641854501649193
+          },
+          {
+            "x": 1.28,
+            "probability": 0.8184708037539343
+          },
+          {
+            "x": 1.32,
+            "probability": 0.7677332188581127
+          },
+          {
+            "x": 1.36,
+            "probability": 0.7127729956706093
+          },
+          {
+            "x": 1.4000000000000001,
+            "probability": 0.6544570169512837
+          },
+          {
+            "x": 1.44,
+            "probability": 0.5937050765382117
+          },
+          {
+            "x": 1.48,
+            "probability": 0.5314753735156325
+          },
+          {
+            "x": 1.52,
+            "probability": 0.468749400802271
+          },
+          {
+            "x": 1.56,
+            "probability": 0.40651646647345313
+          },
+          {
+            "x": 1.6,
+            "probability": 0.34575809192169404
+          },
+          {
+            "x": 1.6400000000000001,
+            "probability": 0.28743253290196114
+          },
+          {
+            "x": 1.68,
+            "probability": 0.2324596675692162
+          },
+          {
+            "x": 1.72,
+            "probability": 0.18170648982747184
+          },
+          {
+            "x": 1.76,
+            "probability": 0.13597343676294638
+          },
+          {
+            "x": 1.8,
+            "probability": 0.09598176577939427
+          },
+          {
+            "x": 1.84,
+            "probability": 0.06236218049884823
+          },
+          {
+            "x": 1.8800000000000001,
+            "probability": 0.03564488479690264
+          },
+          {
+            "x": 1.92,
+            "probability": 0.016251221818884498
+          },
+          {
+            "x": 1.96,
+            "probability": 0.004487029826989453
+          },
+          {
+            "x": 2,
+            "probability": 0.0005378196529314816
+          }
+        ]
+      },
+      "runtime": {
+        "wall_seconds": 0.04068524995818734,
+        "process_rss_bytes": 97861632,
+        "memory_measurement": "current process resident set after run; includes interpreter and imported libraries, not incremental job memory or a peak",
+        "points": 51,
+        "shots_per_point": 1024,
+        "solver": "scipy.linalg.expm",
+        "matrix_dimension": 4
+      },
+      "runtime_s": 0.04068524995818734,
+      "resources": {
+        "worker_wall_s": 0.04359412507619709,
+        "peak_rss_bytes": 97861632,
+        "execution": "local_cpu",
+        "scope": "Worker process high-water resident memory; includes scientific library imports. Wall time starts at worker entry."
+      }
+    },
+    "error": null
+  },
+  "dephasing": {
+    "id": "7b297d24-eb48-4eaa-9df3-ac15d026252c",
+    "kind": "connected",
+    "config": {
+      "apparatus": {
+        "cryostat": {
+          "enabled": true,
+          "fault": "none",
+          "id": "cryostat",
+          "base_temperature_k": 0.02,
+          "initial_temperature_k": 4,
+          "cooldown_time_constant_s": 180,
+          "elapsed_s": 1800,
+          "thermal_model": "legacy_exponential",
+          "network": {
+            "room_temperature_k": 300,
+            "room_to_shield_w_per_k": 0.002,
+            "shield_to_cold_plate_w_per_k": 0.00002,
+            "cold_plate_to_mixing_w_per_k": 2e-7,
+            "shield": {
+              "initial_temperature_k": 60,
+              "bath_temperature_k": 50,
+              "heat_capacity_j_per_k": 500,
+              "heat_load_w": 0.2,
+              "cooling_conductance_w_per_k": 0.5,
+              "cooling_capacity_w": 50
+            },
+            "cold_plate": {
+              "initial_temperature_k": 5,
+              "bath_temperature_k": 4,
+              "heat_capacity_j_per_k": 5,
+              "heat_load_w": 0.001,
+              "cooling_conductance_w_per_k": 0.1,
+              "cooling_capacity_w": 1
+            },
+            "mixing_chamber": {
+              "initial_temperature_k": 0.1,
+              "bath_temperature_k": 0.02,
+              "heat_capacity_j_per_k": 0.002,
+              "heat_load_w": 0.000001,
+              "cooling_conductance_w_per_k": 0.002,
+              "cooling_capacity_w": 0.0002
+            }
+          }
+        },
+        "microwave": {
+          "enabled": true,
+          "fault": "none",
+          "id": "microwave",
+          "frequency_ghz": 5,
+          "power_dbm": 0,
+          "line_attenuation_db": 20,
+          "phase_deg": 0
+        },
+        "controller": {
+          "enabled": true,
+          "fault": "none",
+          "id": "controller",
+          "pi_duration_us": 0.05,
+          "analysis_phase_deg": 0
+        },
+        "device": {
+          "enabled": true,
+          "fault": "none",
+          "id": "device",
+          "frequency_ghz": 5,
+          "t1_us": 50,
+          "tphi_us": 80,
+          "coupling_mhz_per_sqrt_mw": 100,
+          "max_temperature_k": 0.1
+        },
+        "readout": {
+          "enabled": true,
+          "fault": "none",
+          "id": "readout",
+          "error_0_to_1": 0.02,
+          "error_1_to_0": 0.04
+        },
+        "connections": [
+          {
+            "source": "cryostat:thermal",
+            "target": "device:thermal"
+          },
+          {
+            "source": "microwave:rf",
+            "target": "device:drive"
+          },
+          {
+            "source": "controller:iq",
+            "target": "microwave:iq"
+          },
+          {
+            "source": "controller:trigger",
+            "target": "readout:trigger"
+          },
+          {
+            "source": "device:readout",
+            "target": "readout:input"
+          }
+        ]
+      },
+      "sequence": "dephasing",
+      "points": 51,
+      "shots": 1024,
+      "seed": 42,
+      "sweep_start": 0,
+      "sweep_stop": 100
+    },
+    "status": "completed",
+    "created_at": "2026-11-16T00:29:24.255894+00:00",
+    "finished_at": "2026-11-16T00:29:24.750305+00:00",
+    "progress": "Complete",
+    "result": {
+      "kind": "connected",
+      "backend": "SciPy finite-segment Lindblad simulator",
+      "qubits": 1,
+      "sequence": "dephasing",
+      "seed": 42,
+      "shots": 1024,
+      "apparatus": {
+        "cryostat": {
+          "enabled": true,
+          "fault": "none",
+          "id": "cryostat",
+          "base_temperature_k": 0.02,
+          "initial_temperature_k": 4,
+          "cooldown_time_constant_s": 180,
+          "elapsed_s": 1800,
+          "thermal_model": "legacy_exponential",
+          "network": {
+            "room_temperature_k": 300,
+            "room_to_shield_w_per_k": 0.002,
+            "shield_to_cold_plate_w_per_k": 0.00002,
+            "cold_plate_to_mixing_w_per_k": 2e-7,
+            "shield": {
+              "initial_temperature_k": 60,
+              "bath_temperature_k": 50,
+              "heat_capacity_j_per_k": 500,
+              "heat_load_w": 0.2,
+              "cooling_conductance_w_per_k": 0.5,
+              "cooling_capacity_w": 50
+            },
+            "cold_plate": {
+              "initial_temperature_k": 5,
+              "bath_temperature_k": 4,
+              "heat_capacity_j_per_k": 5,
+              "heat_load_w": 0.001,
+              "cooling_conductance_w_per_k": 0.1,
+              "cooling_capacity_w": 1
+            },
+            "mixing_chamber": {
+              "initial_temperature_k": 0.1,
+              "bath_temperature_k": 0.02,
+              "heat_capacity_j_per_k": 0.002,
+              "heat_load_w": 0.000001,
+              "cooling_conductance_w_per_k": 0.002,
+              "cooling_capacity_w": 0.0002
+            }
+          }
+        },
+        "microwave": {
+          "enabled": true,
+          "fault": "none",
+          "id": "microwave",
+          "frequency_ghz": 5,
+          "power_dbm": 0,
+          "line_attenuation_db": 20,
+          "phase_deg": 0
+        },
+        "controller": {
+          "enabled": true,
+          "fault": "none",
+          "id": "controller",
+          "pi_duration_us": 0.05,
+          "analysis_phase_deg": 0
+        },
+        "device": {
+          "enabled": true,
+          "fault": "none",
+          "id": "device",
+          "frequency_ghz": 5,
+          "t1_us": 50,
+          "tphi_us": 80,
+          "coupling_mhz_per_sqrt_mw": 100,
+          "max_temperature_k": 0.1
+        },
+        "readout": {
+          "enabled": true,
+          "fault": "none",
+          "id": "readout",
+          "error_0_to_1": 0.02,
+          "error_1_to_0": 0.04
+        },
+        "connections": [
+          {
+            "source": "cryostat:thermal",
+            "target": "device:thermal"
+          },
+          {
+            "source": "microwave:rf",
+            "target": "device:drive"
+          },
+          {
+            "source": "controller:iq",
+            "target": "microwave:iq"
+          },
+          {
+            "source": "controller:trigger",
+            "target": "readout:trigger"
+          },
+          {
+            "source": "device:readout",
+            "target": "readout:input"
+          }
+        ]
+      },
+      "apparatus_status": {
+        "ready": true,
+        "instruments": [
+          {
+            "id": "cryostat",
+            "type": "cryostat",
+            "category": "cryogenics",
+            "label": "Dilution refrigerator",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "cryostat",
+              "base_temperature_k": 0.02,
+              "initial_temperature_k": 4,
+              "cooldown_time_constant_s": 180,
+              "elapsed_s": 1800,
+              "thermal_model": "legacy_exponential",
+              "network": {
+                "room_temperature_k": 300,
+                "room_to_shield_w_per_k": 0.002,
+                "shield_to_cold_plate_w_per_k": 0.00002,
+                "cold_plate_to_mixing_w_per_k": 2e-7,
+                "shield": {
+                  "initial_temperature_k": 60,
+                  "bath_temperature_k": 50,
+                  "heat_capacity_j_per_k": 500,
+                  "heat_load_w": 0.2,
+                  "cooling_conductance_w_per_k": 0.5,
+                  "cooling_capacity_w": 50
+                },
+                "cold_plate": {
+                  "initial_temperature_k": 5,
+                  "bath_temperature_k": 4,
+                  "heat_capacity_j_per_k": 5,
+                  "heat_load_w": 0.001,
+                  "cooling_conductance_w_per_k": 0.1,
+                  "cooling_capacity_w": 1
+                },
+                "mixing_chamber": {
+                  "initial_temperature_k": 0.1,
+                  "bath_temperature_k": 0.02,
+                  "heat_capacity_j_per_k": 0.002,
+                  "heat_load_w": 0.000001,
+                  "cooling_conductance_w_per_k": 0.002,
+                  "cooling_capacity_w": 0.0002
+                }
+              }
+            },
+            "ports": [
+              {
+                "id": "thermal",
+                "direction": "output",
+                "signal": "thermal"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "cryostat",
+                "default": "cryostat",
+                "title": "Id",
+                "type": "string"
+              },
+              "base_temperature_k": {
+                "default": 0.02,
+                "maximum": 1,
+                "minimum": 0.005,
+                "title": "Base Temperature K",
+                "type": "number"
+              },
+              "initial_temperature_k": {
+                "default": 4,
+                "maximum": 300,
+                "minimum": 0.005,
+                "title": "Initial Temperature K",
+                "type": "number"
+              },
+              "cooldown_time_constant_s": {
+                "default": 180,
+                "maximum": 86400,
+                "minimum": 1,
+                "title": "Cooldown Time Constant S",
+                "type": "number"
+              },
+              "elapsed_s": {
+                "default": 1800,
+                "maximum": 604800,
+                "minimum": 0,
+                "title": "Elapsed S",
+                "type": "number"
+              },
+              "thermal_model": {
+                "default": "legacy_exponential",
+                "enum": [
+                  "legacy_exponential",
+                  "thermal_network"
+                ],
+                "title": "Thermal Model",
+                "type": "string"
+              },
+              "network": {
+                "$ref": "#/$defs/ThermalNetwork"
+              }
+            },
+            "issues": [],
+            "input_signals": [],
+            "output_signals": [
+              {
+                "port_id": "thermal",
+                "direction": "output",
+                "kind": "thermal",
+                "status": "predicted",
+                "source_port": null,
+                "values": {
+                  "temperature_k": 0.02018069172045469
+                },
+                "units": {
+                  "temperature_k": "K"
+                },
+                "provenance": "Declared control or deterministic model prediction; not a measured signal or live hardware."
+              }
+            ],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "temperature",
+                "standard_uncertainty": null,
+                "unit": "K",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "temperature_k": 0.02018069172045469
+              },
+              "units": {
+                "temperature_k": "K"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          },
+          {
+            "id": "microwave",
+            "type": "microwave",
+            "category": "microwave_source",
+            "label": "Microwave source",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "microwave",
+              "frequency_ghz": 5,
+              "power_dbm": 0,
+              "line_attenuation_db": 20,
+              "phase_deg": 0
+            },
+            "ports": [
+              {
+                "id": "rf",
+                "direction": "output",
+                "signal": "rf"
+              },
+              {
+                "id": "iq",
+                "direction": "input",
+                "signal": "iq"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "microwave",
+                "default": "microwave",
+                "title": "Id",
+                "type": "string"
+              },
+              "frequency_ghz": {
+                "default": 5,
+                "maximum": 10,
+                "minimum": 1,
+                "title": "Frequency Ghz",
+                "type": "number"
+              },
+              "power_dbm": {
+                "default": 0,
+                "maximum": 10,
+                "minimum": -100,
+                "title": "Power Dbm",
+                "type": "number"
+              },
+              "line_attenuation_db": {
+                "default": 20,
+                "maximum": 120,
+                "minimum": 0,
+                "title": "Line Attenuation Db",
+                "type": "number"
+              },
+              "phase_deg": {
+                "default": 0,
+                "maximum": 360,
+                "minimum": -360,
+                "title": "Phase Deg",
+                "type": "number"
+              }
+            },
+            "issues": [],
+            "input_signals": [
+              {
+                "port_id": "iq",
+                "direction": "input",
+                "kind": "iq",
+                "status": "predicted",
+                "source_port": "controller:iq",
+                "values": {
+                  "pi_duration_us": 0.05,
+                  "analysis_phase_deg": 0
+                },
+                "units": {
+                  "pi_duration_us": "µs",
+                  "analysis_phase_deg": "degree"
+                },
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              }
+            ],
+            "output_signals": [
+              {
+                "port_id": "rf",
+                "direction": "output",
+                "kind": "rf",
+                "status": "predicted",
+                "source_port": null,
+                "values": {
+                  "frequency_ghz": 5,
+                  "power_dbm": -20,
+                  "phase_deg": 0
+                },
+                "units": {
+                  "frequency_ghz": "GHz",
+                  "power_dbm": "dBm",
+                  "phase_deg": "degree"
+                },
+                "provenance": "Declared control or deterministic model prediction; not a measured signal or live hardware."
+              }
+            ],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "frequency and delivered power",
+                "standard_uncertainty": null,
+                "unit": "GHz / dBm",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "frequency_ghz": 5,
+                "delivered_power_dbm": -20
+              },
+              "units": {
+                "frequency_ghz": "GHz",
+                "delivered_power_dbm": "dBm"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          },
+          {
+            "id": "controller",
+            "type": "controller",
+            "category": "pulse_control",
+            "label": "Pulse controller",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "controller",
+              "pi_duration_us": 0.05,
+              "analysis_phase_deg": 0
+            },
+            "ports": [
+              {
+                "id": "iq",
+                "direction": "output",
+                "signal": "iq"
+              },
+              {
+                "id": "trigger",
+                "direction": "output",
+                "signal": "trigger"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "controller",
+                "default": "controller",
+                "title": "Id",
+                "type": "string"
+              },
+              "pi_duration_us": {
+                "default": 0.05,
+                "maximum": 10,
+                "minimum": 0.001,
+                "title": "Pi Duration Us",
+                "type": "number"
+              },
+              "analysis_phase_deg": {
+                "default": 0,
+                "maximum": 360,
+                "minimum": -360,
+                "title": "Analysis Phase Deg",
+                "type": "number"
+              }
+            },
+            "issues": [],
+            "input_signals": [],
+            "output_signals": [
+              {
+                "port_id": "iq",
+                "direction": "output",
+                "kind": "iq",
+                "status": "predicted",
+                "source_port": null,
+                "values": {
+                  "pi_duration_us": 0.05,
+                  "analysis_phase_deg": 0
+                },
+                "units": {
+                  "pi_duration_us": "µs",
+                  "analysis_phase_deg": "degree"
+                },
+                "provenance": "Declared control or deterministic model prediction; not a measured signal or live hardware."
+              },
+              {
+                "port_id": "trigger",
+                "direction": "output",
+                "kind": "trigger",
+                "status": "predicted",
+                "source_port": null,
+                "values": {},
+                "units": {},
+                "provenance": "Declared control or deterministic model prediction; not a measured signal or live hardware."
+              }
+            ],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "pulse duration",
+                "standard_uncertainty": null,
+                "unit": "µs",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "pi_duration_us": 0.05
+              },
+              "units": {
+                "pi_duration_us": "µs"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          },
+          {
+            "id": "device",
+            "type": "device",
+            "category": "quantum_device",
+            "label": "Two-level device",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "device",
+              "frequency_ghz": 5,
+              "t1_us": 50,
+              "tphi_us": 80,
+              "coupling_mhz_per_sqrt_mw": 100,
+              "max_temperature_k": 0.1
+            },
+            "ports": [
+              {
+                "id": "thermal",
+                "direction": "input",
+                "signal": "thermal"
+              },
+              {
+                "id": "drive",
+                "direction": "input",
+                "signal": "rf"
+              },
+              {
+                "id": "readout",
+                "direction": "output",
+                "signal": "readout"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "device",
+                "default": "device",
+                "title": "Id",
+                "type": "string"
+              },
+              "frequency_ghz": {
+                "default": 5,
+                "maximum": 10,
+                "minimum": 1,
+                "title": "Frequency Ghz",
+                "type": "number"
+              },
+              "t1_us": {
+                "default": 50,
+                "maximum": 1000,
+                "minimum": 1,
+                "title": "T1 Us",
+                "type": "number"
+              },
+              "tphi_us": {
+                "default": 80,
+                "maximum": 10000,
+                "minimum": 1,
+                "title": "Tphi Us",
+                "type": "number"
+              },
+              "coupling_mhz_per_sqrt_mw": {
+                "default": 100,
+                "maximum": 1000,
+                "minimum": 0.1,
+                "title": "Coupling Mhz Per Sqrt Mw",
+                "type": "number"
+              },
+              "max_temperature_k": {
+                "default": 0.1,
+                "maximum": 1,
+                "minimum": 0.005,
+                "title": "Max Temperature K",
+                "type": "number"
+              }
+            },
+            "issues": [],
+            "input_signals": [
+              {
+                "port_id": "thermal",
+                "direction": "input",
+                "kind": "thermal",
+                "status": "predicted",
+                "source_port": "cryostat:thermal",
+                "values": {
+                  "temperature_k": 0.02018069172045469
+                },
+                "units": {
+                  "temperature_k": "K"
+                },
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              },
+              {
+                "port_id": "drive",
+                "direction": "input",
+                "kind": "rf",
+                "status": "predicted",
+                "source_port": "microwave:rf",
+                "values": {
+                  "frequency_ghz": 5,
+                  "power_dbm": -20,
+                  "phase_deg": 0
+                },
+                "units": {
+                  "frequency_ghz": "GHz",
+                  "power_dbm": "dBm",
+                  "phase_deg": "degree"
+                },
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              }
+            ],
+            "output_signals": [
+              {
+                "port_id": "readout",
+                "direction": "output",
+                "kind": "readout",
+                "status": "pending_acquisition",
+                "source_port": null,
+                "values": {},
+                "units": {},
+                "provenance": "No acquired readout yet; execute a sequence to obtain state probabilities and sampled counts."
+              }
+            ],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "coherence parameters",
+                "standard_uncertainty": null,
+                "unit": "µs",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "thermal_population": 0.0000068539381172805575,
+                "effective_t1_us": 49.99931460618827,
+                "effective_t2_us": 44.44417366951847
+              },
+              "units": {
+                "thermal_population": "probability",
+                "effective_t1_us": "µs",
+                "effective_t2_us": "µs"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          },
+          {
+            "id": "readout",
+            "type": "readout",
+            "category": "measurement",
+            "label": "Binary readout",
+            "state": "ready",
+            "config": {
+              "enabled": true,
+              "fault": "none",
+              "id": "readout",
+              "error_0_to_1": 0.02,
+              "error_1_to_0": 0.04
+            },
+            "ports": [
+              {
+                "id": "input",
+                "direction": "input",
+                "signal": "readout"
+              },
+              {
+                "id": "trigger",
+                "direction": "input",
+                "signal": "trigger"
+              }
+            ],
+            "limits": {
+              "enabled": {
+                "default": true,
+                "title": "Enabled",
+                "type": "boolean"
+              },
+              "fault": {
+                "default": "none",
+                "enum": [
+                  "none",
+                  "injected"
+                ],
+                "title": "Fault",
+                "type": "string"
+              },
+              "id": {
+                "const": "readout",
+                "default": "readout",
+                "title": "Id",
+                "type": "string"
+              },
+              "error_0_to_1": {
+                "default": 0.02,
+                "maximum": 0.49,
+                "minimum": 0,
+                "title": "Error 0 To 1",
+                "type": "number"
+              },
+              "error_1_to_0": {
+                "default": 0.04,
+                "maximum": 0.49,
+                "minimum": 0,
+                "title": "Error 1 To 0",
+                "type": "number"
+              }
+            },
+            "issues": [],
+            "input_signals": [
+              {
+                "port_id": "input",
+                "direction": "input",
+                "kind": "readout",
+                "status": "pending_acquisition",
+                "source_port": "device:readout",
+                "values": {},
+                "units": {},
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              },
+              {
+                "port_id": "trigger",
+                "direction": "input",
+                "kind": "trigger",
+                "status": "predicted",
+                "source_port": "controller:trigger",
+                "values": {},
+                "units": {},
+                "provenance": "Derived from the connected source model; not hardware telemetry."
+              }
+            ],
+            "output_signals": [],
+            "calibration_state": {
+              "status": "declared_uncalibrated",
+              "evidence_run_id": null,
+              "description": "Declared educational model settings. Calibration run estimates are evidence in History; they do not automatically certify or overwrite instrument settings."
+            },
+            "measurement_uncertainties": [
+              {
+                "quantity": "assignment probabilities",
+                "standard_uncertainty": null,
+                "unit": "probability",
+                "basis": "not_estimated",
+                "description": "Physical parameter uncertainty is not calibrated. Numerical solver tolerance is not measurement uncertainty; finite-shot intervals are reported with acquired results."
+              }
+            ],
+            "physical_state": {
+              "operating_state": "ready",
+              "quantities": {
+                "error_0_to_1": 0.02,
+                "error_1_to_0": 0.04
+              },
+              "units": {
+                "error_0_to_1": "probability",
+                "error_1_to_0": "probability"
+              },
+              "provenance": "Deterministic educational model or declared setting; not live instrument telemetry."
+            }
+          }
+        ],
+        "connections": [
+          {
+            "source": "cryostat:thermal",
+            "target": "device:thermal"
+          },
+          {
+            "source": "microwave:rf",
+            "target": "device:drive"
+          },
+          {
+            "source": "controller:iq",
+            "target": "microwave:iq"
+          },
+          {
+            "source": "controller:trigger",
+            "target": "readout:trigger"
+          },
+          {
+            "source": "device:readout",
+            "target": "readout:input"
+          }
+        ],
+        "issues": [],
+        "derived": {
+          "temperature_k": 0.02018069172045469,
+          "thermal_population": 0.0000068539381172805575,
+          "detuning_mhz": 0,
+          "rabi_frequency_mhz": 10,
+          "gamma_up_per_us": 1.3708064143007802e-7,
+          "gamma_down_per_us": 0.02000013708064143,
+          "effective_t1_us": 49.99931460618827,
+          "effective_t2_us": 44.44417366951847
+        }
+      },
+      "series": [
+        {
+          "x": 0,
+          "probability": 0.9994620664053695,
+          "observed_probability": 0.9594943424210473,
+          "measured_probability": 0.953125,
+          "count_1": 976,
+          "shots": 1024,
+          "confidence_low": 0.9383989631314126,
+          "confidence_high": 0.9644640144573214
+        },
+        {
+          "x": 2,
+          "probability": 0.9774769549712399,
+          "observed_probability": 0.9388283376729655,
+          "measured_probability": 0.953125,
+          "count_1": 976,
+          "shots": 1024,
+          "confidence_low": 0.9383989631314126,
+          "confidence_high": 0.9644640144573214
+        },
+        {
+          "x": 4,
+          "probability": 0.9564592476974056,
+          "observed_probability": 0.9190716928355612,
+          "measured_probability": 0.9306640625,
+          "count_1": 953,
+          "shots": 1024,
+          "confidence_low": 0.9134416929089015,
+          "confidence_high": 0.9446673008769426
+        },
+        {
+          "x": 6,
+          "probability": 0.9363663761843903,
+          "observed_probability": 0.9001843936133269,
+          "measured_probability": 0.904296875,
+          "count_1": 926,
+          "shots": 1024,
+          "confidence_low": 0.8847377735302947,
+          "confidence_high": 0.9208339349217224
+        },
+        {
+          "x": 8,
+          "probability": 0.9171576451577752,
+          "observed_probability": 0.8821281864483087,
+          "measured_probability": 0.8876953125,
+          "count_1": 909,
+          "shots": 1024,
+          "confidence_low": 0.8668894250451724,
+          "confidence_high": 0.9056032519003607
+        },
+        {
+          "x": 10,
+          "probability": 0.8987941500456014,
+          "observed_probability": 0.8648665010428652,
+          "measured_probability": 0.8544921875,
+          "count_1": 875,
+          "shots": 1024,
+          "confidence_low": 0.831569933981138,
+          "confidence_high": 0.8747646799514277
+        },
+        {
+          "x": 12,
+          "probability": 0.8812386981825906,
+          "observed_probability": 0.8483643762916351,
+          "measured_probability": 0.8310546875,
+          "count_1": 851,
+          "shots": 1024,
+          "confidence_low": 0.8068767649896229,
+          "confidence_high": 0.8527580397573187
+        },
+        {
+          "x": 14,
+          "probability": 0.8644557334815965,
+          "observed_probability": 0.8325883894727008,
+          "measured_probability": 0.82421875,
+          "count_1": 844,
+          "shots": 1024,
+          "confidence_low": 0.7997056909770263,
+          "confidence_high": 0.8463083360907749
+        },
+        {
+          "x": 16,
+          "probability": 0.8484112644197158,
+          "observed_probability": 0.8175065885545328,
+          "measured_probability": 0.7939453125,
+          "count_1": 813,
+          "shots": 1024,
+          "confidence_low": 0.7680953195475986,
+          "confidence_high": 0.8175981206554379
+        },
+        {
+          "x": 18,
+          "probability": 0.8330727951932082,
+          "observed_probability": 0.8030884274816157,
+          "measured_probability": 0.787109375,
+          "count_1": 806,
+          "shots": 1024,
+          "confidence_low": 0.7609879477634379,
+          "confidence_high": 0.8110847147604582
+        },
+        {
+          "x": 20,
+          "probability": 0.818409259901786,
+          "observed_probability": 0.7893047043076789,
+          "measured_probability": 0.80078125,
+          "count_1": 820,
+          "shots": 1024,
+          "confidence_low": 0.7752134154753086,
+          "confidence_high": 0.8241008024068682
+        },
+        {
+          "x": 22,
+          "probability": 0.8043909596289766,
+          "observed_probability": 0.7761275020512379,
+          "measured_probability": 0.7734375,
+          "count_1": 792,
+          "shots": 1024,
+          "confidence_low": 0.7468038978176487,
+          "confidence_high": 0.7980272093479667
+        },
+        {
+          "x": 24,
+          "probability": 0.7909895022911178,
+          "observed_probability": 0.7635301321536506,
+          "measured_probability": 0.75,
+          "count_1": 768,
+          "shots": 1024,
+          "confidence_low": 0.7225772313454248,
+          "confidence_high": 0.7755540666345664
+        },
+        {
+          "x": 26,
+          "probability": 0.7781777451331631,
+          "observed_probability": 0.7514870804251733,
+          "measured_probability": 0.7587890625,
+          "count_1": 777,
+          "shots": 1024,
+          "confidence_low": 0.7316496281615441,
+          "confidence_high": 0.7839940982630562
+        },
+        {
+          "x": 28,
+          "probability": 0.765929739754828,
+          "observed_probability": 0.7399739553695384,
+          "measured_probability": 0.7490234375,
+          "count_1": 767,
+          "shots": 1024,
+          "confidence_low": 0.7215700893289213,
+          "confidence_high": 0.7746153832683357
+        },
+        {
+          "x": 30,
+          "probability": 0.754220679555735,
+          "observed_probability": 0.7289674387823909,
+          "measured_probability": 0.734375,
+          "count_1": 752,
+          "shots": 1024,
+          "confidence_low": 0.706483928494658,
+          "confidence_high": 0.7605141633615837
+        },
+        {
+          "x": 32,
+          "probability": 0.7430268494931154,
+          "observed_probability": 0.7184452385235284,
+          "measured_probability": 0.7392578125,
+          "count_1": 757,
+          "shots": 1024,
+          "confidence_low": 0.7115083393624931,
+          "confidence_high": 0.7652188794074203
+        },
+        {
+          "x": 34,
+          "probability": 0.7323255780503094,
+          "observed_probability": 0.7083860433672908,
+          "measured_probability": 0.7021484375,
+          "count_1": 719,
+          "shots": 1024,
+          "confidence_low": 0.673425149909532,
+          "confidence_high": 0.7293607043164766
+        },
+        {
+          "x": 36,
+          "probability": 0.7220951913187841,
+          "observed_probability": 0.698769479839657,
+          "measured_probability": 0.6904296875,
+          "count_1": 707,
+          "shots": 1024,
+          "confidence_low": 0.6614456151510496,
+          "confidence_high": 0.7179903344821469
+        },
+        {
+          "x": 38,
+          "probability": 0.7123149691006646,
+          "observed_probability": 0.6895760709546247,
+          "measured_probability": 0.7158203125,
+          "count_1": 733,
+          "shots": 1024,
+          "confidence_low": 0.6874289390975709,
+          "confidence_high": 0.7425984704867185
+        },
+        {
+          "x": 40,
+          "probability": 0.7029651029428772,
+          "observed_probability": 0.6807871967663045,
+          "measured_probability": 0.671875,
+          "count_1": 688,
+          "shots": 1024,
+          "confidence_low": 0.6425210169837241,
+          "confidence_high": 0.69994425037752
+        },
+        {
+          "x": 42,
+          "probability": 0.6940266560179009,
+          "observed_probability": 0.6723850566568268,
+          "measured_probability": 0.669921875,
+          "count_1": 686,
+          "shots": 1024,
+          "confidence_low": 0.6405319374940126,
+          "confidence_high": 0.6980416791017627
+        },
+        {
+          "x": 44,
+          "probability": 0.685481524769879,
+          "observed_probability": 0.6643526332836862,
+          "measured_probability": 0.6611328125,
+          "count_1": 677,
+          "shots": 1024,
+          "confidence_low": 0.6315879520301597,
+          "confidence_high": 0.6894732361210065
+        },
+        {
+          "x": 46,
+          "probability": 0.6773124022484007,
+          "observed_probability": 0.6566736581134966,
+          "measured_probability": 0.6416015625,
+          "count_1": 657,
+          "shots": 1024,
+          "confidence_low": 0.6117518288537032,
+          "confidence_high": 0.6703928516427762
+        },
+        {
+          "x": 48,
+          "probability": 0.6695027430557028,
+          "observed_probability": 0.6493325784723606,
+          "measured_probability": 0.6474609375,
+          "count_1": 663,
+          "shots": 1024,
+          "confidence_low": 0.6176970467593711,
+          "confidence_high": 0.6761225860335144
+        },
+        {
+          "x": 50,
+          "probability": 0.6620367298362841,
+          "observed_probability": 0.6423145260461071,
+          "measured_probability": 0.630859375,
+          "count_1": 646,
+          "shots": 1024,
+          "confidence_low": 0.6008645344428185,
+          "confidence_high": 0.6598760668435832
+        },
+        {
+          "x": 52,
+          "probability": 0.6548992412410712,
+          "observed_probability": 0.635605286766607,
+          "measured_probability": 0.6201171875,
+          "count_1": 635,
+          "shots": 1024,
+          "confidence_low": 0.5899928712179382,
+          "confidence_high": 0.6493436508583857
+        },
+        {
+          "x": 54,
+          "probability": 0.6480758213012475,
+          "observed_probability": 0.6291912720231727,
+          "measured_probability": 0.640625,
+          "count_1": 656,
+          "shots": 1024,
+          "confidence_low": 0.6107614212922575,
+          "confidence_high": 0.6694374338214876
+        },
+        {
+          "x": 56,
+          "probability": 0.6415526501497162,
+          "observed_probability": 0.6230594911407332,
+          "measured_probability": 0.6259765625,
+          "count_1": 641,
+          "shots": 1024,
+          "confidence_low": 0.5959209483256911,
+          "confidence_high": 0.6550905260470388
+        },
+        {
+          "x": 58,
+          "probability": 0.6353165160308993,
+          "observed_probability": 0.6171975250690453,
+          "measured_probability": 0.607421875,
+          "count_1": 622,
+          "shots": 1024,
+          "confidence_low": 0.5771643317784334,
+          "confidence_high": 0.636876460322344
+        },
+        {
+          "x": 60,
+          "probability": 0.6293547885421825,
+          "observed_probability": 0.6115935012296515,
+          "measured_probability": 0.6171875,
+          "count_1": 632,
+          "shots": 1024,
+          "confidence_low": 0.587030549226913,
+          "confidence_high": 0.646468496701208
+        },
+        {
+          "x": 62,
+          "probability": 0.6236553930528068,
+          "observed_probability": 0.6062360694696384,
+          "measured_probability": 0.61328125,
+          "count_1": 628,
+          "shots": 1024,
+          "confidence_low": 0.5830825553706995,
+          "confidence_high": 0.642633189026484
+        },
+        {
+          "x": 64,
+          "probability": 0.6182067862484006,
+          "observed_probability": 0.6011143790734966,
+          "measured_probability": 0.6005859375,
+          "count_1": 615,
+          "shots": 1024,
+          "confidence_low": 0.5702654078143534,
+          "confidence_high": 0.6301546066072836
+        },
+        {
+          "x": 66,
+          "probability": 0.6129979327516185,
+          "observed_probability": 0.5962180567865214,
+          "measured_probability": 0.5791015625,
+          "count_1": 593,
+          "shots": 1024,
+          "confidence_low": 0.5486222691943392,
+          "confidence_high": 0.6089895868071424
+        },
+        {
+          "x": 68,
+          "probability": 0.6080182827715344,
+          "observed_probability": 0.5915371858052423,
+          "measured_probability": 0.59375,
+          "count_1": 608,
+          "shots": 1024,
+          "confidence_low": 0.563372538932936,
+          "confidence_high": 0.6234266978095606
+        },
+        {
+          "x": 70,
+          "probability": 0.6032577507365239,
+          "observed_probability": 0.5870622856923324,
+          "measured_probability": 0.5947265625,
+          "count_1": 609,
+          "shots": 1024,
+          "confidence_low": 0.5643568656996304,
+          "confidence_high": 0.6243881964256007
+        },
+        {
+          "x": 72,
+          "probability": 0.598706694867356,
+          "observed_probability": 0.5827842931753145,
+          "measured_probability": 0.59765625,
+          "count_1": 612,
+          "shots": 1024,
+          "confidence_low": 0.5673105827102023,
+          "confidence_high": 0.6272719555632318
+        },
+        {
+          "x": 74,
+          "probability": 0.5943558976491261,
+          "observed_probability": 0.5786945437901785,
+          "measured_probability": 0.5703125,
+          "count_1": 584,
+          "shots": 1024,
+          "confidence_low": 0.5397851650390455,
+          "confidence_high": 0.600314262517827
+        },
+        {
+          "x": 76,
+          "probability": 0.5901965471624749,
+          "observed_probability": 0.5747847543327265,
+          "measured_probability": 0.5810546875,
+          "count_1": 595,
+          "shots": 1024,
+          "confidence_low": 0.5505873944654514,
+          "confidence_high": 0.610916112301499
+        },
+        {
+          "x": 78,
+          "probability": 0.5862202192362879,
+          "observed_probability": 0.5710470060821106,
+          "measured_probability": 0.5576171875,
+          "count_1": 571,
+          "shots": 1024,
+          "confidence_low": 0.5270375577570775,
+          "confidence_high": 0.5877661398242485
+        },
+        {
+          "x": 80,
+          "probability": 0.5824188603857192,
+          "observed_probability": 0.5674737287625761,
+          "measured_probability": 0.5927734375,
+          "count_1": 607,
+          "shots": 1024,
+          "confidence_low": 0.5623883347167873,
+          "confidence_high": 0.6224650766429751
+        },
+        {
+          "x": 82,
+          "probability": 0.5787847715009945,
+          "observed_probability": 0.5640576852109348,
+          "measured_probability": 0.5830078125,
+          "count_1": 597,
+          "shots": 1024,
+          "confidence_low": 0.552553003277934,
+          "confidence_high": 0.6128421542544851
+        },
+        {
+          "x": 84,
+          "probability": 0.5753105922539469,
+          "observed_probability": 0.5607919567187101,
+          "measured_probability": 0.5703125,
+          "count_1": 584,
+          "shots": 1024,
+          "confidence_low": 0.5397851650390455,
+          "confidence_high": 0.600314262517827
+        },
+        {
+          "x": 86,
+          "probability": 0.5719892861907092,
+          "observed_probability": 0.5576699290192666,
+          "measured_probability": 0.5458984375,
+          "count_1": 559,
+          "shots": 1024,
+          "confidence_low": 0.5152883194547453,
+          "confidence_high": 0.5761654735337687
+        },
+        {
+          "x": 88,
+          "probability": 0.5688141264803681,
+          "observed_probability": 0.5546852788915461,
+          "measured_probability": 0.5791015625,
+          "count_1": 593,
+          "shots": 1024,
+          "confidence_low": 0.5486222691943392,
+          "confidence_high": 0.6089895868071424
+        },
+        {
+          "x": 90,
+          "probability": 0.565778682290716,
+          "observed_probability": 0.5518319613532731,
+          "measured_probability": 0.537109375,
+          "count_1": 550,
+          "shots": 1024,
+          "confidence_low": 0.5064875156841069,
+          "confidence_high": 0.567453848859798
+        },
+        {
+          "x": 92,
+          "probability": 0.5628768057635066,
+          "observed_probability": 0.5491041974176962,
+          "measured_probability": 0.5537109375,
+          "count_1": 567,
+          "shots": 1024,
+          "confidence_low": 0.5231192552797629,
+          "confidence_high": 0.5839011407706259
+        },
+        {
+          "x": 94,
+          "probability": 0.560102619562835,
+          "observed_probability": 0.5464964623890649,
+          "measured_probability": 0.56640625,
+          "count_1": 580,
+          "shots": 1024,
+          "confidence_low": 0.5358606796329242,
+          "confidence_high": 0.596455446393011
+        },
+        {
+          "x": 96,
+          "probability": 0.5574505049714232,
+          "observed_probability": 0.5440034746731378,
+          "measured_probability": 0.5439453125,
+          "count_1": 557,
+          "shots": 1024,
+          "confidence_low": 0.5133317633017211,
+          "confidence_high": 0.5742303789213241
+        },
+        {
+          "x": 98,
+          "probability": 0.5549150905106999,
+          "observed_probability": 0.5416201850800578,
+          "measured_probability": 0.5361328125,
+          "count_1": 549,
+          "shots": 1024,
+          "confidence_low": 0.5055102349785904,
+          "confidence_high": 0.5664853041825803
+        },
+        {
+          "x": 100,
+          "probability": 0.5524912410616295,
+          "observed_probability": 0.5393417665979318,
+          "measured_probability": 0.548828125,
+          "count_1": 562,
+          "shots": 1024,
+          "confidence_low": 0.5182240362021555,
+          "confidence_high": 0.5790672329345614
+        }
+      ],
+      "axes": {
+        "x_label": "Total free evolution delay",
+        "x_unit": "µs",
+        "y_label": "Excited-state probability"
+      },
+      "metrics": [
+        {
+          "label": "Model temperature",
+          "value": 0.02018069172045469,
+          "unit": "K"
+        },
+        {
+          "label": "Thermal excited population",
+          "value": 0.0000068539381172805575,
+          "unit": ""
+        },
+        {
+          "label": "Model drive frequency",
+          "value": 10,
+          "unit": "MHz"
+        },
+        {
+          "label": "Model effective T1",
+          "value": 49.99931460618827,
+          "unit": "µs"
+        },
+        {
+          "label": "Model effective T2",
+          "value": 44.44417366951847,
+          "unit": "µs"
+        },
+        {
+          "label": "Sampled probability range",
+          "value": 0.4169921875,
+          "unit": ""
+        }
+      ],
+      "checks": [
+        {
+          "name": "Density matrix trace",
+          "passed": true,
+          "value": 5.551115123125783e-16,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Hermiticity",
+          "passed": true,
+          "value": 1.6653345369377348e-16,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Positive density matrix (negative eigenvalue magnitude)",
+          "passed": true,
+          "value": 0,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Probability bounds",
+          "passed": true,
+          "value": 0,
+          "tolerance": 1e-8
+        },
+        {
+          "name": "Segment subdivision consistency (same exponential algorithm)",
+          "passed": true,
+          "value": 5.551115123125783e-16,
+          "tolerance": 1e-8
+        }
+      ],
+      "model": {
+        "name": "One-qubit finite-temperature Lindblad model",
+        "basis": "|0> ground, |1> excited; Z=diag(1,-1)",
+        "hamiltonian": "H/hbar = pi * [-detuning_MHz Z + drive_MHz (cos(phase) X + sin(phase) Y)] per microsecond",
+        "detuning_convention": "device frequency minus source frequency; frequency sweep x is source minus device in MHz",
+        "thermal_rates": "gamma_down=(nbar+1)/T1_zero, gamma_up=nbar/T1_zero; nbar=1/expm1(h*f/(k*T))",
+        "pulse_convention": "Ramsey: +half, free, +half with analysis phase; echo: +half, free/2, +pi, free/2, -half with analysis phase.",
+        "initial_state": "Thermal equilibrium density matrix at the inspected temperature",
+        "sampling": {
+          "spacing": 2,
+          "unit": "µs",
+          "estimated_cycles_per_step": 0,
+          "warning": null
+        },
+        "measurement_uncertainty": "95% pointwise Wilson score interval for assignment-channel binomial probability; fixed physical settings and independent shots",
+        "sources": [
+          {
+            "title": "QuTiP Lindblad master equation and assumptions",
+            "url": "https://qutip.readthedocs.io/en/stable/guide/dynamics/dynamics-master.html"
+          },
+          {
+            "title": "QuTiP thermal bath collapse operators",
+            "url": "https://qutip.readthedocs.io/en/stable/guide/guide-steady.html"
+          },
+          {
+            "title": "SciPy matrix exponential",
+            "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.expm.html"
+          },
+          {
+            "title": "NIST binomial confidence intervals",
+            "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm"
+          }
+        ]
+      },
+      "limitations": [
+        "Synthetic one-device two-level rotating-wave model; no hardware execution or manufacturer calibration.",
+        "Markovian thermal amplitude damping and pure dephasing; excludes leakage, non-Markovian noise, crosstalk and resonator dynamics.",
+        "Cryostat is an explicit elapsed-time exponential approximation; temperature is frozen during each acquisition and the state is thermally reset before each point.",
+        "Declared coupling converts attenuated source power to drive; finite square pulses include detuning and decoherence. Pi duration is user configured, never automatically calibrated.",
+        "Readout is a state-independent binary confusion channel plus independent binomial shot noise; counts do not include amplifier waveforms or acquisition latency.",
+        "Subdivision is a floating-point consistency diagnostic using the same exponential method, not independent solver validation or an estimate of physical-model error.",
+        "Discrete exact sample predictions can miss oscillations between points; plotted interpolation is not an additional simulation.",
+        "Per-point 95% Wilson intervals describe finite independent binomial sampling of the assignment-channel probability, not uncertainty in the physical model; they are not simultaneous confidence bands.",
+        "Reference assumes ideal instantaneous calibrated half pulses; the executed trace includes the configured finite pulses, their errors and damping.",
+        "T2 includes both relaxation and pure dephasing: 1/T2 = 1/(2*T1_effective) + 1/Tphi. It is not a fitted estimate of Tphi.",
+        "Detuning adds Ramsey fringes; at resonance and zero analysis phase the reference is a decay envelope."
+      ],
+      "versions": {
+        "python": "3.12.8",
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "model": "connected-lindblad-2"
+      },
+      "reference": {
+        "label": "Instantaneous calibrated half-pulse T2 reference",
+        "assumptions": [
+          "Reference assumes ideal instantaneous calibrated half pulses; the executed trace includes the configured finite pulses, their errors and damping.",
+          "T2 includes both relaxation and pure dephasing: 1/T2 = 1/(2*T1_effective) + 1/Tphi. It is not a fitted estimate of Tphi.",
+          "Detuning adds Ramsey fringes; at resonance and zero analysis phase the reference is a decay envelope."
+        ],
+        "max_absolute_error": 0.0005310796565132225,
+        "series": [
+          {
+            "x": 0,
+            "probability": 0.9999931460618827
+          },
+          {
+            "x": 2,
+            "probability": 0.9779920575220356
+          },
+          {
+            "x": 4,
+            "probability": 0.956959078046784
+          },
+          {
+            "x": 6,
+            "probability": 0.9368516081456868
+          },
+          {
+            "x": 8,
+            "probability": 0.9176289228243197
+          },
+          {
+            "x": 10,
+            "probability": 0.8992520891012397
+          },
+          {
+            "x": 12,
+            "probability": 0.881683887154431
+          },
+          {
+            "x": 14,
+            "probability": 0.8648887349375278
+          },
+          {
+            "x": 16,
+            "probability": 0.8488326161131314
+          },
+          {
+            "x": 18,
+            "probability": 0.8334830111572633
+          },
+          {
+            "x": 20,
+            "probability": 0.8188088314954132
+          },
+          {
+            "x": 22,
+            "probability": 0.804780356536783
+          },
+          {
+            "x": 24,
+            "probability": 0.7913691734792017
+          },
+          {
+            "x": 26,
+            "probability": 0.778548119762788
+          },
+          {
+            "x": 28,
+            "probability": 0.7662912280558154
+          },
+          {
+            "x": 30,
+            "probability": 0.7545736736613488
+          },
+          {
+            "x": 32,
+            "probability": 0.7433717242381375
+          },
+          {
+            "x": 34,
+            "probability": 0.7326626917339283
+          },
+          {
+            "x": 36,
+            "probability": 0.7224248864338456
+          },
+          {
+            "x": 38,
+            "probability": 0.7126375730307719
+          },
+          {
+            "x": 40,
+            "probability": 0.7032809286287519
+          },
+          {
+            "x": 42,
+            "probability": 0.6943360025943659
+          },
+          {
+            "x": 44,
+            "probability": 0.6857846781747519
+          },
+          {
+            "x": 46,
+            "probability": 0.6776096358045434
+          },
+          {
+            "x": 48,
+            "probability": 0.6697943180274031
+          },
+          {
+            "x": 50,
+            "probability": 0.6623228959611063
+          },
+          {
+            "x": 52,
+            "probability": 0.6551802372382551
+          },
+          {
+            "x": 54,
+            "probability": 0.6483518753576889
+          },
+          {
+            "x": 56,
+            "probability": 0.6418239803845188
+          },
+          {
+            "x": 58,
+            "probability": 0.6355833309394419
+          },
+          {
+            "x": 60,
+            "probability": 0.6296172874206036
+          },
+          {
+            "x": 62,
+            "probability": 0.6239137664037724
+          },
+          {
+            "x": 64,
+            "probability": 0.6184612161689779
+          },
+          {
+            "x": 66,
+            "probability": 0.6132485933040455
+          },
+          {
+            "x": 68,
+            "probability": 0.6082653403376397
+          },
+          {
+            "x": 70,
+            "probability": 0.6035013643565164
+          },
+          {
+            "x": 72,
+            "probability": 0.5989470165636751
+          },
+          {
+            "x": 74,
+            "probability": 0.5945930727360097
+          },
+          {
+            "x": 76,
+            "probability": 0.5904307145418765
+          },
+          {
+            "x": 78,
+            "probability": 0.5864515116807412
+          },
+          {
+            "x": 80,
+            "probability": 0.5826474048087317
+          },
+          {
+            "x": 82,
+            "probability": 0.5790106892155135
+          },
+          {
+            "x": 84,
+            "probability": 0.5755339992194276
+          },
+          {
+            "x": 86,
+            "probability": 0.5722102932492867
+          },
+          {
+            "x": 88,
+            "probability": 0.5690328395826134
+          },
+          {
+            "x": 90,
+            "probability": 0.5659952027114348
+          },
+          {
+            "x": 92,
+            "probability": 0.5630912303080217
+          },
+          {
+            "x": 94,
+            "probability": 0.5603150407641696
+          },
+          {
+            "x": 96,
+            "probability": 0.557661011278788
+          },
+          {
+            "x": 98,
+            "probability": 0.5551237664696667
+          },
+          {
+            "x": 100,
+            "probability": 0.552698167486358
+          }
+        ]
+      },
+      "runtime": {
+        "wall_seconds": 0.010361500084400177,
+        "process_rss_bytes": 97812480,
+        "memory_measurement": "current process resident set after run; includes interpreter and imported libraries, not incremental job memory or a peak",
+        "points": 51,
+        "shots_per_point": 1024,
+        "solver": "scipy.linalg.expm",
+        "matrix_dimension": 4
+      },
+      "runtime_s": 0.010361500084400177,
+      "resources": {
+        "worker_wall_s": 0.010580582893453538,
+        "peak_rss_bytes": 97812480,
+        "execution": "local_cpu",
+        "scope": "Worker process high-water resident memory; includes scientific library imports. Wall time starts at worker entry."
+      }
+    },
+    "error": null
+  }
+}

@@ -1,0 +1,21 @@
+
+> quantum-forge-lab@0.5.0 build
+> tsc -b && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 2549 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                        0.96 kB │ gzip:   0.56 kB
+dist/assets/quantum-photonics-studio-CP9jpDhT.png  2,393.59 kB
+dist/assets/index-BaluOoLJ.css                       131.47 kB │ gzip:  27.83 kB
+dist/assets/charts-DwuBd6SE.js                       417.60 kB │ gzip: 120.52 kB
+dist/assets/index-ErEtWqov.js                        457.15 kB │ gzip: 138.71 kB
+dist/assets/LabScene-DqMRec6c.js                   1,038.68 kB │ gzip: 280.36 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.09s

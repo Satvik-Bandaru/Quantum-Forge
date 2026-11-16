@@ -8,6 +8,9 @@ from uuid import uuid4
 def now():
     return datetime.now(timezone.utc).isoformat()
 
+class RevisionConflict(ValueError):
+    """A different browser saved this workspace after it was loaded."""
+
 class Store:
     def __init__(self,path):
         self.path=Path(path)
@@ -15,6 +18,7 @@ class Store:
         with self.connect() as db:
             db.execute('CREATE TABLE IF NOT EXISTS experiments (id TEXT PRIMARY KEY, document TEXT NOT NULL)')
             db.execute('CREATE TABLE IF NOT EXISTS circuits (id TEXT PRIMARY KEY, document TEXT NOT NULL)')
+            db.execute('CREATE TABLE IF NOT EXISTS workspaces (id TEXT PRIMARY KEY, document TEXT NOT NULL)')
         for run in self.history(full=True):
             if run['status'] in ('running','queued'):
                 self.update(run['id'],status='interrupted',error='The local service restarted before this run finished.',finished_at=now())
@@ -67,3 +71,21 @@ class Store:
         with self.connect() as db:
             rows=db.execute('SELECT document FROM circuits ORDER BY rowid DESC LIMIT 100').fetchall()
         return [json.loads(row[0]) for row in rows]
+
+    def workspace(self, workspace_id):
+        with self.connect() as db:
+            row = db.execute('SELECT document FROM workspaces WHERE id=?', (workspace_id,)).fetchone()
+        return json.loads(row[0]) if row else None
+
+    def save_workspace(self, workspace_id, config, revision):
+        with self.connect() as db:
+            db.execute('BEGIN IMMEDIATE')
+            row = db.execute('SELECT document FROM workspaces WHERE id=?', (workspace_id,)).fetchone()
+            previous = json.loads(row[0]) if row else None
+            current_revision = previous['revision'] if previous else 0
+            if revision != current_revision:
+                raise RevisionConflict('The saved apparatus changed in another session. Reload it before saving again.')
+            document = {'revision': revision + 1, 'config': config, 'updated_at': now()}
+            db.execute('INSERT INTO workspaces VALUES (?,?) ON CONFLICT(id) DO UPDATE SET document=excluded.document',
+                       (workspace_id, json.dumps(document, allow_nan=False)))
+        return document

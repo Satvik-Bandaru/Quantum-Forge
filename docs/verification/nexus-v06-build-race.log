@@ -1,0 +1,138 @@
+.............EEE........................................................ [ 18%]
+........................................................................ [ 36%]
+........................................................................ [ 54%]
+........................................................................ [ 73%]
+........................................................................ [ 91%]
+.................................                                        [100%]
+==================================== ERRORS ====================================
+_______ ERROR at setup of test_photonics_job_phase_power_and_validation ________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-123/test_photonics_job_phase_power0')
+
+    @pytest.fixture
+    def client(tmp_path):
+>       with TestClient(create_app(tmp_path/'test.sqlite3')) as client:
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_api.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+backend/app.py:205: in create_app
+    app.mount('/assets',StaticFiles(directory=dist/'assets'),name='assets')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <starlette.staticfiles.StaticFiles object at 0x10b83bf20>
+directory = PosixPath('/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/frontend/dist/assets')
+packages = None, html = False, check_dir = True, follow_symlink = False
+
+    def __init__(
+        self,
+        *,
+        directory: PathLike | None = None,
+        packages: list[str | tuple[str, str]] | None = None,
+        html: bool = False,
+        check_dir: bool = True,
+        follow_symlink: bool = False,
+    ) -> None:
+        self.directory = directory
+        self.packages = packages
+        self.all_directories = self.get_directories(directory, packages)
+        self.html = html
+        self.config_checked = False
+        self.follow_symlink = follow_symlink
+        if check_dir and directory is not None and not os.path.isdir(directory):
+>           raise RuntimeError(f"Directory '{directory}' does not exist")
+E           RuntimeError: Directory '/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/frontend/dist/assets' does not exist
+
+.venv/lib/python3.12/site-packages/starlette/staticfiles.py:57: RuntimeError
+__ ERROR at setup of test_worker_process_lookup_race_does_not_discard_result ___
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-123/test_worker_process_lookup_rac0')
+
+    @pytest.fixture
+    def client(tmp_path):
+>       with TestClient(create_app(tmp_path/'test.sqlite3')) as client:
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_api.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+backend/app.py:205: in create_app
+    app.mount('/assets',StaticFiles(directory=dist/'assets'),name='assets')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <starlette.staticfiles.StaticFiles object at 0x10b913cb0>
+directory = PosixPath('/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/frontend/dist/assets')
+packages = None, html = False, check_dir = True, follow_symlink = False
+
+    def __init__(
+        self,
+        *,
+        directory: PathLike | None = None,
+        packages: list[str | tuple[str, str]] | None = None,
+        html: bool = False,
+        check_dir: bool = True,
+        follow_symlink: bool = False,
+    ) -> None:
+        self.directory = directory
+        self.packages = packages
+        self.all_directories = self.get_directories(directory, packages)
+        self.html = html
+        self.config_checked = False
+        self.follow_symlink = follow_symlink
+        if check_dir and directory is not None and not os.path.isdir(directory):
+>           raise RuntimeError(f"Directory '{directory}' does not exist")
+E           RuntimeError: Directory '/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/frontend/dist/assets' does not exist
+
+.venv/lib/python3.12/site-packages/starlette/staticfiles.py:57: RuntimeError
+_ ERROR at setup of test_worker_exit_after_empty_poll_rechecks_queued_evidence _
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-123/test_worker_exit_after_empty_p0')
+
+    @pytest.fixture
+    def client(tmp_path):
+>       with TestClient(create_app(tmp_path/'test.sqlite3')) as client:
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_api.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+backend/app.py:205: in create_app
+    app.mount('/assets',StaticFiles(directory=dist/'assets'),name='assets')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <starlette.staticfiles.StaticFiles object at 0x10ba03860>
+directory = PosixPath('/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/frontend/dist/assets')
+packages = None, html = False, check_dir = True, follow_symlink = False
+
+    def __init__(
+        self,
+        *,
+        directory: PathLike | None = None,
+        packages: list[str | tuple[str, str]] | None = None,
+        html: bool = False,
+        check_dir: bool = True,
+        follow_symlink: bool = False,
+    ) -> None:
+        self.directory = directory
+        self.packages = packages
+        self.all_directories = self.get_directories(directory, packages)
+        self.html = html
+        self.config_checked = False
+        self.follow_symlink = follow_symlink
+        if check_dir and directory is not None and not os.path.isdir(directory):
+>           raise RuntimeError(f"Directory '{directory}' does not exist")
+E           RuntimeError: Directory '/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/frontend/dist/assets' does not exist
+
+.venv/lib/python3.12/site-packages/starlette/staticfiles.py:57: RuntimeError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR tests/test_api.py::test_photonics_job_phase_power_and_validation - Runt...
+ERROR tests/test_api.py::test_worker_process_lookup_race_does_not_discard_result
+ERROR tests/test_api.py::test_worker_exit_after_empty_poll_rechecks_queued_evidence
+390 passed, 1 warning, 3 errors in 17.14s

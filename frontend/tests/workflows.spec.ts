@@ -72,6 +72,7 @@ test('terminal measurement misuse shows a useful validation error', async ({page
 test('desktop and mobile layouts render without horizontal overflow', async ({page}) => {
   await page.setViewportSize({width:1440,height:1000});
   await page.goto('/');
+  await page.getByRole('button',{name:'Overview',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Quantum Forge Research Command Center'})).toBeVisible();
   await page.screenshot({path:'../docs/screenshots/overview.png',fullPage:true});
   await page.setViewportSize({width:390,height:844});

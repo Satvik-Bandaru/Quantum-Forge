@@ -52,6 +52,7 @@ test('superdense coding and malformed assembly have real outcomes',async({page})
 test('general lab and virtual computer fit desktop and mobile',async({page})=>{
  await page.setViewportSize({width:1440,height:1000});
  await page.goto('/');
+ await page.getByRole('button',{name:'Overview',exact:true}).click();
  await page.screenshot({path:'../docs/screenshots/general-overview.png',fullPage:true});
  await page.getByRole('button',{name:'Experiments',exact:true}).click();
  await page.getByRole('button',{name:'Quantum phase estimation',exact:true}).click();

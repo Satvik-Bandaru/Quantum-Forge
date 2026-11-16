@@ -1,0 +1,767 @@
+{
+  "id": "2166a209-5142-4a50-ac18-cd5c75110814",
+  "kind": "research",
+  "config": {
+    "experiment": "single_photon_mzi",
+    "shots": 1024,
+    "seed": 42,
+    "bit_flip_probability": 0.1,
+    "theta_rad": 0,
+    "relative_phase_rad": 0,
+    "splitter1": 0.5,
+    "splitter2": 0.5,
+    "phase_rad": 3.141592653589793,
+    "upper_transmission": 1,
+    "lower_transmission": 1,
+    "detector0_efficiency": 0,
+    "detector1_efficiency": 1,
+    "path_coherence": 0
+  },
+  "status": "completed",
+  "created_at": "2026-11-16T00:29:06.300374+00:00",
+  "finished_at": "2026-11-16T00:29:06.793901+00:00",
+  "progress": "Complete",
+  "result": {
+    "kind": "research",
+    "experiment": "single_photon_mzi",
+    "shots": 1024,
+    "seed": 42,
+    "versions": {
+      "numpy": "2.5.4"
+    },
+    "backend": "NumPy complex128 vacuum plus one-photon density matrix and exclusive photon sampling / local CPU",
+    "qubits": 0,
+    "probabilities": {
+      "detector0": 0,
+      "detector1": 0.5000000000000001,
+      "no_click": 0.4999999999999999
+    },
+    "counts": {
+      "detector0": 0,
+      "detector1": 524,
+      "no_click": 500
+    },
+    "mode_probabilities": {
+      "vacuum": 0,
+      "port0": 0.5000000000000001,
+      "port1": 0.5000000000000001
+    },
+    "final_density_matrix": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0.5000000000000001,
+          -2.009551509678264e-34
+        ],
+        [
+          -2.009551509678264e-34,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          2.009551509678264e-34,
+          0
+        ],
+        [
+          0.5000000000000001,
+          -2.009551509678264e-34
+        ]
+      ]
+    ],
+    "metrics": {
+      "detector0_probability": 0,
+      "detector1_probability": 0.5000000000000001,
+      "no_click_probability": 0.4999999999999999,
+      "optical_loss_probability": 0,
+      "missed_detection_probability": 0.5000000000000001,
+      "survival_probability": 1.0000000000000002,
+      "double_click_probability": 0,
+      "purity": 0.5000000000000002,
+      "visibility0": null,
+      "visibility1": 0
+    },
+    "series": [
+      {
+        "phase_rad": 0,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.06283185307179587,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.12566370614359174,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.1884955592153876,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.25132741228718347,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.3141592653589793,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.3769911184307752,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.4398229715025711,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.5026548245743669,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.5654866776461628,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.6283185307179586,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.6911503837897546,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.7539822368615504,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.8168140899333463,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.8796459430051422,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 0.942477796076938,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.0053096491487339,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.0681415022205298,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.1309733552923256,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.1938052083641215,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.2566370614359172,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.3194689145077132,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.3823007675795091,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.4451326206513049,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.5079644737231008,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.5707963267948968,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.6336281798666925,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.6964600329384885,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5,
+        "no_click_probability": 0.5
+      },
+      {
+        "phase_rad": 1.7592918860102844,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.8221237390820801,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.884955592153876,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 1.9477874452256718,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.0106192982974678,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.0734511513692637,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.1362830044410597,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.199114857512855,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.261946710584651,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.324778563656447,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.387610416728243,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.450442269800039,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.5132741228718345,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.5761059759436304,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.6389378290154264,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.7017696820872223,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.7646015351590183,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.8274333882308142,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.8902652413026098,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 2.9530970943744057,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.0159289474462017,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.0787608005179976,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.1415926535897936,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.204424506661589,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.267256359733385,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.330088212805181,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.392920065876977,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.455751918948773,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000002,
+        "no_click_probability": 0.4999999999999998
+      },
+      {
+        "phase_rad": 3.518583772020569,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.5814156250923643,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.6442474781641603,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.7070793312359562,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.769911184307752,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.832743037379548,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.8955748904513436,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 3.9584067435231396,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.0212385965949355,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.084070449666731,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.1469023027385274,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.209734155810323,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.272566008882119,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.335397861953915,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.39822971502571,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.461061568097507,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.523893421169302,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.586725274241099,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.649557127312894,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.71238898038469,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.775220833456486,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.838052686528282,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 4.900884539600078,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000002,
+        "no_click_probability": 0.4999999999999998
+      },
+      {
+        "phase_rad": 4.9637163926718735,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.026548245743669,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.089380098815465,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5,
+        "no_click_probability": 0.5
+      },
+      {
+        "phase_rad": 5.152211951887261,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.215043804959057,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.277875658030853,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.340707511102649,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.403539364174445,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.46637121724624,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.529203070318037,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.592034923389832,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.6548667764616285,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.717698629533424,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.7805304826052195,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.843362335677016,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.906194188748811,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 5.969026041820608,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 6.031857894892403,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 6.094689747964199,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 6.157521601035995,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 6.220353454107791,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      },
+      {
+        "phase_rad": 6.283185307179586,
+        "detector0_probability": 0,
+        "detector1_probability": 0.5000000000000001,
+        "no_click_probability": 0.4999999999999999
+      }
+    ],
+    "checks": {
+      "finite": true,
+      "trace_preserved": true,
+      "hermitian": true,
+      "positive_semidefinite": true,
+      "tolerance": 1e-10,
+      "max_trace_error": 2.220446049250313e-16,
+      "max_hermiticity_error": 4.019103019356528e-34,
+      "min_eigenvalue": 0,
+      "passed": true,
+      "optical_probability_conserved": true,
+      "detection_probability_conserved": true,
+      "interference_matches_analytic": true
+    },
+    "model": {
+      "name": "One-photon two-mode Mach-Zehnder interferometer with vacuum loss",
+      "basis": [
+        "|vacuum>",
+        "|1,0>",
+        "|0,1>"
+      ],
+      "input": "Exactly one photon in input mode 0 per trial: |1,0>",
+      "splitter": "B(T)=[[sqrt(T),i sqrt(1-T)],[i sqrt(1-T),sqrt(T)]]",
+      "arms": "A=diag(sqrt(upper_transmission)*exp(i*phase),sqrt(lower_transmission))",
+      "evolution": "B1 input; A attenuation; path dephasing; B2 recombination; lost population transferred to vacuum",
+      "path_coherence": "gamma multiplies the two arm off-diagonal density entries; gamma=1 coherent, gamma=0 fully path-dephased",
+      "detection": "P(Dj)=eta_j*rho[j+1,j+1]; P(no_click)=P(vacuum)+sum_j(1-eta_j)*rho[j+1,j+1]",
+      "counts": "One multinomial experiment of shots independent prepared single photons; exactly one of D0, D1, no_click per trial",
+      "density_stage": "Optical output before detector absorption; missed detections do not alter this reported state",
+      "series": "Exact detector probabilities versus phase at fixed remaining settings; no additional sampled shots",
+      "units": {
+        "phase": "rad",
+        "transmissions": "photon survival probabilities",
+        "probabilities": "dimensionless"
+      }
+    },
+    "limitations": [
+      "Exactly one incident photon per trial; no source vacuum component, multiphoton contamination, dark counts or double clicks.",
+      "Two ideal spatial modes with fixed polarization and frequency; no diffraction, alignment, bandwidth or timing model.",
+      "Loss is passive to an unobserved vacuum environment; detector efficiency is independent and has no saturation, dead time or afterpulsing.",
+      "path_coherence is a specified phase-damping channel, not a calibrated model of a laboratory decoherence source.",
+      "The phase fringes also occur in classical coherent optics; the modeled single-photon occupancy and mutually exclusive trials distinguish these counts from optical power readings.",
+      "No two-photon Hong-Ou-Mandel interference, entanglement source or arbitrary optical network is simulated.",
+      "Simulation and internal consistency checks are not evidence of measured hardware nonclassicality."
+    ],
+    "runtime_s": 0.0016102079534903169,
+    "resources": {
+      "worker_wall_s": 0.0016731660580262542,
+      "peak_rss_bytes": 97370112,
+      "execution": "local_cpu",
+      "scope": "Worker process high-water resident memory; includes scientific library imports. Wall time starts at worker entry."
+    }
+  },
+  "error": null
+}

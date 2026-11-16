@@ -1,0 +1,82 @@
+[
+  {
+    "path": "backend/physics.py",
+    "bytes": 10346,
+    "sha256": "4bdc20c4d2a5c8e3223b6f45d4235d4773a9dd4aa1584588f05bdd8c8466ef61"
+  },
+  {
+    "path": "backend/photonics.py",
+    "bytes": 7345,
+    "sha256": "c529f5d56b325d98ae5eefde286585b4a8059200dd0f98602d77394f371ee412"
+  },
+  {
+    "path": "backend/quantum.py",
+    "bytes": 4241,
+    "sha256": "65feadb399cde6b6512c8d90bee418bd2333a9d55d85e622a0ba21f65c112f47"
+  },
+  {
+    "path": "backend/app.py",
+    "bytes": 11988,
+    "sha256": "92700ec906d67bdfb0798fe31dfed9d2ccd2dab764b7eea92141172c327cd980"
+  },
+  {
+    "path": "backend/jobs.py",
+    "bytes": 7089,
+    "sha256": "02677bfdcc7b1e620e520d7c27239356f4aa9b7947fb13a568a0340c940c6c56"
+  },
+  {
+    "path": "backend/store.py",
+    "bytes": 4674,
+    "sha256": "75fb3fef2215b1360609e2dd8d6f84bc13ffc73f736a1e4a50fd6af7c5e515f6"
+  },
+  {
+    "path": "backend/instruments.py",
+    "bytes": 8617,
+    "sha256": "ae2a3506dc4e8da0ee5e3b76b9991d7f1de8c982958260ed21fdff94e6df00ba"
+  },
+  {
+    "path": "backend/connected.py",
+    "bytes": 15956,
+    "sha256": "6b5c0b212c7fd37cb06ab2c6b0eb9942f2492ec07f39f39a22dbdba70118397c"
+  },
+  {
+    "path": "backend/compute_policy.py",
+    "bytes": 1239,
+    "sha256": "b87b11eedf9d6ddc7a4522cd3b53ca752fec36bfac61380982ba11b145d0bb9d"
+  },
+  {
+    "path": "frontend/src/PhysicalLab.tsx",
+    "bytes": 12419,
+    "sha256": "b158d591399b5e3fc07bff9952e1b803e247b2c60ecb002b8c3386e66bf9634a"
+  },
+  {
+    "path": "frontend/src/PhotonicsLab.tsx",
+    "bytes": 17077,
+    "sha256": "49c55dfc10457601ee00acb82d4524a82d8bbc9a50ca18963a6a2157a24f8fbe"
+  },
+  {
+    "path": "frontend/src/main-lab/LabRoom.tsx",
+    "bytes": 11641,
+    "sha256": "40e37aa43b9d512f2bd1eaed1a42822812e38ae52f9d22e40b61c68bfbf2dfd2"
+  },
+  {
+    "path": "frontend/src/main-lab/LabScene.tsx",
+    "bytes": 10680,
+    "sha256": "536b4cf7c15ddd41689539a3d7423aa17222c852a2321ddbcf844120f6f74475"
+  },
+  {
+    "path": "frontend/src/main-lab/MainQuantumLab.tsx",
+    "bytes": 15239,
+    "sha256": "a1576ce38740a0c30ee8c2ae2f310257e812f7244e00a08c98a1de6da97be590"
+  },
+  {
+    "path": "frontend/src/main-lab/main-lab.css",
+    "bytes": 13641,
+    "sha256": "ace488ffc863a2e60c02a13101b9c38355288da61994b7fdbabe38f177f95e29"
+  },
+  {
+    "path": "frontend/src/main-lab/photos.ts",
+    "bytes": 2901,
+    "sha256": "0ce78f473b1ae0391255d37af61a1a19d2c0772cf138d4a6e2ecdcc97f23894c"
+  }
+]

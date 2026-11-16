@@ -4,6 +4,8 @@ import os
 import threading
 import time
 import psutil
+import resource
+import sys
 from uuid import uuid4
 from .store import now
 
@@ -11,6 +13,7 @@ class BusyError(Exception): pass
 
 
 def compute(send,kind,payload):
+    started = time.perf_counter()
     for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS'):
         os.environ[key]='1'
     try:
@@ -22,10 +25,21 @@ def compute(send,kind,payload):
         from .physics import PhysicsRequest,run_physics
         from .photonics import PhotonicsRequest,run_photonics
         from .qubo import QuboRequest,run_qubo
+        from .connected import ConnectedRequest,run_connected
+        from .research import ResearchRequest,run_research
         messages={'qubo':'Mapping QUBO to Ising and comparing five executed solvers','physics':'Propagating the driven Lindblad system and sampling independent readouts','photonics':'Calculating coherent optical fields, phase sweep and power-meter readouts','circuit':'Executing circuit','optimization':'Solving baseline, QAOA and annealing','machine':'Executing program and inspecting register states','experiment':'Running quantum experiment and independent reference checks'}
+        messages['connected'] = 'Validating instrument connections and propagating the thermal pulse sequence'
+        messages['research'] = 'Executing the bounded quantum channel and independent reference checks'
         send.send(('progress',messages[kind]))
-        schema,runner={'circuit':(CircuitRequest,run_circuit),'optimization':(OptimizationRequest,run_optimization),'machine':(MachineRequest,run_machine),'experiment':(ExperimentRequest,run_experiment),'physics':(PhysicsRequest,run_physics),'photonics':(PhotonicsRequest,run_photonics),'qubo':(QuboRequest,run_qubo)}[kind]
+        schema,runner={'circuit':(CircuitRequest,run_circuit),'optimization':(OptimizationRequest,run_optimization),'machine':(MachineRequest,run_machine),'experiment':(ExperimentRequest,run_experiment),'physics':(PhysicsRequest,run_physics),'photonics':(PhotonicsRequest,run_photonics),'qubo':(QuboRequest,run_qubo),'connected':(ConnectedRequest,run_connected),'research':(ResearchRequest,run_research)}[kind]
         result=runner(schema(**payload))
+        high_water = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        result['resources'] = {
+            'worker_wall_s': time.perf_counter() - started,
+            'peak_rss_bytes': int(high_water if sys.platform == 'darwin' else high_water * 1024),
+            'execution': 'local_cpu',
+            'scope': 'Worker process high-water resident memory; includes scientific library imports. Wall time starts at worker entry.',
+        }
         send.send(('result',result))
     except Exception as exc:
         send.send(('error',f'{type(exc).__name__}: {exc}'))

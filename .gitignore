@@ -5,6 +5,7 @@ node_modules/
 frontend/dist/
 data/*.sqlite*
 *.log
+!docs/verification/nexus-*.log
 .DS_Store
 frontend/test-results/
 frontend/playwright-report/

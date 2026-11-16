@@ -3,4 +3,5 @@ import {createRoot} from 'react-dom/client';
 import App from './App';
 import './styles.css';
 import './forge.css';
+import './main-lab/main-lab.css';
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);

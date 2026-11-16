@@ -1,0 +1,964 @@
+{
+  "metadata": {
+    "actualWorkers": 1
+  },
+  "startTime": 1794785080447,
+  "duration": 95723,
+  "files": [
+    {
+      "fileId": "f941f2f82cfe3d259dde",
+      "fileName": "connected-lab.spec.ts",
+      "tests": [
+        {
+          "testId": "f941f2f82cfe3d259dde-164d008800df6fc37799",
+          "title": "connected acquisition responds to real temperature, source power and detuning changes",
+          "projectName": "",
+          "location": {
+            "file": "connected-lab.spec.ts",
+            "line": 26,
+            "column": 1
+          },
+          "duration": 5906,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:24:40.689Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "f941f2f82cfe3d259dde-2afef71ef529e419a3c8",
+          "title": "missing ports and disabled instruments prevent acquisition with explicit computed reasons",
+          "projectName": "",
+          "location": {
+            "file": "connected-lab.spec.ts",
+            "line": 50,
+            "column": 1
+          },
+          "duration": 1601,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:24:48.091Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "f941f2f82cfe3d259dde-edc89116a8c640f8d5f6",
+          "title": "saved apparatus survives reload, detects revision conflicts and preserves History snapshots",
+          "projectName": "",
+          "location": {
+            "file": "connected-lab.spec.ts",
+            "line": 71,
+            "column": 1
+          },
+          "duration": 2601,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:24:49.704Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "f941f2f82cfe3d259dde-e470ecb75056914f0e5a",
+          "title": "all seven protocols produce backend evidence and calibration is labeled synthetic",
+          "projectName": "",
+          "location": {
+            "file": "connected-lab.spec.ts",
+            "line": 109,
+            "column": 1
+          },
+          "duration": 6483,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:24:52.313Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "f941f2f82cfe3d259dde-31c5f016c742b3faeb96",
+          "title": "mobile instrument controls and port faults stay accessible without horizontal overflow",
+          "projectName": "",
+          "location": {
+            "file": "connected-lab.spec.ts",
+            "line": 122,
+            "column": 1
+          },
+          "duration": 1101,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:24:58.811Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "f941f2f82cfe3d259dde-4bb282e9a69203a29ed0",
+          "title": "initial apparatus loading keeps controls disabled until the matching saved snapshot arrives",
+          "projectName": "",
+          "location": {
+            "file": "connected-lab.spec.ts",
+            "line": 139,
+            "column": 1
+          },
+          "duration": 644,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:24:59.921Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 6,
+        "expected": 6,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    {
+      "fileId": "4543c3759e1795ddeab4",
+      "fileName": "general-lab.spec.ts",
+      "tests": [
+        {
+          "testId": "4543c3759e1795ddeab4-5a23aa0f9177481f5d77",
+          "title": "virtual computer executes and steps a Bell program",
+          "projectName": "",
+          "location": {
+            "file": "general-lab.spec.ts",
+            "line": 3,
+            "column": 1
+          },
+          "duration": 1914,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:00.579Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "4543c3759e1795ddeab4-7056f86d452140ac9aa7",
+          "title": "general lab runs Grover and opens its circuit on the computer",
+          "projectName": "",
+          "location": {
+            "file": "general-lab.spec.ts",
+            "line": 22,
+            "column": 1
+          },
+          "duration": 2844,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:02.499Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "4543c3759e1795ddeab4-890bd1f4bb97ba1d013a",
+          "title": "superdense coding and malformed assembly have real outcomes",
+          "projectName": "",
+          "location": {
+            "file": "general-lab.spec.ts",
+            "line": 38,
+            "column": 1
+          },
+          "duration": 1893,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:05.350Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "4543c3759e1795ddeab4-57379140306e39ec7edf",
+          "title": "general lab and virtual computer fit desktop and mobile",
+          "projectName": "",
+          "location": {
+            "file": "general-lab.spec.ts",
+            "line": 52,
+            "column": 1
+          },
+          "duration": 3707,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:07.254Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "4543c3759e1795ddeab4-482e9d9753bd1ceb6e49",
+          "title": "reducing the register removes a Toffoli with an invalid second control",
+          "projectName": "",
+          "location": {
+            "file": "general-lab.spec.ts",
+            "line": 74,
+            "column": 1
+          },
+          "duration": 1922,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:10.970Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "4543c3759e1795ddeab4-ea0aa9f28a3e1c0c02d4",
+          "title": "phase-gate angle changes mark configurations as different",
+          "projectName": "",
+          "location": {
+            "file": "general-lab.spec.ts",
+            "line": 85,
+            "column": 1
+          },
+          "duration": 87,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:12.903Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 6,
+        "expected": 6,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    {
+      "fileId": "73756d49d6d39021979c",
+      "fileName": "main-lab-interactions.spec.ts",
+      "tests": [
+        {
+          "testId": "73756d49d6d39021979c-9cfdadebd8220cca3bc0",
+          "title": "Bell experiment executes through Python and survives a page reload in History",
+          "projectName": "",
+          "location": {
+            "file": "main-lab-interactions.spec.ts",
+            "line": 4,
+            "column": 1
+          },
+          "duration": 3492,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [
+                {
+                  "name": "stdout",
+                  "contentType": "text/plain"
+                }
+              ],
+              "startTime": "2026-11-15T23:25:13.000Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "73756d49d6d39021979c-159b77d59a63eefdbf1b",
+          "title": "all five station inspectors link to their working modules and the gallery loads local photos",
+          "projectName": "",
+          "location": {
+            "file": "main-lab-interactions.spec.ts",
+            "line": 46,
+            "column": 1
+          },
+          "duration": 2685,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:16.498Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "73756d49d6d39021979c-3d7fa3ea7f6e9caa7430",
+          "title": "mobile controls, graphics preference and inline guide remain usable without overlap",
+          "projectName": "",
+          "location": {
+            "file": "main-lab-interactions.spec.ts",
+            "line": 86,
+            "column": 1
+          },
+          "duration": 2262,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:19.194Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 3,
+        "expected": 3,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    {
+      "fileId": "d1a5df0ab5500088c54d",
+      "fileName": "main-lab.spec.ts",
+      "tests": [
+        {
+          "testId": "d1a5df0ab5500088c54d-6543809bc205d16fbe0e",
+          "title": "main laboratory is the landing page and loads actual 3D assets",
+          "projectName": "",
+          "location": {
+            "file": "main-lab.spec.ts",
+            "line": 3,
+            "column": 1
+          },
+          "duration": 1618,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [
+                {
+                  "name": "stdout",
+                  "contentType": "text/plain"
+                }
+              ],
+              "startTime": "2026-11-15T23:25:21.471Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "d1a5df0ab5500088c54d-ab2c47fb5fc8bab9cbf8",
+          "title": "raycast equipment clicks and camera navigation operate on the actual canvas",
+          "projectName": "",
+          "location": {
+            "file": "main-lab.spec.ts",
+            "line": 19,
+            "column": 1
+          },
+          "duration": 3800,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:23.097Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "d1a5df0ab5500088c54d-0e076b949d287adad96e",
+          "title": "missing model is reported and retry recovers after the asset is restored",
+          "projectName": "",
+          "location": {
+            "file": "main-lab.spec.ts",
+            "line": 58,
+            "column": 1
+          },
+          "duration": 1843,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:26.913Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 3,
+        "expected": 3,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    {
+      "fileId": "cace3cfb8d708991a998",
+      "fileName": "photonics-photo.spec.ts",
+      "tests": [
+        {
+          "testId": "cace3cfb8d708991a998-9203914c68284eeb1882",
+          "title": "studio photo explains real components and links their simulation controls",
+          "projectName": "",
+          "location": {
+            "file": "photonics-photo.spec.ts",
+            "line": 17,
+            "column": 1
+          },
+          "duration": 2472,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:28.773Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "cace3cfb8d708991a998-0134784ae6c157b7d5c5",
+          "title": "studio photo and all component hotspots remain usable on mobile",
+          "projectName": "",
+          "location": {
+            "file": "photonics-photo.spec.ts",
+            "line": 56,
+            "column": 1
+          },
+          "duration": 1048,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:31.256Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 2,
+        "expected": 2,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    {
+      "fileId": "741d9ab2fe3d92282d7c",
+      "fileName": "physical-photonics.spec.ts",
+      "tests": [
+        {
+          "testId": "741d9ab2fe3d92282d7c-e77bed905b052e3b3d41",
+          "title": "Rabi pulse parameters change numerical evolution and preserve pinned evidence",
+          "projectName": "",
+          "location": {
+            "file": "physical-photonics.spec.ts",
+            "line": 3,
+            "column": 1
+          },
+          "duration": 3102,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:32.323Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "741d9ab2fe3d92282d7c-03db10a6b1bf361c4566",
+          "title": "classical optical bench validates assembly and swaps bright and dark ports",
+          "projectName": "",
+          "location": {
+            "file": "physical-photonics.spec.ts",
+            "line": 32,
+            "column": 1
+          },
+          "duration": 3918,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:35.436Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "741d9ab2fe3d92282d7c-beb5e7e6c0f51664fb14",
+          "title": "physical and photonics benches render on desktop and mobile",
+          "projectName": "",
+          "location": {
+            "file": "physical-photonics.spec.ts",
+            "line": 54,
+            "column": 1
+          },
+          "duration": 4692,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:39.366Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 3,
+        "expected": 3,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    {
+      "fileId": "36d1018535b101b3b542",
+      "fileName": "qubo.spec.ts",
+      "tests": [
+        {
+          "testId": "36d1018535b101b3b542-1c04d5d4f4601e39d6bf",
+          "title": "QUBO triangle benchmark preserves executed evidence through edits, export and history",
+          "projectName": "",
+          "location": {
+            "file": "qubo.spec.ts",
+            "line": 4,
+            "column": 1
+          },
+          "duration": 6928,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:44.080Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "36d1018535b101b3b542-f2d992f9c33aa7f4b13b",
+          "title": "QUBO validates JSON, derives Ising coefficients, and fits mobile",
+          "projectName": "",
+          "location": {
+            "file": "qubo.spec.ts",
+            "line": 53,
+            "column": 1
+          },
+          "duration": 973,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:51.015Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 2,
+        "expected": 2,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    {
+      "fileId": "22c851d552fb671ca4d2",
+      "fileName": "research-labs.spec.ts",
+      "tests": [
+        {
+          "testId": "22c851d552fb671ca4d2-436cb122e21a9119ee41",
+          "title": "single-photon paths, phase, loss and detection use returned quantum probabilities",
+          "projectName": "",
+          "location": {
+            "file": "research-labs.spec.ts",
+            "line": 12,
+            "column": 1
+          },
+          "duration": 5198,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:52.002Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "22c851d552fb671ca4d2-7f5db5176f22575c44fc",
+          "title": "repetition-code correction matches analytic failure and reopens from History",
+          "projectName": "",
+          "location": {
+            "file": "research-labs.spec.ts",
+            "line": 28,
+            "column": 1
+          },
+          "duration": 3089,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:25:57.208Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "22c851d552fb671ca4d2-622a4b4cc5f72edaa6db",
+          "title": "quantum optics remains usable on mobile with bounded inputs",
+          "projectName": "",
+          "location": {
+            "file": "research-labs.spec.ts",
+            "line": 41,
+            "column": 1
+          },
+          "duration": 788,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:26:00.305Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 3,
+        "expected": 3,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    },
+    {
+      "fileId": "26aa48cee8983222f549",
+      "fileName": "workflows.spec.ts",
+      "tests": [
+        {
+          "testId": "26aa48cee8983222f549-ea3e06697efa19538877",
+          "title": "Bell circuit executes, saves and restores with real probabilities",
+          "projectName": "",
+          "location": {
+            "file": "workflows.spec.ts",
+            "line": 3,
+            "column": 1
+          },
+          "duration": 1997,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:26:01.114Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "26aa48cee8983222f549-8d909b56ceef95d38e3a",
+          "title": "Max-Cut comparison runs all three solvers and exports",
+          "projectName": "",
+          "location": {
+            "file": "workflows.spec.ts",
+            "line": 24,
+            "column": 1
+          },
+          "duration": 2811,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:26:03.117Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "26aa48cee8983222f549-cda447563aa9f384295c",
+          "title": "Knapsack edit and history reload use real result",
+          "projectName": "",
+          "location": {
+            "file": "workflows.spec.ts",
+            "line": 36,
+            "column": 1
+          },
+          "duration": 1908,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:26:05.936Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "26aa48cee8983222f549-311dd1c2507fe00600a0",
+          "title": "knapsack comma editors preserve typing and use edited instance",
+          "projectName": "",
+          "location": {
+            "file": "workflows.spec.ts",
+            "line": 48,
+            "column": 1
+          },
+          "duration": 2550,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:26:07.859Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "26aa48cee8983222f549-5c77a1d67cd885a31246",
+          "title": "terminal measurement misuse shows a useful validation error",
+          "projectName": "",
+          "location": {
+            "file": "workflows.spec.ts",
+            "line": 63,
+            "column": 1
+          },
+          "duration": 536,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:26:10.421Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "26aa48cee8983222f549-e57e828a184a4589b7de",
+          "title": "desktop and mobile layouts render without horizontal overflow",
+          "projectName": "",
+          "location": {
+            "file": "workflows.spec.ts",
+            "line": 72,
+            "column": 1
+          },
+          "duration": 2649,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:26:10.970Z",
+              "workerIndex": 0
+            }
+          ]
+        },
+        {
+          "testId": "26aa48cee8983222f549-ef77c39351cd1054321d",
+          "title": "gate palette drag places a gate on the selected wire",
+          "projectName": "",
+          "location": {
+            "file": "workflows.spec.ts",
+            "line": 99,
+            "column": 1
+          },
+          "duration": 1959,
+          "annotations": [],
+          "tags": [],
+          "outcome": "expected",
+          "path": [],
+          "ok": true,
+          "results": [
+            {
+              "attachments": [],
+              "startTime": "2026-11-15T23:26:13.629Z",
+              "workerIndex": 0
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "total": 7,
+        "expected": 7,
+        "unexpected": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "ok": true
+      }
+    }
+  ],
+  "projectNames": [
+    ""
+  ],
+  "stats": {
+    "total": 35,
+    "expected": 35,
+    "unexpected": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "ok": true
+  },
+  "errors": [],
+  "options": {},
+  "machines": []
+}

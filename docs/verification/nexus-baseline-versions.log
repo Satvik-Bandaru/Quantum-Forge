@@ -1,0 +1,21 @@
+Python 3.12.8
+v24.21.0
+11.19.0
+fastapi==0.162.0: satisfies <1,>=0.115
+uvicorn==0.54.0: satisfies <1,>=0.34
+pydantic==2.14.2: satisfies <3,>=2.10
+numpy==2.5.4: satisfies <3,>=2
+scipy==1.18.1: satisfies <2,>=1.14
+pennylane==0.45.1: satisfies <0.46,>=0.40
+qiskit==2.6.1: satisfies <3,>=2
+qiskit-aer==0.18.2: satisfies <0.19,>=0.17
+dwave-samplers==1.8.0: satisfies <2,>=1.4
+dimod==0.12.23: satisfies <0.13,>=0.12
+ortools==9.15.6755: satisfies <10,>=9.12
+pytest==9.2.0: satisfies <10,>=8
+httpx==0.28.1: satisfies <1,>=0.28
+psutil==7.2.2: satisfies <8,>=7
+Lock parity: 54 packages, 0 mismatches
+Node engine requirements: Vite 7.3.7 and plugin-react 5.2.0 require ^20.19.0 || >=22.12.0; Playwright 1.64.1 requires >=20. Local Node 24.21.0 satisfies these. CI Node 22 resolves latest 22.x.
+React 19.3.1 satisfies fiber 9.8.2 peer >=19 <19.4 and drei 10.7.9 peer ^19.
+Warnings observed: Starlette TestClient httpx adapter deprecated; THREE.Clock deprecated; 3D bundle chunk 1038.68 kB minified.
