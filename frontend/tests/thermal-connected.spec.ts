@@ -69,7 +69,7 @@ test('completed runs can be pinned and compared without mixing incompatible axes
  await expect(page.getByTestId('connected-comparison')).toHaveCount(0);
 });
 
-test('thermal heat load changes backend quantum populations and saved evidence replays',async({page})=>{
+test('thermal heat load changes backend quantum populations and saved evidence replays',async({page,baseURL})=>{
  const original=await(await page.request.get('/api/apparatus')).json();
  try{
   await page.setViewportSize({width:1512,height:1050});await openBench(page);
@@ -90,7 +90,7 @@ test('thermal heat load changes backend quantum populations and saved evidence r
   expect(warm.result.apparatus_status.derived.temperature_k).toBeGreaterThan(cold.result.apparatus_status.derived.temperature_k+.04);
   expect(warm.result.series[0].probability-cold.result.series[0].probability).toBeGreaterThan(.02);
   await expect(page.getByTestId('connected-comparison')).toContainText('apparatus.cryostat.network.mixing_chamber.heat_load_w');
-  const replayResponse=await page.request.post('/api/jobs',{data:{kind:'connected',config:cold.config}});
+  const replayResponse=await page.request.post('/api/jobs',{headers:{Origin:new URL(baseURL!).origin},data:{kind:'connected',config:cold.config}});
   expect(replayResponse.status()).toBe(202);const replayJob=await replayResponse.json();
   await expect.poll(async()=>((await(await page.request.get('/api/jobs/'+replayJob.id)).json()).status),{timeout:60000}).toBe('completed');
   const replay=await(await page.request.get('/api/history/'+replayJob.id)).json();
@@ -107,7 +107,7 @@ test('thermal heat load changes backend quantum populations and saved evidence r
   await page.screenshot({path:'../docs/screenshots/nexus-thermal-laboratory.png',fullPage:true});
  }finally{
   const current=await(await page.request.get('/api/apparatus')).json();
-  await page.request.put('/api/apparatus',{data:{revision:current.revision,config:original.config}});
+  await page.request.put('/api/apparatus',{headers:{Origin:new URL(baseURL!).origin},data:{revision:current.revision,config:original.config}});
  }
 });
 

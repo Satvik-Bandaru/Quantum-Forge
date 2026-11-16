@@ -1,0 +1,23 @@
+{
+  "historical_files_checked": 118,
+  "historical_changed": [],
+  "database_metadata_unchanged": true,
+  "database_metadata": [
+    {
+      "path": "data/experiments-before-physical-photonics.sqlite3",
+      "bytes": 602112,
+      "mtime_ns": 1794085665621358261
+    },
+    {
+      "path": "data/experiments-before-qubo.sqlite3",
+      "bytes": 1941504,
+      "mtime_ns": 1794097870517650284
+    },
+    {
+      "path": "data/experiments.sqlite3",
+      "bytes": 6057984,
+      "mtime_ns": 1794788883149262927
+    }
+  ],
+  "database_contents_opened": false
+}

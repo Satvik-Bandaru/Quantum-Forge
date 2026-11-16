@@ -1,0 +1,1 @@
+{"detail":"Mutations require the server origin; CLI clients may explicitly enable QF_ALLOW_ORIGINLESS=1."}

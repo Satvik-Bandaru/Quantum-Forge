@@ -1,0 +1,49 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+____ test_cancel_during_watchdog_termination_does_not_block_or_release_slot ____
+
+controlled_manager = <backend.jobs.JobManager object at 0x10295cfb0>
+
+    def test_cancel_during_watchdog_termination_does_not_block_or_release_slot(controlled_manager):
+        manager = controlled_manager
+        first = manager.start('circuit', {})
+        process = manager.active['process']
+        assert process.join_entered.wait(2)
+        done = threading.Event()
+        outcomes = {}
+    
+        def competing_requests():
+            outcomes['cancel'] = manager.cancel(first['id'])
+            try:
+                manager.start('circuit', {})
+            except BusyError:
+                outcomes['busy'] = True
+            done.set()
+    
+        contender = threading.Thread(target=competing_requests, daemon=True)
+        contender.start()
+        try:
+>           assert done.wait(1), 'cancel/start blocked behind worker join'
+E           AssertionError: cancel/start blocked behind worker join
+E           assert False
+E            +  where False = wait(1)
+E            +    where wait = <threading.Event at 0x1028b7aa0: unset>.wait
+
+tests/security/test_jobs.py:75: AssertionError
+_______ test_closed_manager_rejects_start_without_persisting_or_spawning _______
+
+controlled_manager = <backend.jobs.JobManager object at 0x1029274d0>
+
+    def test_closed_manager_rejects_start_without_persisting_or_spawning(controlled_manager):
+        manager = controlled_manager
+        manager.close()
+        manager.close()
+>       with pytest.raises(BusyError, match='closed'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BusyError
+
+tests/security/test_jobs.py:102: Failed
+=========================== short test summary info ============================
+FAILED tests/security/test_jobs.py::test_cancel_during_watchdog_termination_does_not_block_or_release_slot
+FAILED tests/security/test_jobs.py::test_closed_manager_rejects_start_without_persisting_or_spawning
+2 failed in 1.20s

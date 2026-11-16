@@ -1,0 +1,18 @@
+INFO:     Started server process [3784]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:54232 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54233 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54234 - "GET /api/health HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:54235 - "GET /api/health HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:54236 - "POST /api/jobs HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:54237 - "POST /api/jobs HTTP/1.1" 413 Request Entity Too Large
+INFO:     127.0.0.1:54238 - "POST /api/jobs HTTP/1.1" 413 Request Entity Too Large
+INFO:     127.0.0.1:54239 - "POST /api/jobs HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:54240 - "POST /api/jobs HTTP/1.1" 409 Conflict
+INFO:     127.0.0.1:54241 - "DELETE /api/jobs/68c05ab0-dca1-46de-a296-2c26db2c0791 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54242 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3784]

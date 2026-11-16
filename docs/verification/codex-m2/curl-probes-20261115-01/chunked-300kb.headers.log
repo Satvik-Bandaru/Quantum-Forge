@@ -1,0 +1,20 @@
+*   Trying 127.0.0.1:54231...
+* Connected to 127.0.0.1 (127.0.0.1) port 54231
+> POST /api/jobs HTTP/1.1
+> Host: 127.0.0.1:54231
+> User-Agent: curl/8.7.1
+> Accept: */*
+> Origin: http://127.0.0.1:54231
+> Content-Type: application/json
+> Transfer-Encoding: chunked
+> 
+} [65353 bytes data]
+* upload completely sent off: 300045 bytes
+< HTTP/1.1 413 Request Entity Too Large
+< date: Mon, 16 Nov 2026 02:51:14 GMT
+< server: uvicorn
+< content-length: 46
+< content-type: application/json
+< 
+{ [46 bytes data]
+* Connection #0 to host 127.0.0.1 left intact

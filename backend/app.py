@@ -37,12 +37,15 @@ class ApparatusSave(StrictModel):
     config: ApparatusConfig
 
 
-def create_app(db_path=None,timeout_s=None,memory_mb=None):
+def create_app(db_path=None,timeout_s=None,memory_mb=None,testing: bool=False):
+    if testing:
+        if db_path is None or Path(db_path).resolve().is_relative_to(ROOT/'data'):
+            raise ValueError('Testing requires an explicit database path outside the application data directory.')
     timeout_s=timeout_s if timeout_s is not None else min(120,max(1,float(os.getenv('QF_TIMEOUT_SECONDS','45'))))
     memory_mb=memory_mb if memory_mb is not None else min(2048,max(128,int(os.getenv('QF_MEMORY_MB','1024'))))
     @asynccontextmanager
     async def lifespan(app):
-        app.state.store=Store(db_path or os.getenv('QF_DB_PATH') or ROOT/'data'/'experiments.sqlite3')
+        app.state.store=Store(db_path or os.getenv('QF_DB_PATH') or ROOT/'data'/'experiments.sqlite3', allow_migration=testing or os.getenv('QF_ALLOW_DB_MIGRATION')=='1')
         app.state.jobs=JobManager(app.state.store,timeout_s,memory_mb)
         yield
         app.state.jobs.close()
@@ -55,14 +58,33 @@ def create_app(db_path=None,timeout_s=None,memory_mb=None):
 
     @app.middleware('http')
     async def local_only(request:Request,call_next):
-        host=request.url.hostname
-        if host not in ('127.0.0.1','localhost','::1','testserver'):
+        allowed_hosts=('127.0.0.1','localhost','::1') + (('testserver',) if testing else ())
+        try:
+            host=request.url.hostname
+            server_origin=(request.url.scheme,host,request.url.port if request.url.port is not None else (443 if request.url.scheme=='https' else 80))
+        except ValueError:
+            return JSONResponse({'detail':'Invalid local address.'},status_code=403)
+        if host not in allowed_hosts:
             return JSONResponse({'detail':'Use the local loopback address.'},status_code=403)
-        origin=request.headers.get('origin')
-        if request.method in ('POST','PUT','PATCH','DELETE') and origin:
-            parsed=urlparse(origin)
-            if parsed.hostname not in ('127.0.0.1','localhost','::1') or parsed.scheme not in ('http','https'):
-                return JSONResponse({'detail':'Only local browser origins may change experiments.'},status_code=403)
+        if request.method in ('POST','PUT','PATCH','DELETE'):
+            origins=request.headers.getlist('origin')
+            valid_origin=False
+            if not origins:
+                valid_origin=testing or os.getenv('QF_ALLOW_ORIGINLESS')=='1'
+            elif len(origins)==1:
+                try:
+                    parsed=urlparse(origins[0])
+                    port=parsed.port if parsed.port is not None else (443 if parsed.scheme=='https' else 80)
+                    valid_origin=(
+                        parsed.scheme in ('http','https')
+                        and not (parsed.username is not None or parsed.password is not None
+                                 or parsed.path or parsed.params or parsed.query or parsed.fragment)
+                        and (parsed.scheme,parsed.hostname,port)==server_origin
+                    )
+                except ValueError:
+                    pass
+            if not valid_origin:
+                return JSONResponse({'detail':'Mutations require the server origin; CLI clients may explicitly enable QF_ALLOW_ORIGINLESS=1.'},status_code=403)
         return await call_next(request)
 
     @app.get('/api/health')

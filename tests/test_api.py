@@ -5,7 +5,7 @@ from backend.app import create_app
 
 @pytest.fixture
 def client(tmp_path):
-    with TestClient(create_app(tmp_path/'test.sqlite3')) as client:
+    with TestClient(create_app(tmp_path/'test.sqlite3', testing=True)) as client:
         yield client
 
 
@@ -57,7 +57,7 @@ def test_single_job_limit_and_cancel_are_persisted(client):
 
 
 def test_timeout_terminates_worker_and_releases_slot(tmp_path):
-    with TestClient(create_app(tmp_path/'timeout.sqlite3',timeout_s=0.01)) as client:
+    with TestClient(create_app(tmp_path/'timeout.sqlite3',timeout_s=0.01, testing=True)) as client:
         job=client.post('/api/jobs',json={'kind':'optimization','config':{}}).json()
         result=wait_for(client,job['id'])
         assert result['status']=='timed_out'
@@ -66,9 +66,9 @@ def test_timeout_terminates_worker_and_releases_slot(tmp_path):
 
 def test_reopen_database_preserves_results_and_circuits(tmp_path):
     path=tmp_path/'persist.sqlite3'
-    with TestClient(create_app(path)) as client:
+    with TestClient(create_app(path, testing=True)) as client:
         client.post('/api/circuits',json={'name':'Saved','config':{'qubits':1}})
-    with TestClient(create_app(path)) as client:
+    with TestClient(create_app(path, testing=True)) as client:
         assert client.get('/api/circuits').json()[0]['name']=='Saved'
 
 
@@ -86,7 +86,7 @@ def test_challenge_scoring_requires_actual_bell_state(client):
 
 
 def test_memory_limit_terminates_worker(tmp_path):
-    with TestClient(create_app(tmp_path/'memory.sqlite3',memory_mb=1)) as client:
+    with TestClient(create_app(tmp_path/'memory.sqlite3',memory_mb=1, testing=True)) as client:
         job=client.post('/api/jobs',json={'kind':'optimization','config':{}}).json()
         result=wait_for(client,job['id'])
         assert result['status']=='memory_limited'

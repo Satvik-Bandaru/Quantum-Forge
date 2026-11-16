@@ -1,0 +1,158 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+_______________ test_existing_upgrade_requires_explicit_approval _______________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-129/test_existing_upgrade_requires0')
+
+    def test_existing_upgrade_requires_explicit_approval(tmp_path):
+        path = tmp_path / 'old.sqlite3'
+        old_database(path)
+        before = path.read_bytes()
+>       with pytest.raises(RuntimeError, match='allow_migration=True'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE RuntimeError
+
+tests/security/test_storage.py:24: Failed
+___________ test_copied_old_fixture_migration_backup_and_idempotence ___________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-129/test_copied_old_fixture_migrat0')
+
+    def test_copied_old_fixture_migration_backup_and_idempotence(tmp_path):
+        original = tmp_path / 'fixture.sqlite3'
+        old_database(original)
+        path = tmp_path / 'copy.sqlite3'
+        shutil.copyfile(original, path)
+        before = original.read_bytes()
+>       store = Store(path, allow_migration=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: Store.__init__() got an unexpected keyword argument 'allow_migration'
+
+tests/security/test_storage.py:36: TypeError
+___________________ test_backup_includes_committed_wal_rows ____________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-129/test_backup_includes_committed0')
+
+    def test_backup_includes_committed_wal_rows(tmp_path):
+        path = tmp_path / 'wal.sqlite3'
+        old_database(path)
+        with sqlite3.connect(path) as writer:
+            writer.execute('PRAGMA journal_mode=WAL')
+            writer.execute('INSERT INTO circuits VALUES (?,?)', ('wal', '{"id":"wal"}'))
+            writer.commit()
+>           Store(path, allow_migration=True)
+E           TypeError: Store.__init__() got an unexpected keyword argument 'allow_migration'
+
+tests/security/test_storage.py:61: TypeError
+__________________ test_future_schema_refused_without_changes __________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-129/test_future_schema_refused_wit0')
+
+    def test_future_schema_refused_without_changes(tmp_path):
+        path = tmp_path / 'future.sqlite3'
+        with sqlite3.connect(path) as db:
+            db.execute('CREATE TABLE meta (schema_version INTEGER NOT NULL)')
+            db.execute('INSERT INTO meta VALUES (999)')
+        before = path.read_bytes()
+        with pytest.raises(RuntimeError, match='newer'):
+>           Store(path, allow_migration=True)
+E           TypeError: Store.__init__() got an unexpected keyword argument 'allow_migration'
+
+tests/security/test_storage.py:74: TypeError
+___________ test_summary_updates_without_parsing_result_for_history ____________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-129/test_summary_updates_without_p0')
+
+    def test_summary_updates_without_parsing_result_for_history(tmp_path):
+        store = Store(tmp_path / 'new.sqlite3')
+        result = {'kind': 'circuit', 'qubits': 2, 'depth': 2, 'runtime_s': .1,
+                  'probabilities': [.5, 0, 0, .5], 'amplitudes': [[.707, 0], [0, 0], [0, 0], [.707, 0]]}
+        store.insert({'id': 'bell', 'status': 'running', 'result': result})
+        store.update('bell', status='completed', title='updated')
+        with store.connect() as db:
+>           cached = json.loads(db.execute('SELECT summary FROM experiments').fetchone()[0])
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           sqlite3.OperationalError: no such column: summary
+
+tests/security/test_storage.py:86: OperationalError
+____________ test_retention_prunes_only_oldest_beyond_cap[100-100] _____________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-129/test_retention_prunes_only_old0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1088e7770>
+configured = '100', cap = 100
+
+    @pytest.mark.parametrize('configured,cap', [('100', 100), ('2', 100), (None, 1000)])
+    def test_retention_prunes_only_oldest_beyond_cap(tmp_path, monkeypatch, configured, cap):
+        if configured is None:
+            monkeypatch.delenv('QF_MAX_SAVED_CIRCUITS', raising=False)
+        else:
+            monkeypatch.setenv('QF_MAX_SAVED_CIRCUITS', configured)
+        store = Store(tmp_path / 'circuits.sqlite3')
+        with store.connect() as db:
+            db.executemany('INSERT INTO circuits VALUES (?,?)', [(str(i), json.dumps({'id': str(i)})) for i in range(cap)])
+        Store(store.path)
+        with store.connect() as db:
+            assert db.execute('SELECT COUNT(*) FROM circuits').fetchone()[0] == cap
+        store.insert({'id': 'new'}, table='circuits')
+        with store.connect() as db:
+>           assert db.execute('SELECT COUNT(*) FROM circuits').fetchone()[0] == cap
+E           assert 101 == 100
+
+tests/security/test_storage.py:109: AssertionError
+_____________ test_retention_prunes_only_oldest_beyond_cap[2-100] ______________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-129/test_retention_prunes_only_old1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1088e4da0>
+configured = '2', cap = 100
+
+    @pytest.mark.parametrize('configured,cap', [('100', 100), ('2', 100), (None, 1000)])
+    def test_retention_prunes_only_oldest_beyond_cap(tmp_path, monkeypatch, configured, cap):
+        if configured is None:
+            monkeypatch.delenv('QF_MAX_SAVED_CIRCUITS', raising=False)
+        else:
+            monkeypatch.setenv('QF_MAX_SAVED_CIRCUITS', configured)
+        store = Store(tmp_path / 'circuits.sqlite3')
+        with store.connect() as db:
+            db.executemany('INSERT INTO circuits VALUES (?,?)', [(str(i), json.dumps({'id': str(i)})) for i in range(cap)])
+        Store(store.path)
+        with store.connect() as db:
+            assert db.execute('SELECT COUNT(*) FROM circuits').fetchone()[0] == cap
+        store.insert({'id': 'new'}, table='circuits')
+        with store.connect() as db:
+>           assert db.execute('SELECT COUNT(*) FROM circuits').fetchone()[0] == cap
+E           assert 101 == 100
+
+tests/security/test_storage.py:109: AssertionError
+___________ test_retention_prunes_only_oldest_beyond_cap[None-1000] ____________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-129/test_retention_prunes_only_old2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1088e57f0>
+configured = None, cap = 1000
+
+    @pytest.mark.parametrize('configured,cap', [('100', 100), ('2', 100), (None, 1000)])
+    def test_retention_prunes_only_oldest_beyond_cap(tmp_path, monkeypatch, configured, cap):
+        if configured is None:
+            monkeypatch.delenv('QF_MAX_SAVED_CIRCUITS', raising=False)
+        else:
+            monkeypatch.setenv('QF_MAX_SAVED_CIRCUITS', configured)
+        store = Store(tmp_path / 'circuits.sqlite3')
+        with store.connect() as db:
+            db.executemany('INSERT INTO circuits VALUES (?,?)', [(str(i), json.dumps({'id': str(i)})) for i in range(cap)])
+        Store(store.path)
+        with store.connect() as db:
+            assert db.execute('SELECT COUNT(*) FROM circuits').fetchone()[0] == cap
+        store.insert({'id': 'new'}, table='circuits')
+        with store.connect() as db:
+>           assert db.execute('SELECT COUNT(*) FROM circuits').fetchone()[0] == cap
+E           assert 1001 == 1000
+
+tests/security/test_storage.py:109: AssertionError
+=========================== short test summary info ============================
+FAILED tests/security/test_storage.py::test_existing_upgrade_requires_explicit_approval
+FAILED tests/security/test_storage.py::test_copied_old_fixture_migration_backup_and_idempotence
+FAILED tests/security/test_storage.py::test_backup_includes_committed_wal_rows
+FAILED tests/security/test_storage.py::test_future_schema_refused_without_changes
+FAILED tests/security/test_storage.py::test_summary_updates_without_parsing_result_for_history
+FAILED tests/security/test_storage.py::test_retention_prunes_only_oldest_beyond_cap[100-100]
+FAILED tests/security/test_storage.py::test_retention_prunes_only_oldest_beyond_cap[2-100]
+FAILED tests/security/test_storage.py::test_retention_prunes_only_oldest_beyond_cap[None-1000]
+8 failed in 0.07s

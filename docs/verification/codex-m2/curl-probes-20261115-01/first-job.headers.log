@@ -1,0 +1,20 @@
+*   Trying 127.0.0.1:54231...
+* Connected to 127.0.0.1 (127.0.0.1) port 54231
+> POST /api/jobs HTTP/1.1
+> Host: 127.0.0.1:54231
+> User-Agent: curl/8.7.1
+> Accept: */*
+> Origin: http://127.0.0.1:54231
+> Content-Type: application/json
+> Content-Length: 99
+> 
+} [99 bytes data]
+* upload completely sent off: 99 bytes
+< HTTP/1.1 202 Accepted
+< date: Mon, 16 Nov 2026 02:51:14 GMT
+< server: uvicorn
+< content-length: 440
+< content-type: application/json
+< 
+{ [440 bytes data]
+* Connection #0 to host 127.0.0.1 left intact

@@ -1,0 +1,700 @@
+.FFFFFFFFFFFFFFFFFFFFF....FFFFFFFFFFFF.....FFFF..                        [100%]
+=================================== FAILURES ===================================
+______________ test_production_rejects_untrusted_host[testserver] ______________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_production_rejects_untrus1')
+host = 'testserver'
+
+    @pytest.mark.parametrize('host', ['evil.example', 'testserver'])
+    def test_production_rejects_untrusted_host(tmp_path, host):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://' + host) as client:
+>           assert client.get('/api/health').status_code == 403
+E           AssertionError: assert 200 == 403
+E            +  where 200 = <Response [200 OK]>.status_code
+E            +    where <Response [200 OK]> = get('/api/health')
+E            +      where get = <starlette.testclient.TestClient object at 0x10700ff20>.get
+
+tests/security/test_http.py:15: AssertionError
+________________ test_mutations_require_exact_origin[None-POST] ________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o0')
+method = 'POST', origin = None
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+________________ test_mutations_require_exact_origin[None-PUT] _________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o1')
+method = 'PUT', origin = None
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______________ test_mutations_require_exact_origin[None-PATCH] ________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o2')
+method = 'PATCH', origin = None
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______________ test_mutations_require_exact_origin[None-DELETE] _______________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o3')
+method = 'DELETE', origin = None
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+__________________ test_mutations_require_exact_origin[-POST] __________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o4')
+method = 'POST', origin = ''
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+__________________ test_mutations_require_exact_origin[-PUT] ___________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o5')
+method = 'PUT', origin = ''
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_________________ test_mutations_require_exact_origin[-PATCH] __________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o6')
+method = 'PATCH', origin = ''
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_________________ test_mutations_require_exact_origin[-DELETE] _________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o7')
+method = 'DELETE', origin = ''
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______ test_mutations_require_exact_origin[http://localhost:3000-POST] ________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o8')
+method = 'POST', origin = 'http://localhost:3000'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+________ test_mutations_require_exact_origin[http://localhost:3000-PUT] ________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o9')
+method = 'PUT', origin = 'http://localhost:3000'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______ test_mutations_require_exact_origin[http://localhost:3000-PATCH] _______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o10')
+method = 'PATCH', origin = 'http://localhost:3000'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+______ test_mutations_require_exact_origin[http://localhost:3000-DELETE] _______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o11')
+method = 'DELETE', origin = 'http://localhost:3000'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______ test_mutations_require_exact_origin[https://localhost:8777-POST] _______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o12')
+method = 'POST', origin = 'https://localhost:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______ test_mutations_require_exact_origin[https://localhost:8777-PUT] ________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o13')
+method = 'PUT', origin = 'https://localhost:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+______ test_mutations_require_exact_origin[https://localhost:8777-PATCH] _______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o14')
+method = 'PATCH', origin = 'https://localhost:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+______ test_mutations_require_exact_origin[https://localhost:8777-DELETE] ______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o15')
+method = 'DELETE', origin = 'https://localhost:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______ test_mutations_require_exact_origin[http://127.0.0.1:8777-POST] ________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o16')
+method = 'POST', origin = 'http://127.0.0.1:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+________ test_mutations_require_exact_origin[http://127.0.0.1:8777-PUT] ________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o17')
+method = 'PUT', origin = 'http://127.0.0.1:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______ test_mutations_require_exact_origin[http://127.0.0.1:8777-PATCH] _______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o18')
+method = 'PATCH', origin = 'http://127.0.0.1:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+______ test_mutations_require_exact_origin[http://127.0.0.1:8777-DELETE] _______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o19')
+method = 'DELETE', origin = 'http://127.0.0.1:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+________ test_mutations_require_exact_origin[http://localhost:bad-POST] ________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o24')
+method = 'POST', origin = 'http://localhost:bad'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+________ test_mutations_require_exact_origin[http://localhost:bad-PUT] _________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o25')
+method = 'PUT', origin = 'http://localhost:bad'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______ test_mutations_require_exact_origin[http://localhost:bad-PATCH] ________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o26')
+method = 'PATCH', origin = 'http://localhost:bad'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______ test_mutations_require_exact_origin[http://localhost:bad-DELETE] _______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o27')
+method = 'DELETE', origin = 'http://localhost:bad'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_____ test_mutations_require_exact_origin[http://localhost:8777/path-POST] _____
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o28')
+method = 'POST', origin = 'http://localhost:8777/path'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_____ test_mutations_require_exact_origin[http://localhost:8777/path-PUT] ______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o29')
+method = 'PUT', origin = 'http://localhost:8777/path'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+____ test_mutations_require_exact_origin[http://localhost:8777/path-PATCH] _____
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o30')
+method = 'PATCH', origin = 'http://localhost:8777/path'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+____ test_mutations_require_exact_origin[http://localhost:8777/path-DELETE] ____
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o31')
+method = 'DELETE', origin = 'http://localhost:8777/path'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_____ test_mutations_require_exact_origin[http://user@localhost:8777-POST] _____
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o32')
+method = 'POST', origin = 'http://user@localhost:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_____ test_mutations_require_exact_origin[http://user@localhost:8777-PUT] ______
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o33')
+method = 'PUT', origin = 'http://user@localhost:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+____ test_mutations_require_exact_origin[http://user@localhost:8777-PATCH] _____
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o34')
+method = 'PATCH', origin = 'http://user@localhost:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+____ test_mutations_require_exact_origin[http://user@localhost:8777-DELETE] ____
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_mutations_require_exact_o35')
+method = 'DELETE', origin = 'http://user@localhost:8777'
+
+    @pytest.mark.parametrize('method', ['POST', 'PUT', 'PATCH', 'DELETE'])
+    @pytest.mark.parametrize('origin', [None, '', 'http://localhost:3000', 'https://localhost:8777',
+                                        'http://127.0.0.1:8777', 'null', 'http://localhost:bad',
+                                        'http://localhost:8777/path', 'http://user@localhost:8777'])
+    def test_mutations_require_exact_origin(tmp_path, method, origin):
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            headers = {} if origin is None else {'origin': origin}
+            response = client.request(method, '/api/circuits', headers=headers, json={'name': 'Blocked', 'config': {}})
+>           assert response.status_code == 403
+E           assert 405 == 403
+E            +  where 405 = <Response [405 Method Not Allowed]>.status_code
+
+tests/security/test_http.py:26: AssertionError
+_______________ test_cli_originless_override_is_explicit[1-201] ________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_cli_originless_override_i0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10765ffe0>
+setting = '1', status = 201
+
+    @pytest.mark.parametrize('setting,status', [('1', 201), ('0', 403), ('true', 403)])
+    def test_cli_originless_override_is_explicit(tmp_path, monkeypatch, setting, status):
+        monkeypatch.setenv('QF_ALLOW_ORIGINLESS', setting)
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+            assert client.post('/api/circuits', json={'name': 'CLI', 'config': {}}).status_code == status
+>           assert client.post('/api/circuits', headers={'origin': 'http://localhost:3000'}, json={'name': 'Bad', 'config': {}}).status_code == 403
+E           AssertionError: assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+E            +    where <Response [201 Created]> = post('/api/circuits', headers={'origin': 'http://localhost:3000'}, json={'name': 'Bad', 'config': {}})
+E            +      where post = <starlette.testclient.TestClient object at 0x10767baa0>.post
+
+tests/security/test_http.py:49: AssertionError
+_______________ test_cli_originless_override_is_explicit[0-403] ________________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_cli_originless_override_i1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1076868d0>
+setting = '0', status = 403
+
+    @pytest.mark.parametrize('setting,status', [('1', 201), ('0', 403), ('true', 403)])
+    def test_cli_originless_override_is_explicit(tmp_path, monkeypatch, setting, status):
+        monkeypatch.setenv('QF_ALLOW_ORIGINLESS', setting)
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+>           assert client.post('/api/circuits', json={'name': 'CLI', 'config': {}}).status_code == status
+E           AssertionError: assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+E            +    where <Response [201 Created]> = post('/api/circuits', json={'name': 'CLI', 'config': {}})
+E            +      where post = <starlette.testclient.TestClient object at 0x107684590>.post
+
+tests/security/test_http.py:48: AssertionError
+______________ test_cli_originless_override_is_explicit[true-403] ______________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_cli_originless_override_i2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1076af440>
+setting = 'true', status = 403
+
+    @pytest.mark.parametrize('setting,status', [('1', 201), ('0', 403), ('true', 403)])
+    def test_cli_originless_override_is_explicit(tmp_path, monkeypatch, setting, status):
+        monkeypatch.setenv('QF_ALLOW_ORIGINLESS', setting)
+        with TestClient(create_app(tmp_path / 'http.sqlite3'), base_url='http://localhost:8777') as client:
+>           assert client.post('/api/circuits', json={'name': 'CLI', 'config': {}}).status_code == status
+E           AssertionError: assert 201 == 403
+E            +  where 201 = <Response [201 Created]>.status_code
+E            +    where <Response [201 Created]> = post('/api/circuits', json={'name': 'CLI', 'config': {}})
+E            +      where post = <starlette.testclient.TestClient object at 0x1076ac7a0>.post
+
+tests/security/test_http.py:48: AssertionError
+____________ test_testing_allows_testserver_and_absent_origin_only _____________
+
+tmp_path = PosixPath('/private/var/folders/0m/c4szr19x6r7_cvpfdzr3h56c0000gn/T/pytest-of-satvikbandaru/pytest-126/test_testing_allows_testserver0')
+
+    def test_testing_allows_testserver_and_absent_origin_only(tmp_path):
+>       with TestClient(create_app(tmp_path / 'http.sqlite3', testing=True)) as client:
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: create_app() got an unexpected keyword argument 'testing'
+
+tests/security/test_http.py:53: TypeError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/security/test_http.py::test_production_rejects_untrusted_host[testserver]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[None-POST]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[None-PUT]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[None-PATCH]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[None-DELETE]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[-POST]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[-PUT]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[-PATCH]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[-DELETE]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:3000-POST]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:3000-PUT]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:3000-PATCH]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:3000-DELETE]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[https://localhost:8777-POST]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[https://localhost:8777-PUT]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[https://localhost:8777-PATCH]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[https://localhost:8777-DELETE]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://127.0.0.1:8777-POST]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://127.0.0.1:8777-PUT]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://127.0.0.1:8777-PATCH]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://127.0.0.1:8777-DELETE]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:bad-POST]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:bad-PUT]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:bad-PATCH]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:bad-DELETE]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:8777/path-POST]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:8777/path-PUT]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:8777/path-PATCH]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://localhost:8777/path-DELETE]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://user@localhost:8777-POST]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://user@localhost:8777-PUT]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://user@localhost:8777-PATCH]
+FAILED tests/security/test_http.py::test_mutations_require_exact_origin[http://user@localhost:8777-DELETE]
+FAILED tests/security/test_http.py::test_cli_originless_override_is_explicit[1-201]
+FAILED tests/security/test_http.py::test_cli_originless_override_is_explicit[0-403]
+FAILED tests/security/test_http.py::test_cli_originless_override_is_explicit[true-403]
+FAILED tests/security/test_http.py::test_testing_allows_testserver_and_absent_origin_only
+37 failed, 12 passed, 1 warning in 3.82s

@@ -4,6 +4,10 @@
 
 This application performs classical CPU simulations. Numerical agreement with mathematical references does not establish physical-device accuracy. Educational equipment and photographs are distinct from measured simulation outputs. No hardware calibration has been performed.
 
+## M2 regression preservation — 2026-11-15
+
+M2 changes security, storage and worker lifecycle, not scientific equations, seeds or tolerances. The full suite passed **712 tests in 31.04 s**, including all existing independent references. Security/storage/lifecycle selection passed **71 tests in 4.58 s**. No new hardware-accuracy claim is made. Actual production HTTP probes verify Host/Origin boundaries, fixed/chunked body limits and one-worker enforcement. Evidence: `docs/verification/codex-m2/`; full application/browser result: BUILD_STATUS.md.
+
 ## M1 independent circuit-reference evidence
 
 Methods, bounds, sources and preselected seeds: `docs/VALIDATION-PLAN.md`. Raw logs and full case configurations: `docs/verification/codex-m1-reference/`.

@@ -1,4 +1,5 @@
 """One spawned compute worker at a time, with hard termination and parent-owned persistence."""
+import logging
 import multiprocessing as mp
 import os
 import threading
@@ -56,6 +57,7 @@ class JobManager:
 
     def start(self,kind,payload):
         with self.lock:
+            if self.closed: raise BusyError('The job manager is closed.')
             if self.active: raise BusyError('A simulation is already running. Wait or cancel it before starting another.')
             document={'id':str(uuid4()),'kind':kind,'config':payload,'status':'running','created_at':now(),'finished_at':None,
                       'progress':'Starting isolated CPU worker','result':None,'error':None}
@@ -72,56 +74,97 @@ class JobManager:
             self.active={'id':document['id'],'process':process,'pipe':receive,'started':time.monotonic()}
             return document
 
-    def finish(self,status,**changes):
-        job=self.active
-        process=job['process']
-        if process.is_alive(): process.terminate()
-        process.join(timeout=2)
-        if process.is_alive(): process.kill();process.join(timeout=1)
-        job['pipe'].close()
-        self.store.update(job['id'],status=status,finished_at=now(),**changes)
-        self.active=None
+    def finish(self,status,*,job=None,**changes):
+        # Reserve the slot through cleanup and persistence. Only one caller owns
+        # termination, while competing cancellation requests can return promptly.
+        with self.lock:
+            if job is None:
+                job=self.active
+            if job is None or self.active is not job or job.get('finishing'):
+                return
+            # Keep the original decision/result across cleanup or database retries.
+            if 'terminal' not in job:
+                job['terminal']=(status,dict(finished_at=now(),**changes))
+            status,changes=job['terminal']
+            job['finishing']=True
+        try:
+            process=job['process']
+            if process.is_alive(): process.terminate()
+            process.join(timeout=2)
+            if process.is_alive(): process.kill();process.join(timeout=1)
+            if process.is_alive():
+                # A kill request is not proof of exit; retain ownership and retry.
+                return
+            job['pipe'].close()
+            with self.lock:
+                self.store.update(job['id'],status=status,**changes)
+                if self.active is job:
+                    self.active=None
+        except Exception as exc:
+            # A transient OS/SQLite failure must not kill the monitor or poison
+            # the slot. Retain the terminal payload and retry on its next pass.
+            message=f'{type(exc).__name__}: {exc}'
+            if job.get('finish_error')!=message:
+                logging.getLogger(__name__).warning('Job %s finalization will retry: %s',job['id'],message)
+            job['finish_error']=message
+        finally:
+            with self.lock:
+                job['finishing']=False
 
     def monitor(self):
-        while not self.closed:
+        while True:
+            outcome=None
             with self.lock:
                 job=self.active
-                if job:
+                if self.closed and job is None:
+                    return
+                if job and not job.get('finishing'):
                     try:
-                        if time.monotonic()-job['started']>self.timeout_s:
-                            self.finish('timed_out',error=f'Run exceeded the {self.timeout_s:g}-second time limit. Reduce circuit size, layers or repetitions.')
+                        if 'terminal' in job:
+                            outcome=job['terminal']
+                        elif self.closed:
+                            outcome=('interrupted',dict(error='Local service stopped.'))
+                        elif time.monotonic()-job['started']>self.timeout_s:
+                            outcome=('timed_out',dict(error=f'Run exceeded the {self.timeout_s:g}-second time limit. Reduce circuit size, layers or repetitions.'))
                         elif job['pipe'].poll():
                             tag,value=job['pipe'].recv()
                             if tag=='progress': self.store.update(job['id'],progress=value)
-                            elif tag=='result': self.finish('completed',result=value,progress='Complete')
-                            else: self.finish('failed',error=value)
+                            elif tag=='result': outcome=('completed',dict(result=value,progress='Complete'))
+                            else: outcome=('failed',dict(error=value))
                         elif not job['process'].is_alive():
                             # Exit may have happened just after the first empty poll.
                             # A dead sender cannot enqueue anything after this recheck.
                             if job['pipe'].poll():
                                 continue
-                            self.finish('failed',error='Compute worker exited without a result.')
+                            outcome=('failed',dict(error='Compute worker exited without a result.'))
                         else:
                             try:
                                 resident=psutil.Process(job['process'].pid).memory_info().rss
                             except psutil.NoSuchProcess:
-                                # The worker may have sent its result and exited between
-                                # is_alive() and this lookup. Drain its pipe next pass.
+                                # Drain a result sent just before the worker exited.
                                 continue
                             if resident>self.memory_mb*1024**2:
-                                self.finish('memory_limited',error=f'Worker exceeded the {self.memory_mb:g} MiB memory budget. Reduce the problem size.')
+                                outcome=('memory_limited',dict(error=f'Worker exceeded the {self.memory_mb:g} MiB memory budget. Reduce the problem size.'))
                     except (EOFError,OSError,psutil.Error) as exc:
-                        if self.active: self.finish('failed',error=f'Compute worker disconnected: {exc}')
+                        outcome=('failed',dict(error=f'Compute worker disconnected: {exc}'))
+            if outcome:
+                status,changes=outcome
+                self.finish(status,job=job,**changes)
             time.sleep(0.05)
 
     def cancel(self,job_id):
         with self.lock:
-            if self.active and self.active['id']==job_id:
-                self.finish('cancelled',progress='Cancelled by user')
-            return self.store.get(job_id)
+            job=self.active
+            if not job or job['id']!=job_id:
+                job=None
+        if job:
+            self.finish('cancelled',job=job,progress='Cancelled by user')
+        return self.store.get(job_id)
 
     def close(self):
         with self.lock:
             self.closed=True
-            if self.active: self.finish('interrupted',error='Local service stopped.')
+            job=self.active
+        if job:
+            self.finish('interrupted',job=job,error='Local service stopped.')
         self.thread.join(timeout=3)

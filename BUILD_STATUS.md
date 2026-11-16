@@ -1,6 +1,22 @@
-# Build status — Quantum Forge v0.6 with M1 reference validation
+# Build status — Quantum Forge v0.6 with M2 hardening
 
 Updated 2026-11-15. M0 preserved v0.6 in local commits `701f87a` and `0eb18ac`. M1 uses branch `codex/m1-independent-reference` from `0eb18ac`; the user explicitly authorized publication to GitHub. Publication is verified separately after the M1 commit.
+
+## M2 — Local security and storage (2026-11-15)
+
+Branch `codex/m2-security-storage`, based on verified M1 commit `4e893a1`. Added exact same-origin mutation checks, production/test Host separation, backed-up opt-in schema migrations, cached history summaries, bounded saved-circuit retention and race-safe worker finalization outside the coordination lock. Finalization retries preserve results after transient OS/SQLite failures. No scientific model or UI feature changed; browser test API clients now send explicit Origin headers.
+
+- Focused security suite: **71 passed, 1 warning in 4.58 s**.
+- Full Python suite in source-matched isolated workspace: **712 passed, 1 warning in 31.04 s**.
+- Production TypeScript/Vite build: **passed in 2.90 s**; installed Python/npm dependency checks passed.
+- Actual curl probes: invalid Host and production testserver **403**, cross-port Origin **403**, 300,000-byte fixed/chunked bodies **413**, second concurrent job **409**; cancellation persisted.
+- Full browser regression: **40 passed in 1.9 minutes**; complete regression script exited **0**. Actual 3D navigation/assets, Bell runs, History, photo hotspots, scientific controls and mobile workflows pass.
+
+Evidence: `docs/verification/codex-m2/`. Initial sandboxed full run had 6 failures (OpenMP shared-memory denial), 699 passes; the same API tests passed with scoped shared-memory permission (16 passed, 6.08 s). Final full regression uses that permission. Initial lifecycle tests exposed a finalization retry defect, now covered by 9 passing worker tests. Failed-run evidence is retained.
+
+Preservation check: all 118 historical evidence files match their original hashes; all three user database files retain their original sizes and modification times (contents were not opened).
+
+The real database remains unmigrated and the live service has not been restarted. M2 code is verified separately from activation on saved user data. Existing databases require explicit owner opt-in and receive a WAL-aware backup before transactional upgrade; see `docs/LOCAL_SECURITY.md`. No dependencies added, paid services enabled, or download archive refreshed. Full multi-user/remote deployment security remains out of scope.
 
 ## M1 — Independent circuit references
 

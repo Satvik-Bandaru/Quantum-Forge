@@ -9,7 +9,7 @@ from backend.app import create_app
 
 @pytest.mark.parametrize('experiment', ['repetition_code', 'single_photon_mzi'])
 def test_research_run_persists_physical_results_and_exports(tmp_path, experiment):
-    with TestClient(create_app(tmp_path / (experiment + '.sqlite3'))) as client:
+    with TestClient(create_app(tmp_path / (experiment + '.sqlite3'), testing=True)) as client:
         response = client.post('/api/jobs', json={'kind': 'research', 'config': {
             'experiment': experiment, 'shots': 256, 'seed': 29,
         }})
@@ -36,7 +36,7 @@ def test_research_run_persists_physical_results_and_exports(tmp_path, experiment
 
 
 def test_unphysical_research_input_never_enters_history(tmp_path):
-    with TestClient(create_app(tmp_path / 'reject.sqlite3')) as client:
+    with TestClient(create_app(tmp_path / 'reject.sqlite3', testing=True)) as client:
         for config in ({'bit_flip_probability': 1.1}, {'detector0_efficiency': -1}, {'shots': 8193}, {'path_coherence': 'NaN'}):
             response = client.post('/api/jobs', json={'kind': 'research', 'config': config})
             assert response.status_code == 422

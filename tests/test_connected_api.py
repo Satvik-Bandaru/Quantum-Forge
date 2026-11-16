@@ -20,7 +20,7 @@ def wait_run(client, run_id):
 
 def test_apparatus_persists_across_restart_and_rejects_stale_revision(tmp_path):
     database = tmp_path / 'apparatus.sqlite3'
-    with TestClient(create_app(database)) as client:
+    with TestClient(create_app(database, testing=True)) as client:
         initial = client.get('/api/apparatus')
         assert initial.status_code == 200
         state = initial.json()
@@ -35,7 +35,7 @@ def test_apparatus_persists_across_restart_and_rejects_stale_revision(tmp_path):
         assert saved.json()['revision'] == 1
         assert saved.json()['updated_at']
         assert client.put('/api/apparatus', json={'revision': 0, 'config': config}).status_code == 409
-    with TestClient(create_app(database)) as client:
+    with TestClient(create_app(database, testing=True)) as client:
         saved = client.get('/api/apparatus').json()
         assert saved['revision'] == 1
         assert saved['config']['cryostat']['elapsed_s'] == 0
@@ -43,7 +43,7 @@ def test_apparatus_persists_across_restart_and_rejects_stale_revision(tmp_path):
 
 
 def test_invalid_connections_and_unrunnable_bench_do_not_start_worker(tmp_path):
-    with TestClient(create_app(tmp_path / 'validation.sqlite3')) as client:
+    with TestClient(create_app(tmp_path / 'validation.sqlite3', testing=True)) as client:
         response = client.get('/api/apparatus')
         assert response.status_code == 200
         config = response.json()['config']
@@ -58,7 +58,7 @@ def test_invalid_connections_and_unrunnable_bench_do_not_start_worker(tmp_path):
 
 
 def test_real_connected_job_saved_exported_and_resource_metered(tmp_path):
-    with TestClient(create_app(tmp_path / 'runs.sqlite3')) as client:
+    with TestClient(create_app(tmp_path / 'runs.sqlite3', testing=True)) as client:
         response = client.post('/api/jobs', json={'kind': 'connected', 'config': {
             'sequence': 'ramsey', 'sweep_stop': 0.5, 'points': 51, 'shots': 256, 'seed': 17,
         }})
@@ -87,7 +87,7 @@ def test_real_connected_job_saved_exported_and_resource_metered(tmp_path):
 
 
 def test_connected_job_cancellation_uses_existing_worker_lifecycle(tmp_path):
-    with TestClient(create_app(tmp_path / 'cancel.sqlite3')) as client:
+    with TestClient(create_app(tmp_path / 'cancel.sqlite3', testing=True)) as client:
         response = client.post('/api/jobs', json={'kind': 'connected', 'config': {}})
         assert response.status_code == 202
         run_id = response.json()['id']
@@ -97,7 +97,7 @@ def test_connected_job_cancellation_uses_existing_worker_lifecycle(tmp_path):
 
 
 def test_compute_policy_is_explicitly_local_and_noncommercial(tmp_path):
-    with TestClient(create_app(tmp_path / 'policy.sqlite3')) as client:
+    with TestClient(create_app(tmp_path / 'policy.sqlite3', testing=True)) as client:
         response = client.get('/api/compute/policy')
         assert response.status_code == 200
         policy = response.json()
@@ -109,7 +109,7 @@ def test_compute_policy_is_explicitly_local_and_noncommercial(tmp_path):
 
 
 def test_apparatus_rejects_invalid_revision_and_nonfinite_controls(tmp_path):
-    with TestClient(create_app(tmp_path / 'invalid.sqlite3')) as client:
+    with TestClient(create_app(tmp_path / 'invalid.sqlite3', testing=True)) as client:
         assert client.put('/api/apparatus', json={'revision': -1, 'config': {}}).status_code == 422
         assert client.post('/api/apparatus/inspect', json={'cryostat': {'elapsed_s': 'NaN'}}).status_code == 422
         assert client.post('/api/jobs', json={'kind': 'connected', 'config': {'shots': 8193}}).status_code == 422

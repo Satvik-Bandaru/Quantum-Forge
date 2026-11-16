@@ -6,7 +6,7 @@ Last updated: 2026-11-15. Continue the existing Quantum Forge application; no re
 
 - M0 complete: approved v0.6 snapshot `701f87a`, guidance/audit checkpoint `0eb18ac`, 393 Python and 40 browser tests verified; original data and historical evidence preserved.
 - M1 locally verified: independent bounded NumPy circuit references, 248 reference tests, 300 ideal and 30 noisy comparisons, metamorphic and mutation/import checks. Full suite: 641 passed in 24.86 s. Publication is separately verified after the authorized push; see BUILD_STATUS.md and the final report.
-- Next is M2, only after user review/go-ahead: targeted localhost security and storage hardening from `docs/codex/MASTER_PROMPT.md`. User database migrations require explicit approval; preserve compatibility and backup first.
+- M2 implemented: same-origin security, opt-in backed-up versioned migrations, cached history, saved-circuit retention and recoverable worker finalization. 712 Python tests, 40 browser tests, build and curl probes pass; see BUILD_STATUS.md. Real user-database upgrade/restart remains pending explicit approval.
 - M3 readability, M4 nuisance-aware inference, M5 blind-device challenges and M6 scaling remain separate future milestones. Optional dependencies and paid/cloud services are not authorized by this milestone.
 
 Earlier development priorities and checkpoints below are historical context. Use the current M0–M6 sequence rather than skipping directly to new inference or facility modules.

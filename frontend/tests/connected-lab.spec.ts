@@ -68,7 +68,7 @@ test('missing ports and disabled instruments prevent acquisition with explicit c
  await expect(page.getByTestId('apparatus-status')).toHaveText('Ready to acquire');
 });
 
-test('saved apparatus survives reload, detects revision conflicts and preserves History snapshots',async({page})=>{
+test('saved apparatus survives reload, detects revision conflicts and preserves History snapshots',async({page,baseURL})=>{
  const original=await(await page.request.get('/api/apparatus')).json();
  try{
   await openBench(page);
@@ -83,7 +83,7 @@ test('saved apparatus survives reload, detects revision conflicts and preserves 
   await expect(page.getByLabel('Source power (dBm)',{exact:true})).toHaveValue('-3');
   const saved=await(await page.request.get('/api/apparatus')).json();
   const external={...saved.config,microwave:{...saved.config.microwave,power_dbm:-5}};
-  expect((await page.request.put('/api/apparatus',{data:{revision:saved.revision,config:external}})).ok()).toBe(true);
+  expect((await page.request.put('/api/apparatus',{headers:{Origin:new URL(baseURL!).origin},data:{revision:saved.revision,config:external}})).ok()).toBe(true);
   await page.getByLabel('Source power (dBm)',{exact:true}).fill('-7');
   await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Overview',exact:true}).click();
   await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Connected Instruments',exact:true}).click();
@@ -102,7 +102,7 @@ test('saved apparatus survives reload, detects revision conflicts and preserves 
   await expect(page.getByTestId('stale-connected-result')).toHaveCount(0);
  }finally{
   const current=await(await page.request.get('/api/apparatus')).json();
-  await page.request.put('/api/apparatus',{data:{revision:current.revision,config:original.config}});
+  await page.request.put('/api/apparatus',{headers:{Origin:new URL(baseURL!).origin},data:{revision:current.revision,config:original.config}});
  }
 });
 
@@ -136,10 +136,10 @@ test('mobile instrument controls and port faults stay accessible without horizon
  await page.screenshot({path:'../docs/screenshots/connected-instruments-mobile.png',fullPage:true});
 });
 
-test('initial apparatus loading keeps controls disabled until the matching saved snapshot arrives',async({page})=>{
+test('initial apparatus loading keeps controls disabled until the matching saved snapshot arrives',async({page,baseURL})=>{
  const original=await(await page.request.get('/api/apparatus')).json();
  const config={...original.config,microwave:{...original.config.microwave,power_dbm:-9}};
- expect((await page.request.put('/api/apparatus',{data:{revision:original.revision,config}})).ok()).toBe(true);
+ expect((await page.request.put('/api/apparatus',{headers:{Origin:new URL(baseURL!).origin},data:{revision:original.revision,config}})).ok()).toBe(true);
  let release!:()=>void;
  const gate=new Promise<void>(resolve=>{release=resolve});
  await page.route('**/api/apparatus',async route=>{
@@ -164,6 +164,6 @@ test('initial apparatus loading keeps controls disabled until the matching saved
  }finally{
   release();
   const current=await(await page.request.get('/api/apparatus')).json();
-  await page.request.put('/api/apparatus',{data:{revision:current.revision,config:original.config}});
+  await page.request.put('/api/apparatus',{headers:{Origin:new URL(baseURL!).origin},data:{revision:current.revision,config:original.config}});
  }
 });

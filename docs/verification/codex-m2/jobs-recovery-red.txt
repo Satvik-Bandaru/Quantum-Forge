@@ -1,0 +1,195 @@
+...FFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+_____ test_transient_terminal_persistence_failure_retries_original_result ______
+
+controlled_manager = <backend.jobs.JobManager object at 0x102dd8650>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x102dd8740>
+
+    def test_transient_terminal_persistence_failure_retries_original_result(controlled_manager, monkeypatch):
+        import sqlite3
+    
+        manager = controlled_manager
+        manager.timeout_s = 100
+        job = manager.start('circuit', {})
+        manager.active['process'].release_join.set()
+        update = manager.store.update
+        failed = threading.Event()
+    
+        def fail_once(run_id, **changes):
+            if not failed.is_set():
+                failed.set()
+                raise sqlite3.OperationalError('temporary database lock')
+            return update(run_id, **changes)
+    
+        monkeypatch.setattr(manager.store, 'update', fail_once)
+>       manager.finish('completed', result={'kind': 'circuit', 'answer': 42})
+
+tests/security/test_jobs.py:147: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+backend/jobs.py:91: in finish
+    self.store.update(job['id'],status=status,finished_at=now(),**changes)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+run_id = '779512b6-a250-4780-a8d3-bb67b880707e'
+changes = {'status': 'completed', 'finished_at': '2026-11-16T02:49:51.069922+00:00', 'result': {'kind': 'circuit', 'answer': 42}}
+
+    def fail_once(run_id, **changes):
+        if not failed.is_set():
+            failed.set()
+>           raise sqlite3.OperationalError('temporary database lock')
+E           sqlite3.OperationalError: temporary database lock
+
+tests/security/test_jobs.py:143: OperationalError
+_____ test_cleanup_error_retries_without_releasing_live_worker[terminate] ______
+
+controlled_manager = <backend.jobs.JobManager object at 0x102ddadb0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x102ddbe90>
+method = 'terminate'
+
+    @pytest.mark.parametrize('method', ['terminate', 'join', 'kill'])
+    def test_cleanup_error_retries_without_releasing_live_worker(controlled_manager, monkeypatch, method):
+        manager = controlled_manager
+        manager.timeout_s = 100
+        job = manager.start('circuit', {})
+        process = manager.active['process']
+        process.release_join.set()
+        original = getattr(process, method)
+        recovered = threading.Event()
+    
+        def unavailable(*args, **kwargs):
+            if not recovered.is_set():
+                raise OSError('temporary process cleanup failure')
+            return original(*args, **kwargs)
+    
+        monkeypatch.setattr(process, method, unavailable)
+>       assert manager.cancel(job['id'])['status'] == 'running'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/security/test_jobs.py:172: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+backend/jobs.py:138: in cancel
+    self.finish('cancelled',job=job,progress='Cancelled by user')
+backend/jobs.py:86: in finish
+    if process.is_alive(): process.terminate()
+                           ^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (), kwargs = {}
+
+    def unavailable(*args, **kwargs):
+        if not recovered.is_set():
+>           raise OSError('temporary process cleanup failure')
+E           OSError: temporary process cleanup failure
+
+tests/security/test_jobs.py:168: OSError
+________ test_cleanup_error_retries_without_releasing_live_worker[join] ________
+
+controlled_manager = <backend.jobs.JobManager object at 0x102ddb530>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x102ddb830>
+method = 'join'
+
+    @pytest.mark.parametrize('method', ['terminate', 'join', 'kill'])
+    def test_cleanup_error_retries_without_releasing_live_worker(controlled_manager, monkeypatch, method):
+        manager = controlled_manager
+        manager.timeout_s = 100
+        job = manager.start('circuit', {})
+        process = manager.active['process']
+        process.release_join.set()
+        original = getattr(process, method)
+        recovered = threading.Event()
+    
+        def unavailable(*args, **kwargs):
+            if not recovered.is_set():
+                raise OSError('temporary process cleanup failure')
+            return original(*args, **kwargs)
+    
+        monkeypatch.setattr(process, method, unavailable)
+>       assert manager.cancel(job['id'])['status'] == 'running'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/security/test_jobs.py:172: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+backend/jobs.py:138: in cancel
+    self.finish('cancelled',job=job,progress='Cancelled by user')
+backend/jobs.py:87: in finish
+    process.join(timeout=2)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (), kwargs = {'timeout': 2}
+
+    def unavailable(*args, **kwargs):
+        if not recovered.is_set():
+>           raise OSError('temporary process cleanup failure')
+E           OSError: temporary process cleanup failure
+
+tests/security/test_jobs.py:168: OSError
+________ test_cleanup_error_retries_without_releasing_live_worker[kill] ________
+
+controlled_manager = <backend.jobs.JobManager object at 0x102ddacc0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x102ddb440>
+method = 'kill'
+
+    @pytest.mark.parametrize('method', ['terminate', 'join', 'kill'])
+    def test_cleanup_error_retries_without_releasing_live_worker(controlled_manager, monkeypatch, method):
+        manager = controlled_manager
+        manager.timeout_s = 100
+        job = manager.start('circuit', {})
+        process = manager.active['process']
+        process.release_join.set()
+        original = getattr(process, method)
+        recovered = threading.Event()
+    
+        def unavailable(*args, **kwargs):
+            if not recovered.is_set():
+                raise OSError('temporary process cleanup failure')
+            return original(*args, **kwargs)
+    
+        monkeypatch.setattr(process, method, unavailable)
+>       assert manager.cancel(job['id'])['status'] == 'running'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/security/test_jobs.py:172: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+backend/jobs.py:138: in cancel
+    self.finish('cancelled',job=job,progress='Cancelled by user')
+backend/jobs.py:88: in finish
+    if process.is_alive(): process.kill();process.join(timeout=1)
+                           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (), kwargs = {}
+
+    def unavailable(*args, **kwargs):
+        if not recovered.is_set():
+>           raise OSError('temporary process cleanup failure')
+E           OSError: temporary process cleanup failure
+
+tests/security/test_jobs.py:168: OSError
+___________ test_kill_without_confirmed_exit_keeps_slot_until_retry ____________
+
+controlled_manager = <backend.jobs.JobManager object at 0x102dda180>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x102ddb470>
+
+    def test_kill_without_confirmed_exit_keeps_slot_until_retry(controlled_manager, monkeypatch):
+        manager = controlled_manager
+        manager.timeout_s = 100
+        job = manager.start('circuit', {})
+        process = manager.active['process']
+        process.release_join.set()
+        kill = process.kill
+        may_exit = threading.Event()
+        monkeypatch.setattr(process, 'kill', lambda: kill() if may_exit.is_set() else None)
+>       assert manager.cancel(job['id'])['status'] == 'running'
+E       AssertionError: assert 'cancelled' == 'running'
+E         
+E         - running
+E         + cancelled
+
+tests/security/test_jobs.py:191: AssertionError
+=========================== short test summary info ============================
+FAILED tests/security/test_jobs.py::test_transient_terminal_persistence_failure_retries_original_result
+FAILED tests/security/test_jobs.py::test_cleanup_error_retries_without_releasing_live_worker[terminate]
+FAILED tests/security/test_jobs.py::test_cleanup_error_retries_without_releasing_live_worker[join]
+FAILED tests/security/test_jobs.py::test_cleanup_error_retries_without_releasing_live_worker[kill]
+FAILED tests/security/test_jobs.py::test_kill_without_confirmed_exit_keeps_slot_until_retry
+5 failed, 3 passed in 0.61s

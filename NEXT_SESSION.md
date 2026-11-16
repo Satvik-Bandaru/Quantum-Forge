@@ -1,24 +1,22 @@
-# Next session — M1 circuit-reference checkpoint
+# Next session — M2 local-security/storage checkpoint
 
 Repository: `/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab`.
-Branch: `codex/m1-independent-reference`, based on M0 commit `0eb18ac`. The approved v0.6 snapshot is `701f87a`. Read AGENTS.md and docs/codex/MASTER_PROMPT.md before making changes.
+Branch: `codex/m2-security-storage`, based on M1 `4e893a1`. Read AGENTS.md and docs/codex/MASTER_PROMPT.md first. M0 snapshot remains `701f87a`; no history was rewritten.
 
-## Current scope and verification
+## Implemented scope
 
-The user explicitly authorized M1 and adding the verified work to GitHub. M1 adds NumPy-only independent statevector/density references and 248 reference tests, including 300 ideal circuits and a 30-circuit noisy Holm-corrected family. Both mutation guards pass. Full suite: 641 passed in 24.86 s; whole pytest-process maximum RSS 294,043,648 bytes. Publication outcomes are recorded in the final chat report; verify actual Git status/ref before assuming publication succeeded.
+Exact same-origin mutation checks; production excludes testserver; explicit originless CLI opt-in. SQLite ordered migrations with owner opt-in, WAL-aware backups and rollback; history summary cache with legacy fallback; saved-circuit cap (default 1,000, minimum 100). Worker joins/termination occur outside the lock; cancellation races and transient finalization failures preserve slot ownership/results and retry safely.
 
-Application version stays 0.6.0. No production API, worker/store, frontend, dependency, database schema or hardware connection is changed. References cap ideal simulations at eight qubits and density matrices at six. They are validation kernels, not new UI laboratories. Read docs/VALIDATION-PLAN.md for fixed seeds, tolerances, statistical assumptions, import boundaries and limitations.
+No scientific equations, tolerances, dependency versions or application UI changed. Tests' direct API clients were updated for explicit test mode or Origin headers. Application version remains 0.6.0.
 
-Evidence: docs/verification/codex-m1-reference/. Normal reference tests do not write reports; QF_REFERENCE_REPORT accepts only a new file path. Preserve all historical evidence. M0's application-wide build/browser checks passed separately; M1 does not claim new local browser results unless explicitly recorded.
+## Verification
 
-## Next milestone
+71 focused security tests passed in 4.58 s. Full suite: 712 passed in 31.04 s. Build passed in 2.90 s. Curl probes: evil/testserver hosts and cross-port Origin 403; fixed/chunked 300 KB 413; second concurrent job 409; cancellation persisted. All 40 browser tests passed in 1.9 minutes and the regression script exited 0. BUILD_STATUS.md records the evidence. Logs include the initial sandbox OpenMP failures and successful permission-scoped rerun; no failing evidence was overwritten.
 
-Stop after M1. Start M2 only on a new explicit user instruction, using a fresh milestone branch from the verified head. M2 covers localhost security/storage hardening, not new inference features. Ask before applying migrations to the user's actual DB; follow the master prompt's backup and compatibility requirements. M3–M6 remain future work.
+The browser regression uses a source-matched scratch copy under ignored `.venv/codex-m2-validation` with an independent temporary database/port, preserving historical screenshot/JSON files. Evidence is in `docs/verification/codex-m2/`. The user's live service was not restarted and real databases were not opened or migrated for verification.
 
-## Data, runtime and publication
+## Pending activation
 
-Do not open, rewrite or migrate data/*.sqlite3* as part of routine verification. Use temporary test databases. Do not stop or restart the user's port-8777 instance. Prior PID/session identifiers are historical and must not be assumed current.
+Ask the owner before migrating the actual database, as explicitly required by docs/codex/MASTER_PROMPT.md M2. The upgrade is concrete and tested; see docs/LOCAL_SECURITY.md. After approval, stop the old service cleanly, launch once with `QF_ALLOW_DB_MIGRATION=1`, verify the backup/version/history and run a browser smoke test. Do not silently enable the migration variable or restart port 8777. Starting an old database without opt-in now stops with MigrationRequired; an already-running old process continues its loaded code.
 
-The full browser regression writes fixed historical screenshot/JSON paths. M0 ran it in a hash-verified scratch workspace inside the ignored .venv directory; see docs/DECISIONS.md. Any future browser run must preserve those historical files similarly. Run Python tests and builds sequentially.
-
-Do not access other repositories or Quantum Forge Downloads. This milestone does not refresh the downloadable ZIP. GitHub publication is to the authorized feature branch, without force, merge or rewriting main. Additional PR/merge work requires explicit instruction. No work is promised after this session ends.
+M2 does not refresh downloadable ZIPs, merge main, deploy, enable payments or connect hardware. GitHub publication, if performed, is on this feature branch; verify the remote SHA rather than assuming it is present. Stop after M2 and await user review before M3 readability/refactoring or later scientific milestones. Do not access other repositories or Quantum Forge Downloads.

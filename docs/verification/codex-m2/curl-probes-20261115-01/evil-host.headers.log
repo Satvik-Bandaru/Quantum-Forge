@@ -1,0 +1,16 @@
+*   Trying 127.0.0.1:54231...
+* Connected to 127.0.0.1 (127.0.0.1) port 54231
+> GET /api/health HTTP/1.1
+> Host: evil.example
+> User-Agent: curl/8.7.1
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 403 Forbidden
+< date: Mon, 16 Nov 2026 02:51:14 GMT
+< server: uvicorn
+< content-length: 44
+< content-type: application/json
+< 
+{ [44 bytes data]
+* Connection #0 to host 127.0.0.1 left intact
