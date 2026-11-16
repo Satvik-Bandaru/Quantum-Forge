@@ -15,7 +15,8 @@ Local-first educational quantum laboratory: FastAPI + spawned CPU worker + SQLit
 ## Layout
 - `backend/app.py` routes + loopback Host/Origin middleware; `http_limits.py` 256 KB body cap; `jobs.py` one spawned worker, timeout, RSS watchdog; `store.py` SQLite JSON documents; `models.py` request schemas and caps.
 - Science: `quantum.py` (Qiskit/Aer circuits), `experiments.py` (11 algorithms), `machine.py` (assembly/QASM subset), `physics.py` (two-level Lindblad), `connected.py` + `instruments.py` + `thermal.py` (connected bench), `research.py` (bit-flip code, single-photon MZI), `photonics.py` (classical MZI), `science.py` + `qubo.py` (optimization/QUBO).
-- Tests: `tests/` (pytest, 393 cases), `frontend/tests/` (Playwright, 40 tests). Docs: model equations in `docs/*-model.md`; status in `BUILD_STATUS.md`, `SCIENTIFIC_VALIDATION.md`, `DEVELOPMENT_BACKLOG.md`, `NEXT_SESSION.md`.
+- Tests: `tests/` (pytest, 641 cases including 248 marked `reference`), `frontend/tests/` (Playwright, 40 tests). Docs: model equations in `docs/*-model.md`; status in `BUILD_STATUS.md`, `SCIENTIFIC_VALIDATION.md`, `DEVELOPMENT_BACKLOG.md`, `NEXT_SESSION.md`.
+- Independent circuit references: `backend/reference/` (NumPy, 8-qubit pure / 6-qubit density caps); scientific comparison methods and seeds in `docs/VALIDATION-PLAN.md`. No imports from production execution, Qiskit or PennyLane in the reference package.
 - `frontend/dist/` is build output (gitignored) — never hand-edit.
 
 ## Commands (macOS: Python 3.12, Node 22.12+)

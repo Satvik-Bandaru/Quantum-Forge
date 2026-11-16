@@ -4,6 +4,24 @@
 
 This application performs classical CPU simulations. Numerical agreement with mathematical references does not establish physical-device accuracy. Educational equipment and photographs are distinct from measured simulation outputs. No hardware calibration has been performed.
 
+## M1 independent circuit-reference evidence
+
+Methods, bounds, sources and preselected seeds: `docs/VALIDATION-PLAN.md`. Raw logs and full case configurations: `docs/verification/codex-m1-reference/`.
+
+| Date | Check | Measured result |
+| --- | --- | --- |
+| 2026-11-15 | Reference pytest selection | 248 passed, 393 deselected; 12.37 s |
+| 2026-11-15 | Explicit mutation guards | 2 passed; 0.71 s |
+| 2026-11-15 | Ideal circuit comparisons | 300; maximum aligned amplitude error 1.5463617361248926e-15 |
+| 2026-11-15 | State normalization deviation | maximum 1.5543122344752192e-15 |
+| 2026-11-15 | Noisy circuit comparisons | 30; 8,192 shots each; 0 Holm rejections at alpha 0.001 |
+| 2026-11-15 | Minimum adjusted p-value | 0.725540558978316 |
+| 2026-11-15 | Minimum expected / observed bin counts | 203.72163049717665 / 213 |
+| 2026-11-15 | Full Python suite | 641 passed; 24.86 s pytest / 25.38 s wall |
+| 2026-11-15 | Whole pytest-process maximum RSS / peak footprint | 294,043,648 / 239,289,400 bytes |
+
+The new package uses no production execution or simulator imports. Both reference kernels share their own gate definitions; hand-derived component tests, production differential checks and import guards provide separate checks. The noisy family uses an asymptotic test with nonzero false-rejection risk; success is bounded regression evidence. The 24 formula checks in the supplied external research report were not rerun or newly claimed by M1. Thermal, calibration inference and real-device accuracy are outside this circuit-reference milestone.
+
 ## Existing verified models
 
 - `docs/rabi-model.md`: rotating-frame driven two-level system, constant Lindblad generator, analytic resonant/detuned Rabi and T1/T2 references; density trace, Hermiticity and positivity tests.

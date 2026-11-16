@@ -1,6 +1,24 @@
-# Build status — Quantum Forge v0.6, runnable and verified locally
+# Build status — Quantum Forge v0.6 with M1 reference validation
 
-Verified 2026-11-15. Branch `feat/main-quantum-lab`; changes remain local and uncommitted, with no GitHub push in this phase.
+Updated 2026-11-15. M0 preserved v0.6 in local commits `701f87a` and `0eb18ac`. M1 uses branch `codex/m1-independent-reference` from `0eb18ac`; the user explicitly authorized publication to GitHub. Publication is verified separately after the M1 commit.
+
+## M1 — Independent circuit references
+
+Added bounded NumPy statevector/density references, 248 component/differential/metamorphic/import tests, fixed-seed reports, and documented statistical methods. Production application execution, API, worker/store logic, frontend, dependencies and user data are unchanged.
+
+- `.venv/bin/python -m pytest -m reference -q`: **248 passed, 393 deselected, 1 warning in 12.37s**, exit 0.
+- Explicit amplitude-sign and noise-oracle mutation guards: **2 passed in 0.71s**, exit 0.
+- 300 ideal circuits: max phase-aligned amplitude error **1.5463617361248926e-15**; max norm deviation **1.5543122344752192e-15**.
+- 30 noisy Aer comparisons: **0 Holm rejections** at family alpha 0.001; minimum adjusted p **0.725540558978316**. Minimum expected count **203.72163049717665**, minimum observed count **213**. Seeds and thresholds were not tuned after outcomes.
+- `.venv/bin/python -m pytest -q`: **641 passed, 1 warning in 24.86s**, exit 0. `/usr/bin/time -l` reported **25.38s wall time**, **294,043,648 bytes maximum resident set size** (~280.4 MiB), and 239,289,400 bytes peak memory footprint. These are whole pytest-process measurements including imports, not per-model allocation or aggregate concurrent-worker memory. The full suite remains below the approximately 60-second target on this Mac.
+
+Evidence: `docs/verification/codex-m1-reference/`; methods: `docs/VALIDATION-PLAN.md`. The first instrumented reference run passed all 248 tests in 10.60s, but macOS `/usr/bin/time -l` exited 1 because the sandbox denied its `sysctl kern.clockrate` query. The plain pytest retry above succeeded; the full-suite measurement uses scoped permission. Both records are retained.
+
+M1 changes no API/job/store/UI code, so the build and browser suite were not rerun locally for this milestone. The latest complete application regression remains **M0: 393 Python tests, 40 browser tests, production build and isolated startup passed**, with evidence in `docs/verification/codex-m0-baseline/` and `docs/AUDIT-2026-11.md`. GitHub CI results, if triggered, must be distinguished from these local results.
+
+## Historical v0.6 startup and integrated verification
+
+The following records describe the earlier runnable v0.6 checkpoint; they are retained as historical evidence, not new M1 executions.
 
 ## Startup and complete regression
 
@@ -32,4 +50,4 @@ The macOS ZIP contains source, prebuilt frontend, local assets, executable launc
 
 No physical hardware or paid service is connected. Thermal coefficients and two-level dynamics are educational approximations; calibration confidence assumes the declared nuisance settings. See SCIENTIFIC_VALIDATION.md for explicit scientific limits.
 
-A separate independent whole-phase scientific/code review remains a development backlog item; startup/package review and the complete numerical/browser regression are verified. Hosted GitHub CI has not been run. Nonblocking advisories remain: large lazy Three.js bundle and upstream Three.Clock/Starlette deprecations.
+M1 independently checks the circuit/reference scope; a whole-phase scientific review of thermal/calibration and other models remains broader work. The prior runnable checkpoint had no hosted GitHub CI result; any new publication result is recorded separately. Nonblocking advisories remain: large lazy Three.js bundle and upstream Three.Clock/Starlette deprecations.

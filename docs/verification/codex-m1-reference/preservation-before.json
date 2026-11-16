@@ -1,0 +1,433 @@
+{
+  "base": "0eb18acf53935d3e03a4644ade8de9537c4f529b",
+  "historical_evidence": {
+    "docs/main-lab-verification-bell.json": {
+      "sha256": "808ac0af8e0bd965467f760b1d53f6c6e745bb2ea58d931f5f4646e5a60821ef",
+      "bytes": 3463
+    },
+    "docs/screenshots/circuit-builder.png": {
+      "sha256": "571321b88c029babaaa65fad4f089b0987a1058cf282fa235a01659dbca3110f",
+      "bytes": 597957
+    },
+    "docs/screenshots/connected-instruments-desktop.png": {
+      "sha256": "ff038c9b2258fd7f4009a612302043685b83c3af8fbee5e0fb5993495820ee7c",
+      "bytes": 608713
+    },
+    "docs/screenshots/connected-instruments-mobile.png": {
+      "sha256": "0b42136d014630d3a2db25fb34adc9981bf90653cb4032929872d6ed7553ce3f",
+      "bytes": 228644
+    },
+    "docs/screenshots/general-experiments.png": {
+      "sha256": "d7cae51e76c4befb9c9fcc4a4a49f7423a3ddbe4a5ef44b11a5b8930cb94e394",
+      "bytes": 736172
+    },
+    "docs/screenshots/general-overview.png": {
+      "sha256": "99eacb742439862d1a60189d2dc91364e774bc64665b4d1b119c08c33e27a9d9",
+      "bytes": 777310
+    },
+    "docs/screenshots/main-lab-bell-result.png": {
+      "sha256": "0e09ebe812c126f790aa001ce9973e7f06570155453bc64351afeacb8e498bc9",
+      "bytes": 658390
+    },
+    "docs/screenshots/main-lab-live.jpg": {
+      "sha256": "a8e7f6cd42342e65d081d73ecfba3f681e80d64aecb5a6ef3d4f891b7adb0f43",
+      "bytes": 70433
+    },
+    "docs/screenshots/main-lab-mobile.png": {
+      "sha256": "bde9cbb5603d9ea758f23e3224c661d5e00abfd62dec1ab129be7785e751f9c1",
+      "bytes": 331784
+    },
+    "docs/screenshots/main-lab-overview.png": {
+      "sha256": "5c0d6895b8c4d37273f14dd0baf7cea3f79e54e97fc8b8f43d1bd044bd236c9a",
+      "bytes": 493370
+    },
+    "docs/screenshots/main-lab-photo-gallery.png": {
+      "sha256": "eea80d39a8abc6657c5a840008acfe2841911df1b054b3069b2c6645bda4b0e2",
+      "bytes": 471653
+    },
+    "docs/screenshots/main-lab-quantum-computer.png": {
+      "sha256": "f9562072bb2874cd89dab3f2625768b55c283ec22ae87594eca46a5c11aef25b",
+      "bytes": 619285
+    },
+    "docs/screenshots/mobile.png": {
+      "sha256": "a92fba13313d58eb3e89fae7477e47fcbf1f7123ce185e4dfc74bb37ef75b51a",
+      "bytes": 395029
+    },
+    "docs/screenshots/nexus-error-correction.png": {
+      "sha256": "80506dfa6f81ea38a2d4c598c4475331d4bc4d92402768a146d80478063ad560",
+      "bytes": 569057
+    },
+    "docs/screenshots/nexus-quantum-optics-mobile.png": {
+      "sha256": "509becba845c2ac91d1c9d34a9929449a48fd597606eb1776f05676bef23693c",
+      "bytes": 243439
+    },
+    "docs/screenshots/nexus-quantum-optics.png": {
+      "sha256": "13c4dca57e13c665c42f3ac24f6a35714e1d0c08f969a590f1aef698e1366fea",
+      "bytes": 628517
+    },
+    "docs/screenshots/nexus-runnable-bell.jpg": {
+      "sha256": "bf1a222b0d5ddcaf66ecf431b86973a5e4b1209f38203883b8b46dc2d2100df2",
+      "bytes": 180724
+    },
+    "docs/screenshots/nexus-thermal-laboratory.png": {
+      "sha256": "b96596ff45a44f0d686e478d2f8d2f79c0d3301031a1739f8d22ba58f96ba1dc",
+      "bytes": 767565
+    },
+    "docs/screenshots/nexus-thermal-mobile.png": {
+      "sha256": "dfcdc6045f87446af2e74f4a6e70e6b63aa01f216384c67136d913de35cf2236",
+      "bytes": 315069
+    },
+    "docs/screenshots/overview.png": {
+      "sha256": "9fa75b7d5c7d72e15043a2410ddde852df24fd43dcdbbf7576feedf95ba6dbdf",
+      "bytes": 777287
+    },
+    "docs/screenshots/photonics-lab-mobile.png": {
+      "sha256": "69876c3ef2c28dc0733edea2f3b6906cbea371e20c619f0e66417d98dfbacdba",
+      "bytes": 758546
+    },
+    "docs/screenshots/photonics-lab.png": {
+      "sha256": "5921ac64271be84acdc6bba4aebae917c1713865abc008f0015c6b24158df8f8",
+      "bytes": 1772861
+    },
+    "docs/screenshots/photonics-photo-desktop.png": {
+      "sha256": "6a0a67b7da1a01d0680da42777df6e12152a5f7ed747155e1edb9bb67eb75799",
+      "bytes": 1000534
+    },
+    "docs/screenshots/photonics-photo-mobile.png": {
+      "sha256": "8dcf5c52352c6df2529c3c6867d18896503e515e79f95983f6c7a6514cff952f",
+      "bytes": 303496
+    },
+    "docs/screenshots/physical-quantum-lab-mobile.png": {
+      "sha256": "cc21eb67fb16b196fb090b9f5703ef7e08b4bf49ae418daf7a35ed939c30cc12",
+      "bytes": 437142
+    },
+    "docs/screenshots/physical-quantum-lab.png": {
+      "sha256": "3adb251a6431f434726362de1c695c4302867425b1f2658c914e626519c2520f",
+      "bytes": 708213
+    },
+    "docs/screenshots/quantum-forge-overview-mobile-labs.png": {
+      "sha256": "e9654f3587d39412d0c28f4174caeac7a4017374f45a2c998cbba8b56ea01614",
+      "bytes": 137825
+    },
+    "docs/screenshots/quantum-forge-overview-mobile.png": {
+      "sha256": "94d68c6ca723376b6621851db34fcbead49ad71ae5b1da5dd69857bd736630e5",
+      "bytes": 559685
+    },
+    "docs/screenshots/qubo-lab-desktop.png": {
+      "sha256": "9ef96208a2488517592e550fb6a43bcd792625657085fe8cd8599b8f2aa85687",
+      "bytes": 716081
+    },
+    "docs/screenshots/qubo-lab-mobile.png": {
+      "sha256": "39b2391024484b86f505a96e4f1ac843daaec9540560c8755c25db46926d144e",
+      "bytes": 279722
+    },
+    "docs/screenshots/research-command-center.png": {
+      "sha256": "6085e5656d36649daa6ac88b800c3dd25ce40c1186c906d4ea044e6a7a91aa9c",
+      "bytes": 386664
+    },
+    "docs/screenshots/virtual-computer-mobile.png": {
+      "sha256": "fc1f43ec6b6812cf4c794a7352805488a45c22fd137282aea77b9659291a76ce",
+      "bytes": 394482
+    },
+    "docs/screenshots/virtual-computer.png": {
+      "sha256": "b5bfa778e098d9a56b5c03af402e524a37d7e57e965102653f3d3cd43d891c6c",
+      "bytes": 634178
+    },
+    "docs/verification/codex-m0-baseline/README.md": {
+      "sha256": "f83bafd05d19b564b487a8cff97b08c195fcddb3b444457a8778676dfe284dd6",
+      "bytes": 1956
+    },
+    "docs/verification/codex-m0-baseline/approval.txt": {
+      "sha256": "abc8e6fccb36b47545b2ee30169b3951bbdc8716b1cbb021c76113fdce3a66f7",
+      "bytes": 173
+    },
+    "docs/verification/codex-m0-baseline/build.log": {
+      "sha256": "582857739f36b4f79f2be9e89f122208b7d235ad13e9e4c5deb3560d107ac02a",
+      "bytes": 1033
+    },
+    "docs/verification/codex-m0-baseline/command-results.json": {
+      "sha256": "467642b6b8d1e593de731f94c555d4ae7cb72d9cc56a606fdacb8a6bf48d1e9a",
+      "bytes": 1714
+    },
+    "docs/verification/codex-m0-baseline/environment.json": {
+      "sha256": "de30c111dfa648d186f1bfc82e226f826588ab291bb7df93ba06e71081181d0a",
+      "bytes": 170
+    },
+    "docs/verification/codex-m0-baseline/generated-screenshots.json": {
+      "sha256": "baf57a4f059c1d44570a94ff8b94be3fba0d1c0c520c8bcdcafcabfdf4135056",
+      "bytes": 5579
+    },
+    "docs/verification/codex-m0-baseline/health.log": {
+      "sha256": "9236c1f414dcdc36d467f75fbb6f0e3bb194abc5344df949199082ae67a7a5c3",
+      "bytes": 364
+    },
+    "docs/verification/codex-m0-baseline/node.log": {
+      "sha256": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04",
+      "bytes": 9
+    },
+    "docs/verification/codex-m0-baseline/npm-ls.log": {
+      "sha256": "f3679a0c128bee49a4c365b4004826b92605e2f0a15f76a327ac225f9cdc98b0",
+      "bytes": 549
+    },
+    "docs/verification/codex-m0-baseline/pip-check.log": {
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "bytes": 30
+    },
+    "docs/verification/codex-m0-baseline/playwright.log": {
+      "sha256": "84b332a2672a88ec1ad264900092dd6da4caafcf1d6422014b0f9ee6fa1c4f4d",
+      "bytes": 5530
+    },
+    "docs/verification/codex-m0-baseline/preservation-after.json": {
+      "sha256": "3eb7ffe8ea3b41018727c54f81991c27f268606679ce84895f69922aa322fb19",
+      "bytes": 684
+    },
+    "docs/verification/codex-m0-baseline/preservation-before.json": {
+      "sha256": "0a3ccdafc177ae0be9700dea6bbbf6eee4a8309d9595c3d47c01652ee378c144",
+      "bytes": 37465
+    },
+    "docs/verification/codex-m0-baseline/pytest.log": {
+      "sha256": "2bbbc08c12cdb22644780af9a3825192981628068d837c3ec7a7f35b419cb5b6",
+      "bytes": 1040
+    },
+    "docs/verification/codex-m0-baseline/python.log": {
+      "sha256": "e55cc531440b2fc2f0cb402829c0ffd3a4729acd95a238badab9b8be261070c6",
+      "bytes": 14
+    },
+    "docs/verification/codex-m0-baseline/results/main-lab-verification-bell.json": {
+      "sha256": "7f435b5247b65eaab553a6d5574b8ba02ab4f8fe133ab4c419a2027ece58da84",
+      "bytes": 3462
+    },
+    "docs/verification/codex-m0-baseline/results/nexus-calibration-workflow.json": {
+      "sha256": "afa4dc9ae6bf8ee5fb3204b9b38486ec2a5ef562e40901cce1fe2be57e2a905e",
+      "bytes": 122121
+    },
+    "docs/verification/codex-m0-baseline/results/nexus-connected-controls.json": {
+      "sha256": "e37927a74f7f7bf8f3b53b002f6c3c245321f84f5330a7661e172bb5f9cebbd0",
+      "bytes": 219257
+    },
+    "docs/verification/codex-m0-baseline/results/nexus-repetition-code-run.json": {
+      "sha256": "832366e2f8ffeaede0bda082153ad0a0e1208ab509428c6f8be640be38168004",
+      "bytes": 28416
+    },
+    "docs/verification/codex-m0-baseline/results/nexus-single-photon-run.json": {
+      "sha256": "99c375c90b519e8d8e1d3c19f40d413e558e6edf47ee0d6d053ea673f6c94298",
+      "bytes": 25225
+    },
+    "docs/verification/codex-m0-baseline/results/nexus-thermal-workflow.json": {
+      "sha256": "c75d25fa2b39419a1546c7a7f787cbe56f5ec044db4080054a4631aff658a368",
+      "bytes": 237089
+    },
+    "docs/verification/codex-m0-baseline/sandbox-attempt/build.log": {
+      "sha256": "4faf28610fdb0890b173f867cdee5ecc393b5ac7f49574b6ca5cff59d81fc508",
+      "bytes": 1033
+    },
+    "docs/verification/codex-m0-baseline/sandbox-attempt/node.log": {
+      "sha256": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04",
+      "bytes": 9
+    },
+    "docs/verification/codex-m0-baseline/sandbox-attempt/npm-ls.log": {
+      "sha256": "f3679a0c128bee49a4c365b4004826b92605e2f0a15f76a327ac225f9cdc98b0",
+      "bytes": 549
+    },
+    "docs/verification/codex-m0-baseline/sandbox-attempt/pip-check.log": {
+      "sha256": "53e0bb53a4cf0d812d0369868b285a89592d8b69dff7bb5c0aa5ac5139487649",
+      "bytes": 311
+    },
+    "docs/verification/codex-m0-baseline/sandbox-attempt/pytest.log": {
+      "sha256": "00285368db9490364997f8d56cba70b5d7be38e41a041f80f3950f642f326eac",
+      "bytes": 1040
+    },
+    "docs/verification/codex-m0-baseline/sandbox-attempt/python.log": {
+      "sha256": "e55cc531440b2fc2f0cb402829c0ffd3a4729acd95a238badab9b8be261070c6",
+      "bytes": 14
+    },
+    "docs/verification/codex-m0-baseline/sandbox-attempt/server.log": {
+      "sha256": "6482781bc2d3c1837d7ebcb300aa7f272124af5378ea87447b8f4871f3f651d2",
+      "bytes": 308
+    },
+    "docs/verification/codex-m0-baseline/scratch-source-parity.json": {
+      "sha256": "62ebcc2cff23592c4e83d0a177ee47813a4f854c467c699ddd99c43f98fff4d4",
+      "bytes": 24584
+    },
+    "docs/verification/codex-m0-baseline/screenshots/main-lab-bell-result.png": {
+      "sha256": "3f6b03512838ae39ca73f8441bad104f4eaeee8274b8088045376ca394c2e658",
+      "bytes": 658466
+    },
+    "docs/verification/codex-m0-baseline/server.log": {
+      "sha256": "d751b293ef4af52247c12bc2ee3238bc3f46981842634a541ecdfb38d4cd4495",
+      "bytes": 54544
+    },
+    "docs/verification/codex-m0-baseline/standalone-build.log": {
+      "sha256": "6d48617fc1fda069846356e803ecede209423dd99c41c8efed699d5606841f35",
+      "bytes": 1033
+    },
+    "docs/verification/codex-m0-baseline/standalone-pytest.log": {
+      "sha256": "0ab34322066ca49ee3ab0c9b6244eaea91562d010714aee5732a60771c528cb1",
+      "bytes": 1043
+    },
+    "docs/verification/nexus-baseline-build.log": {
+      "sha256": "ebc272fdde615ed8302cf077a220465768786ebfe23086cda7a373786e147642",
+      "bytes": 1033
+    },
+    "docs/verification/nexus-baseline-health.log": {
+      "sha256": "f923c3e6e40969d85c42494ed416197cdb230b8075d2594105436be5852c34a8",
+      "bytes": 251
+    },
+    "docs/verification/nexus-baseline-npm-ls.log": {
+      "sha256": "f4dbd903ff27c570a8cef114c39019617bed8b1a0d3013d8ed171da2c0f8a391",
+      "bytes": 523
+    },
+    "docs/verification/nexus-baseline-pip-check.log": {
+      "sha256": "53e0bb53a4cf0d812d0369868b285a89592d8b69dff7bb5c0aa5ac5139487649",
+      "bytes": 311
+    },
+    "docs/verification/nexus-baseline-playwright.log": {
+      "sha256": "6f7b72b8735c970efadb832fa3fde5e2688555874a114145b789bbefcc6f3c17",
+      "bytes": 3614
+    },
+    "docs/verification/nexus-baseline-pytest.log": {
+      "sha256": "5bd173b52984c95f28c74783bba4d2cc342bb0d6887979d19044c33bd667c354",
+      "bytes": 803
+    },
+    "docs/verification/nexus-baseline-versions.log": {
+      "sha256": "bd6e63d14e20a74d68b7eea3d6e3b78127c234aa7244147096c6600dbb79eb8b",
+      "bytes": 986
+    },
+    "docs/verification/nexus-calibration-workflow.json": {
+      "sha256": "e2c78f5cfc6b02179a19959d38497d306648df8e2cc2f929ee722cf4e6c92275",
+      "bytes": 122123
+    },
+    "docs/verification/nexus-connected-controls.json": {
+      "sha256": "1b7aeab76ad6c56c98dc35098d181de094ac39691029f2d13d624a3420acfe88",
+      "bytes": 219255
+    },
+    "docs/verification/nexus-final-build.log": {
+      "sha256": "212fbd73ec71e7995b4aefd797b9d88321949a7a29eecbf1711764cdefdf1c74",
+      "bytes": 1033
+    },
+    "docs/verification/nexus-final-health.log": {
+      "sha256": "9f648c2d8e7a60b89f9f6eacc9b355254bb9b031c442c13fca594d28bb83c342",
+      "bytes": 364
+    },
+    "docs/verification/nexus-final-npm-ls.log": {
+      "sha256": "efe575ca84f34b211697ee7861404bff0e01505aebf98288ac59208ea547127c",
+      "bytes": 523
+    },
+    "docs/verification/nexus-final-pip-check.log": {
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "bytes": 30
+    },
+    "docs/verification/nexus-final-playwright.log": {
+      "sha256": "b54054436da07bdcad4986a9ffdc3cdfd422da963765a7de0c0da1be8002aba9",
+      "bytes": 4853
+    },
+    "docs/verification/nexus-final-pytest.log": {
+      "sha256": "93fc5ffe3c690631b066cacc900c8b06be3207c439e513f05bb89cd500eb466c",
+      "bytes": 963
+    },
+    "docs/verification/nexus-native-ramsey-run.json": {
+      "sha256": "781a80c47be4393c7d10b1139b16edabf67cfb0c1a3a4ab68353af959061b951",
+      "bytes": 27020
+    },
+    "docs/verification/nexus-regression-server.log": {
+      "sha256": "9d3ecb1450ef1acc362887a86259cb099a935e92a1ef1d4db9f4f90be742f6aa",
+      "bytes": 489
+    },
+    "docs/verification/nexus-repetition-code-run.json": {
+      "sha256": "7d7a04015a91ec3340bca7b81308bb01ac84b966352c6cc75a2baee25c2739b9",
+      "bytes": 28417
+    },
+    "docs/verification/nexus-runnable-build.log": {
+      "sha256": "2ccd8dd61fb0c02385549f1b7050bb4f934a866d2156b5d586c778d46224576f",
+      "bytes": 1033
+    },
+    "docs/verification/nexus-runnable-health.log": {
+      "sha256": "9bd56cc11a044599c47d19270aa1a0ae3abe92e3c5ac015e905d6b1535c7d18c",
+      "bytes": 364
+    },
+    "docs/verification/nexus-runnable-live-bell.json": {
+      "sha256": "182abdba01523b2a6a5ca3b5cb1730dd6962a09c15941209bef0310d5563282e",
+      "bytes": 2573
+    },
+    "docs/verification/nexus-runnable-live-health.json": {
+      "sha256": "2e9d24a7f885a313f2139ed9168e1f19ca82dc197c852334a7a02ca0e5abb9dc",
+      "bytes": 251
+    },
+    "docs/verification/nexus-runnable-npm-ls.log": {
+      "sha256": "b42eae35ca78fd8167cb0cc882010d7ef50767479ccd784f314fb37392586dfe",
+      "bytes": 523
+    },
+    "docs/verification/nexus-runnable-pip-check.log": {
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "bytes": 30
+    },
+    "docs/verification/nexus-runnable-playwright.log": {
+      "sha256": "8350551657b74f31fdb30e79ba886d1bf0083997f617d01e811590ce6e982a6b",
+      "bytes": 5532
+    },
+    "docs/verification/nexus-runnable-pytest.log": {
+      "sha256": "34f97b0d834f8e2d70b9775f3e81c9b0cfab8ec88549a825c5c35e54016e62e5",
+      "bytes": 1043
+    },
+    "docs/verification/nexus-runnable-server.log": {
+      "sha256": "60a5a9d43351d1216d7baacc71e6b1a8d3404ce2dd826f99a355c74dac8dd135",
+      "bytes": 53469
+    },
+    "docs/verification/nexus-single-photon-run.json": {
+      "sha256": "c5d181e3828ce53d9623118f001b0c89a4c60c49ae7c7e7ae573a8ef9f133251",
+      "bytes": 25226
+    },
+    "docs/verification/nexus-thermal-workflow.json": {
+      "sha256": "3146796db61fdbc19c821695ba5fecae2ec0c56897e14d68a0ca8cca2340aa76",
+      "bytes": 237088
+    },
+    "docs/verification/nexus-v06-build-race.log": {
+      "sha256": "f12abe09e86a960340987a0611491244e3486711dba8346cdbdfc273eeff9e1c",
+      "bytes": 7197
+    },
+    "docs/verification/nexus-v06-build.log": {
+      "sha256": "ac3de1cf2bec04d9baa468f95fbcbf2d606461a08b73c47db03e359fe2eb062a",
+      "bytes": 1033
+    },
+    "docs/verification/nexus-v06-pytest.log": {
+      "sha256": "992ce122aba5e17cb59b202210ca3a6480cd55a8694b98be518d308c553ef292",
+      "bytes": 1043
+    },
+    "docs/verification/phase6-baseline/README.md": {
+      "sha256": "cca8001f55864cd8cec321a05bd60cf600c0e8a2a1a0d6c2ce67308b492e9d46",
+      "bytes": 1009
+    },
+    "docs/verification/phase6-baseline/live-8777-health.json": {
+      "sha256": "93f73c380881af7898a24cc69735f6f9ed6f7969e55cbf868641ae2da2edd831",
+      "bytes": 251
+    },
+    "docs/verification/phase6-baseline/playwright-report.json": {
+      "sha256": "9d65a6267545df1faabadf225481cfcc28ce17cd9e0e10ecdcf64bda4061d093",
+      "bytes": 26677
+    },
+    "docs/verification/phase6-baseline/source-tree.json": {
+      "sha256": "36dda7e4551fea49b1f811480b1e736f03c56eb16f874d5a415310e08891421f",
+      "bytes": 2409
+    }
+  },
+  "database_metadata_only": [
+    {
+      "path": "data/experiments-before-physical-photonics.sqlite3",
+      "bytes": 602112,
+      "mtime_ns": 1794085665621358261
+    },
+    {
+      "path": "data/experiments-before-qubo.sqlite3",
+      "bytes": 1941504,
+      "mtime_ns": 1794097870517650284
+    },
+    {
+      "path": "data/experiments.sqlite3",
+      "bytes": 6057984,
+      "mtime_ns": 1794788883149262927
+    }
+  ],
+  "contents_opened": false,
+  "platform": "macOS-15.1.1-arm64-arm-64bit",
+  "python": "3.12.8"
+}

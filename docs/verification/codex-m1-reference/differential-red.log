@@ -1,0 +1,22 @@
+$ .venv/bin/python -m pytest tests/reference/test_differential.py -q
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_________________ test_reference_statevector_entrypoint_exists _________________
+
+    def test_reference_statevector_entrypoint_exists():
+>       from backend.reference.statevector import simulate_statevector
+E       ModuleNotFoundError: No module named 'backend.reference'
+
+tests/reference/test_differential.py:9: ModuleNotFoundError
+___________________ test_reference_density_entrypoints_exist ___________________
+
+    def test_reference_density_entrypoints_exist():
+>       from backend.reference.density import simulate_density, simulate_probabilities
+E       ModuleNotFoundError: No module named 'backend.reference'
+
+tests/reference/test_differential.py:15: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/reference/test_differential.py::test_reference_statevector_entrypoint_exists
+FAILED tests/reference/test_differential.py::test_reference_density_entrypoints_exist
+2 failed in 0.02s
+Exit code: 1

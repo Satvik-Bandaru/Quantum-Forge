@@ -1,0 +1,33 @@
+{
+  "platform": "macOS-15.1.1-arm64-arm-64bit",
+  "python": "3.12.8",
+  "reference": {
+    "command": ".venv/bin/python -m pytest -m reference -q",
+    "exit_code": 0,
+    "summary": "248 passed, 393 deselected, 1 warning in 12.37s"
+  },
+  "full": {
+    "command": "/usr/bin/time -l .venv/bin/python -m pytest -q",
+    "exit_code": 0,
+    "summary": "641 passed, 1 warning in 24.86s",
+    "wall_s": 25.38,
+    "maximum_resident_set_size_bytes": 294043648,
+    "peak_memory_footprint_bytes": 239289400,
+    "scope": "whole pytest process, not aggregate worker memory"
+  },
+  "mutation_guards": {
+    "exit_code": 0,
+    "summary": "2 passed in 0.71s",
+    "nodes": [
+      "tests/reference/test_differential.py::test_mutation_guard_detects_wrong_reference_ry_sign",
+      "tests/reference/test_differential.py::test_mutation_guard_detects_changed_noise_oracle"
+    ]
+  },
+  "initial_instrumented_reference": {
+    "pytest_summary": "248 passed, 393 deselected, 1 warning in 10.60s",
+    "wrapper_exit_code": 1,
+    "reason": "Sandbox denied macOS time sysctl kern.clockrate after tests passed."
+  },
+  "local_browser_build": "not rerun for M1; production/API/job/store/UI unchanged; prior M0 evidence retained",
+  "github_publication": "authorized, verified after commit"
+}

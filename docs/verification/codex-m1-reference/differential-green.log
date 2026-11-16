@@ -1,0 +1,4 @@
+$ QF_REFERENCE_REPORT=docs/verification/codex-m1-reference/differential-report.json .venv/bin/python -m pytest tests/reference/test_differential.py tests/reference/test_metamorphic.py tests/reference/test_import_boundary.py -q
+..........................................                               [100%]
+42 passed in 10.75s
+Exit code: 0

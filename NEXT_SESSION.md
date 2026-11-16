@@ -1,26 +1,24 @@
-# Next session — runnable v0.6 handoff
+# Next session — M1 circuit-reference checkpoint
 
-Project: `/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab`.
-Branch `feat/main-quantum-lab`, base d431825162b70f357b2737137b36afdf7e870e8f. Preserve all uncommitted Main Lab/v0.5/v0.6 source and user SQLite history. No commit or push has occurred.
+Repository: `/Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab`.
+Branch: `codex/m1-independent-reference`, based on M0 commit `0eb18ac`. The approved v0.6 snapshot is `701f87a`. Read AGENTS.md and docs/codex/MASTER_PROMPT.md before making changes.
 
-## Verified checkpoint
+## Current scope and verification
 
-2026-11-15: complete isolated regression passed 393 Python tests, 40 browser tests, TypeScript/Vite build, dependency checks and backend startup. Logs: docs/verification/nexus-runnable-*.log. Read BUILD_STATUS.md and SCIENTIFIC_VALIDATION.md.
+The user explicitly authorized M1 and adding the verified work to GitHub. M1 adds NumPy-only independent statevector/density references and 248 reference tests, including 300 ideal circuits and a 30-circuit noisy Holm-corrected family. Both mutation guards pass. Full suite: 641 passed in 24.86 s; whole pytest-process maximum RSS 294,043,648 bytes. Publication outcomes are recorded in the final chat report; verify actual Git status/ref before assuming publication succeeded.
 
-Actual `./start.command` was launched successfully. User backend v0.6.0 is ready on http://127.0.0.1:8777/ (PID 86472, exec session 95942 at verification; identify actual process again before any restart). The in-app browser shows a completed saved Bell run 6ebe7a33-8e07-4bba-bf8a-b5138666fd01, counts 00 = 526 and 11 = 498 from 1,024 shots. Full record and screenshot are saved under docs/verification/nexus-runnable-live-bell.json and docs/screenshots/nexus-runnable-bell.jpg. User history is preserved.
+Application version stays 0.6.0. No production API, worker/store, frontend, dependency, database schema or hardware connection is changed. References cap ideal simulations at eight qubits and density matrices at six. They are validation kernels, not new UI laboratories. Read docs/VALIDATION-PLAN.md for fixed seeds, tolerances, statistical assumptions, import boundaries and limitations.
 
-The earlier approval-review usage failure is no longer blocking: startup, health and full isolated browser tests were approved and executed normally. Do not treat the historical blocker as current or bypass future review failures.
+Evidence: docs/verification/codex-m1-reference/. Normal reference tests do not write reports; QF_REFERENCE_REPORT accepts only a new file path. Preserve all historical evidence. M0's application-wide build/browser checks passed separately; M1 does not claim new local browser results unless explicitly recorded.
 
-## Running and packaging
+## Next milestone
 
-`./start.command` starts the service and opens the browser, or opens an existing instance on 8777. Keep the launcher Terminal open; Ctrl+C stops it. If an older version already occupies 8777, stop that identified instance before running another copy. The launcher does not distinguish versions/folders of an already-running lab.
+Stop after M1. Start M2 only on a new explicit user instruction, using a fresh milestone branch from the verified head. M2 covers localhost security/storage hardening, not new inference features. Ask before applying migrations to the user's actual DB; follow the master prompt's backup and compatibility requirements. M3–M6 remain future work.
 
-`bash scripts/check-regression.sh` verifies with an isolated temporary server/database and cleans up. Run sequentially: rebuilding assets alongside Python API tests can create transient missing-directory failures.
+## Data, runtime and publication
 
-`python3 scripts/package-macos.py` refreshes `../Quantum Forge Downloads/Quantum-Forge-Nexus-Lab-macOS.zip` after source/docs/build settle. The package includes prebuilt v0.6 assets and excludes personal DBs, environments and dependencies. Python 3.12 and first-setup internet remain prerequisites. Preserve the older v0.5 archive backup.
+Do not open, rewrite or migrate data/*.sqlite3* as part of routine verification. Use temporary test databases. Do not stop or restart the user's port-8777 instance. Prior PID/session identifiers are historical and must not be assumed current.
 
-## Remaining development
+The full browser regression writes fixed historical screenshot/JSON paths. M0 ran it in a hash-verified scratch workspace inside the ignored .venv directory; see docs/DECISIONS.md. Any future browser run must preserve those historical files similarly. Run Python tests and builds sequentially.
 
-The requested runnable state is achieved. A fresh independent whole-phase review remains useful before further scientific expansion, especially thermal model boundaries, calibration identifiability/uncertainty and signal-state semantics. After review: nuisance-aware calibration/T1 inference, microwave heating feedback only with explicit assumptions, or bounded materials/device characterization. Do not add decorative rooms or paid infrastructure.
-
-Retain legacy exponential defaults/history compatibility, error-before-save behavior, immutable pin snapshots, matching-axis comparison, honest unavailable signals, field-resolution and subnormal calibration guards, and paired draft/revision loading. All 393 tests and 40 browser workflows currently pass. No work is promised after this session ends.
+Do not access other repositories or Quantum Forge Downloads. This milestone does not refresh the downloadable ZIP. GitHub publication is to the authorized feature branch, without force, merge or rewriting main. Additional PR/merge work requires explicit instruction. No work is promised after this session ends.

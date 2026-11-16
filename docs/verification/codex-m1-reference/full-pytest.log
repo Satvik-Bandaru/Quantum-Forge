@@ -1,0 +1,34 @@
+........................................................................ [ 11%]
+........................................................................ [ 22%]
+........................................................................ [ 33%]
+........................................................................ [ 44%]
+........................................................................ [ 56%]
+........................................................................ [ 67%]
+........................................................................ [ 78%]
+........................................................................ [ 89%]
+.................................................................        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+641 passed, 1 warning in 24.86s
+       25.38 real        19.62 user         1.97 sys
+           294043648  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              380141  page reclaims
+                2541  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                2779  messages sent
+                2748  messages received
+                   0  signals received
+                7041  voluntary context switches
+               42745  involuntary context switches
+        273977172132  instructions retired
+         57806009645  cycles elapsed
+           239289400  peak memory footprint

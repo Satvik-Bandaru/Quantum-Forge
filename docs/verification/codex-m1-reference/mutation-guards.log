@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.8, pytest-9.2.0, pluggy-1.7.0 -- /Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/satvikbandaru/Documents/AI and Database Projects/quantum-forge-lab
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 2 items
+
+tests/reference/test_differential.py::test_mutation_guard_detects_wrong_reference_ry_sign PASSED [ 50%]
+tests/reference/test_differential.py::test_mutation_guard_detects_changed_noise_oracle PASSED [100%]
+
+============================== 2 passed in 0.71s ===============================
